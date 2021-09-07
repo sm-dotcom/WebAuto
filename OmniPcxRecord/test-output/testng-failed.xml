@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="ServerAdministration.ServerBranches">
+        <methods>
+          <include name="tearDown"/>
+          <include name="AddBranchwithValidDatanoSMTPSettings"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerBranches -->
+      <class name="ServerAdministration.ServerPermissions">
+        <methods>
+          <include name="afterTest"/>
+          <include name="verifyDefaultPermissionGroup"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerPermissions -->
+      <class name="ServerAdministration.ServerEmailTemplates">
+        <methods>
+          <include name="ChangeLanguagetoEnglish"/>
+          <include name="verifyLanguageSettoEnglish"/>
+          <include name="verifyEmailTemplateswithEnableTemplatesetNo"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerEmailTemplates -->
+      <class name="ServerAdministration.QuickSuiteTeams">
+        <methods>
+          <include name="TeamsCreation"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- ServerAdministration.QuickSuiteTeams -->
+      <class name="ServerAdministration.ServerIncidents">
+        <methods>
+          <include name="verifyfieldSearchIncidents"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerIncidents -->
+      <class name="ServerAdministration.ServerNodesandPCMllSettings">
+        <methods>
+          <include name="tearDown"/>
+          <include name="ValidateNodeAdditionName"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerNodesandPCMllSettings -->
+      <class name="ServerAdministration.LoginPage">
+        <methods>
+          <include name="verifyLoingwithInValidCredentials"/>
+          <include name="verifyLoingwithValidCredentials"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- ServerAdministration.LoginPage -->
+      <class name="ServerAdministration.ServerSIPTrunkRecording">
+        <methods>
+          <include name="verifySIPTrunkConfigurations"/>
+          <include name="TearDown"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerSIPTrunkRecording -->
+      <class name="ServerAdministration.ServerSMSNotificationSettings">
+        <methods>
+          <include name="afterTest"/>
+          <include name="verifyDefaultconfigurationNotificationSettings"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerSMSNotificationSettings -->
+      <class name="ServerAdministration.ServerBoardandEquipment">
+        <methods>
+          <include name="AddTrunkGroupwithValidData"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerBoardandEquipment -->
+      <class name="ServerAdministration.ServerStorageSettings">
+        <methods>
+          <include name="verifyStoragePathConfigurationforDrive"/>
+          <include name="ChangeStoragePathtoDefault"/>
+        </methods>
+      </class> <!-- ServerAdministration.ServerStorageSettings -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
