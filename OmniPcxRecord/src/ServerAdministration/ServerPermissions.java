@@ -8,16 +8,21 @@ package ServerAdministration;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+ 
 
 public class ServerPermissions {
 	
@@ -34,7 +39,15 @@ public class ServerPermissions {
 	UpdateTestResult obj = new UpdateTestResult();
 	
 	
-	
+	@SuppressWarnings("deprecation")
+	@BeforeTest
+	public void beforeTest() {
+		System.setProperty("webdriver.gecko.driver", driverPath);
+        driver = new FirefoxDriver();
+
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.manage().window().maximize();
+	}
 	
 ////Test ID: 29-01
 ///* 
@@ -42,8 +55,6 @@ public class ServerPermissions {
 //*/	
       @Test (priority = 0)
       public void verifyDefaultPermissionGroup() throws InterruptedException, IOException {
-    	  System.setProperty("webdriver.gecko.driver", driverPath);
-          driver = new FirefoxDriver();
          driver.get(baseUrl);
     	  
     	  String SheetName = "29- Permission's";
@@ -61,9 +72,7 @@ public class ServerPermissions {
     			  
     			  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-    			  ((SharedFunctions)sf).MakeDirectory();
-    			  
-    			  Thread.sleep(10000);
+//    			  ((SharedFunctions)sf).MakeDirectory();
     			  
     			  // Only Admin Data would be present in the table Groups | Descriptions
     	  	      String expectedColumnData ="Server admin Administrator for the server configuration";
@@ -79,7 +88,7 @@ public class ServerPermissions {
     	           }
     	               
     	           Status = "Pass";
-    				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+    	           ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     				testresultlist.add(objtestreult);
     				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -87,7 +96,7 @@ public class ServerPermissions {
     			} catch (Throwable e) {
     				System.out.println("Error : " + e);
     				Status = "Fail";
-    				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+    				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     				testresultlist.add(objtestreult);
     			}
@@ -120,7 +129,7 @@ public class ServerPermissions {
 
            	  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-           		Thread.sleep(10000);
+//			  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
   	     	    
            	    // Get Delete button and check if it's enabled
          		String actual = driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr/td[3]/div/img[4]")).getAttribute("class");
@@ -130,7 +139,7 @@ public class ServerPermissions {
          		Assert.assertEquals(actual,expected);           		
           
            	 Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+           	((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -138,7 +147,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}	
@@ -171,7 +180,7 @@ public class ServerPermissions {
 
  			  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-			  Thread.sleep(10000);
+//			  //Thread.sleep(8000);
   	      
   	      // Get edit  button and check if it's enabled
           @SuppressWarnings("unused")
@@ -183,7 +192,7 @@ public class ServerPermissions {
           Assert.assertEquals(false,expectedValue);
           
           Status = "Pass";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+          ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -191,7 +200,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		} 
@@ -225,21 +234,21 @@ public class ServerPermissions {
   			  
   			  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-			  Thread.sleep(10000);
+			  ////Thread.sleep(10000);
 			  
 			  // Click on view permissions
 	  	      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[3]/div/img[1]")).click();
 
-	  	      Thread.sleep(8000);
+	  	      ////Thread.sleep(8000);
 	  	      
 	  	      String expectedTitle = "http://172.20.22.81/OmniPCXRecord/ViewPermission.aspx";
 	  	    
-	  	      Thread.sleep(3000);
+	  	      ////Thread.sleep(3000);
 	          String actualTitle = driver.getCurrentUrl();
 	          Assert.assertEquals(actualTitle, expectedTitle);
 
 	          Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+	          ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -247,7 +256,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -285,7 +294,7 @@ public class ServerPermissions {
   			  
   			  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-			  Thread.sleep(10000);
+			  ////Thread.sleep(10000);
   			  
   			// Click on copy(permission groups)
   	          driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[3]/div/img[2]")).click();
@@ -305,7 +314,7 @@ public class ServerPermissions {
   	         }
           
   	       Status = "Pass";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+  	     ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -313,7 +322,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -347,7 +356,7 @@ public class ServerPermissions {
 
      			 ((SharedFunctions)sf).loginServerAdmin();
     			 ((SharedFunctions)sf).clickPermissions();
-   			     Thread.sleep(10000);
+   			     ////Thread.sleep(10000);
    			     
    			     // Click on view permissions
    	 	         driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[3]/div/img[1]")).click();
@@ -363,7 +372,7 @@ public class ServerPermissions {
    	 	         Assert.assertEquals(required, false);
    	         
    	 	     Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+   	 	        ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -371,7 +380,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -402,7 +411,7 @@ public class ServerPermissions {
   			  
   			  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-			  Thread.sleep(10000);
+			  ////Thread.sleep(10000);
 
   		      //Get the table and row                                
   		      WebElement table =driver.findElement(By.id("gvGroups")); 
@@ -420,7 +429,7 @@ public class ServerPermissions {
   		     	}
   		     	}
   		     	System.out.println(rowNo);
-  		     	Thread.sleep(8000);	
+  		     	////Thread.sleep(8000);	
   		     	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo+"]/td[3]/div/img[4]")).click();
   		        	          
   	          // Check alert message
@@ -432,17 +441,17 @@ public class ServerPermissions {
   	          driver.switchTo().alert().accept();
   	         
   	          // Click on delete button
-  	          Thread.sleep(5000);
+  	          ////Thread.sleep(5000);
   	          driver.findElement(By.id("btnDelete")).click(); 
   	          
-  	          Thread.sleep(6000);
+  	          ////Thread.sleep(6000);
   	          String Expectedmsg = "Record has been deleted successfully";
   	          String Actualmsg = driver.findElement(By.id("lblGridMsg")).getText();
   	          
   	          Assert.assertEquals(Actualmsg, Expectedmsg);
   	          
   	        Status = "Pass";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+  	      ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -450,7 +459,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -484,7 +493,7 @@ public class ServerPermissions {
             
     			  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-    			  Thread.sleep(10000);
+    			  ////Thread.sleep(10000);
     			  
     			  // Click on Group name and add a new name
     	  	      driver.findElement(By.id("txtGroupName")).sendKeys("Jackets");
@@ -492,12 +501,12 @@ public class ServerPermissions {
     	  	      // Click on add button
     	  	      driver.findElement(By.id("imgbtnAddUpdate")).click();
     	  	        
-    	  	      Thread.sleep(3000);
+    	  	      ////Thread.sleep(3000);
     	  	      boolean groupname = driver.findElement(By.xpath("//*[text()='Jackets']")).isDisplayed();
     		      Assert.assertEquals(true, groupname);
     		      
     		      Status = "Pass";
-  				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+    		      ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
   				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
   				testresultlist.add(objtestreult);
   				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -505,7 +514,7 @@ public class ServerPermissions {
   			} catch (Throwable e) {
   				System.out.println("Error : " + e);
   				Status = "Fail";
-  				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+  				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
   				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
   				testresultlist.add(objtestreult);
   			}
@@ -540,7 +549,7 @@ public class ServerPermissions {
 			  
 			  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-			  Thread.sleep(10000);
+			  ////Thread.sleep(10000);
 			  
 			  // Click on Group name and add a new name
 		      driver.findElement(By.id("txtGroupName")).sendKeys("Goal Diggers");
@@ -551,12 +560,12 @@ public class ServerPermissions {
 		      // Click on add button
 		      driver.findElement(By.id("imgbtnAddUpdate")).click();
 		        
-		      Thread.sleep(3000);
+		      ////Thread.sleep(3000);
 		      boolean groupname = driver.findElement(By.xpath("//*[text()='Goal Diggers']")).isDisplayed();
 		      Assert.assertEquals(true, groupname);
 
 		      Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+		        ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -564,7 +573,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -599,7 +608,7 @@ public class ServerPermissions {
          		
          		 ((SharedFunctions)sf).loginServerAdmin();
     			 ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		////Thread.sleep(10000);
                 
                 // Click on Group name and add a description
                 driver.findElement(By.id("txtDescription")).sendKeys("This is a new group");
@@ -607,14 +616,14 @@ public class ServerPermissions {
                 // Click on add button
                 driver.findElement(By.id("imgbtnAddUpdate")).click();
                 
-                Thread.sleep(3000);
+                ////Thread.sleep(3000);
                 String expectedmsg = "Please enter group name";
                 String actualmsg = driver.findElement(By.id("lblMessage")).getText();
                 
                 Assert.assertEquals(actualmsg, expectedmsg);   
                 
                 Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -622,7 +631,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -657,7 +666,7 @@ public class ServerPermissions {
          		
          		 ((SharedFunctions)sf).loginServerAdmin();
     			 ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		////Thread.sleep(10000);
          		
          	    // Click on Group name and add a new name
                 driver.findElement(By.id("txtGroupName")).sendKeys("New_!@#$342%^&*Group3");
@@ -668,13 +677,13 @@ public class ServerPermissions {
                 // Click on add button
                 driver.findElement(By.id("imgbtnAddUpdate")).click();
                 
-                Thread.sleep(5000);
+                ////Thread.sleep(5000);
                 String expectedgroupadd = "Group Added";
                 String actualgroupadd = driver.findElement(By.id("lblMessage")).getText();
                 Assert.assertEquals(actualgroupadd, expectedgroupadd);
                 
                 Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -682,7 +691,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -717,7 +726,7 @@ public class ServerPermissions {
        		
        	  ((SharedFunctions)sf).loginServerAdmin();
 		  ((SharedFunctions)sf).clickPermissions();
-       		Thread.sleep(10000);
+       		////Thread.sleep(10000);
             
             // Click on Group name and add a new name
             driver.findElement(By.id("txtGroupName")).sendKeys("This is a group name a group is created by it now");
@@ -725,13 +734,13 @@ public class ServerPermissions {
             // Click on add button
             driver.findElement(By.id("imgbtnAddUpdate")).click();
           
-            Thread.sleep(5000);
+            ////Thread.sleep(5000);
             String expectedgroupadd = "Group Added";
             String actualgroupadd = driver.findElement(By.id("lblMessage")).getText();
             Assert.assertEquals(actualgroupadd, expectedgroupadd);
             
             Status = "Pass";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+            ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -739,7 +748,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -775,7 +784,7 @@ public class ServerPermissions {
         
          		 ((SharedFunctions)sf).loginServerAdmin();
     			 ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		////Thread.sleep(10000);
          		
          	    // Click on Group name and add a new name
                 String exdemotext = "1.Login to server administration. 2.Go to permissions page under configuration tab from left menu. 3.Click on edit button against any permission group other than default. 4.Expand the Tenants permission. 5.Unassign the view tenant permissionsss|cut off from here";
@@ -791,7 +800,7 @@ public class ServerPermissions {
                 System.out.println("Test Case Fail, to pass assert not equals");
         
                 Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -799,7 +808,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -836,12 +845,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
    	   ((SharedFunctions)sf).loginServerAdmin();
    	   // Click On Users
    	   ((SharedFunctions)sf).clickUsers();
-   		Thread.sleep(10000);
+   		////Thread.sleep(10000);
    		
    	    // Click on Add Users
         driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/div/table[1]/tbody/tr[2]/td/a")).click();
         
-        Thread.sleep(5000);
+        ////Thread.sleep(5000);
         // Fillout the form for new user
         // Locate Fname and enter value
         driver.findElement(By.id("tbFirstName")).sendKeys("Marc");
@@ -849,7 +858,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         // Locate Lname and enter value
         driver.findElement(By.id("tbLastName")).sendKeys("Anthony");
         
-        Thread.sleep(5000);
+        ////Thread.sleep(5000);
         // Locate username and enter value
         driver.findElement(By.id("tbUserName")).sendKeys("M_anthony");
         
@@ -859,7 +868,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         // Locate confirm password and enter value
         driver.findElement(By.id("tbConfirmPassword")).sendKeys("1234567a");
         
-        Thread.sleep(5000);
+        ////Thread.sleep(5000);
         // Locate Password Never Expires checkbox and check
         WebElement PasswordNeverExpires = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[7]/td[2]/input")) ;
         PasswordNeverExpires.click();
@@ -868,12 +877,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         WebElement emailbox = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[9]/td[2]/input"));
         emailbox.sendKeys("nooria.ashraf@amigo-software.com");
         
-        Thread.sleep(5000);
+//        //Thread.sleep(5000);
         // Locate Enable Account checkbox and check
         WebElement EnableAccount = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[10]/td[2]/input"));
         EnableAccount.click();
         
-        Thread.sleep(5000);
+        ////Thread.sleep(5000);
         
       //Get the table and row                                
       	WebElement table =driver.findElement(By.xpath("//*[@id=\"divSecurityGroup\"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table")); //   //*[@id="divSecurityGroup"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table
@@ -891,17 +900,17 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
       	}
       	}
       	System.out.println(rowNo);
-      	Thread.sleep(8000);	
+      	////Thread.sleep(8000);	
       	driver.findElement(By.xpath("//*[@id=\"divSecurityGroup\"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option["+rowNo+"]")).click();
       	
       	// Locate ">" and click
           driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/input")).click();
           
-          Thread.sleep(6000);
+          ////Thread.sleep(6000);
           // Locate Save button and click
           driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/input[1]")).click();
           
-          Thread.sleep(5000);
+          ////Thread.sleep(5000);
           // Check alert message
           JavascriptExecutor jsx = (JavascriptExecutor)driver;
           jsx.executeScript("window.confirm('Settings have been saved successfully')");
@@ -916,13 +925,13 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
           //System.out.println("Alert text is :" + actualAlert);  
           driver.switchTo().alert().accept();
        
-          Thread.sleep(5000);
+          ////Thread.sleep(5000);
           // Click on okay button
-          Thread.sleep(5000);
+          ////Thread.sleep(5000);
           driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button/span")).click();
             
           // Click On Permissions
-          Thread.sleep(7000);
+          ////Thread.sleep(7000);
           ((SharedFunctions)sf).clickPermissions();
       
           //Get the table and row
@@ -941,7 +950,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     			}
     			}
     	  driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo1+"]/td[3]/div/img[4]")).click(); 
-          Thread.sleep(5000);
+          ////Thread.sleep(5000);
           
           JavascriptExecutor jsc = (JavascriptExecutor)driver;
           jsc.executeScript("window.confirm('Settings have been saved successfully')");
@@ -951,17 +960,17 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
           driver.switchTo().alert().accept();
 
           // Click on delete button
-          Thread.sleep(10000);
+          ////Thread.sleep(10000);
           driver.findElement(By.id("btnDelete")).click(); 
 
-          Thread.sleep(5000);
+          ////Thread.sleep(5000);
           String Expectedmsg = "This group is assigned to user(s).";
           String Actualmsg = driver.findElement(By.id("lblGridMsg")).getText();
 
           Assert.assertEquals(Actualmsg, Expectedmsg); 	
           
           Status = "Pass";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+          ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -969,7 +978,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -1008,12 +1017,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      		
      		((SharedFunctions)sf).loginServerAdmin();
 			((SharedFunctions)sf).clickPermissions();
-     		Thread.sleep(10000);
+     		////Thread.sleep(10000);
      		
      		 // Click on edit permissions
      	     driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-     	     Thread.sleep(3000);
+     	     ////Thread.sleep(3000);
      	     // Click on Users [+]
      	     driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[1]/img")).click();
      	     
@@ -1036,7 +1045,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      	    	      	    	 } 
 
      	    Status = "Pass";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+     	   ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1044,7 +1053,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -1078,12 +1087,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        		
        	  ((SharedFunctions)sf).loginServerAdmin();
 		  ((SharedFunctions)sf).clickPermissions();
-       		Thread.sleep(10000);
+       		////Thread.sleep(10000);
             
             // Click on edit permissions
             driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-             Thread.sleep(3000);
+             ////Thread.sleep(3000);
              // Click on Users [+]
              driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[1]/img")).click();
              
@@ -1102,7 +1111,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  	             }
            	
              Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+             ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1110,7 +1119,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}       
@@ -1143,21 +1152,21 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
          		((SharedFunctions)sf).loginServerAdmin();
     			((SharedFunctions)sf).clickPermissions();
-           		Thread.sleep(10000);
+           		////Thread.sleep(10000);
            		
            	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                 Thread.sleep(7000);
+                 ////Thread.sleep(7000);
                  // Click on Nodes [+]
                  driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[6]/td[1]/img")).click();
                  
                  if (driver.findElement(By.id("7-14")).isSelected() == true) {
                   	 driver.findElement(By.id("7-14")).click(); //uncheck and then check permissions
                  
-                  	Thread.sleep(5000);
+                  	////Thread.sleep(5000);
                     // Check permissions disabled
-                    Thread.sleep(5000);
+                    ////Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("7-14")).isSelected(), false); //View Nodes
                     Assert.assertEquals(driver.findElement(By.id("7-15")).isEnabled(), false); //Create/Edit Nodes
                     Assert.assertEquals(driver.findElement(By.id("7-16")).isEnabled(), false); //Delete Nodes 
@@ -1166,14 +1175,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  else if (driver.findElement(By.id("7-14")).isSelected() == false) {
                 	 
                 	 // Check permissions disabled
-                     Thread.sleep(5000);
+                     ////Thread.sleep(5000);
                      Assert.assertEquals(driver.findElement(By.id("7-14")).isSelected(), false); //View Nodes
                      Assert.assertEquals(driver.findElement(By.id("7-15")).isEnabled(), false); //Create/Edit Nodes
                      Assert.assertEquals(driver.findElement(By.id("7-16")).isEnabled(), false); //Delete Nodes 
                                       }
                 
                  Status = "Pass";
- 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1181,7 +1190,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
  			} catch (Throwable e) {
  				System.out.println("Error : " + e);
  				Status = "Fail";
- 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+ 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  			}
@@ -1216,12 +1225,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	     
 	      	  ((SharedFunctions)sf).loginServerAdmin();
 			  ((SharedFunctions)sf).clickPermissions();
-	      		Thread.sleep(10000);
+	      		////Thread.sleep(10000);
 	      		
 	      	    // Click on edit permissions
 	            driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-	            Thread.sleep(5000);
+	            ////Thread.sleep(5000);
 	            // Click on Packetizer Settings [+]
 	            driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[7]/td[1]/img")).click();
 	         
@@ -1229,7 +1238,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	             	 driver.findElement(By.id("8-20")).click(); //uncheck and then check permissions
 	            
 	   	         // Check permissions disabled
-	   	         Thread.sleep(5000);
+	   	         ////Thread.sleep(5000);
 	   	         Assert.assertEquals(driver.findElement(By.id("8-20")).isSelected(), false); //View Packetizer Settings
 	   	         Assert.assertEquals(driver.findElement(By.id("8-21")).isEnabled(), false); //Create/Edit Packetizer Settings
 	   	         Assert.assertEquals(driver.findElement(By.id("8-22")).isEnabled(), false); //Delete Packetizer Settings 
@@ -1237,14 +1246,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	            
 	            else if (driver.findElement(By.id("8-20")).isSelected() == false) { 
 	           	// Check permissions disabled
-	   	         Thread.sleep(5000);
+	   	         ////Thread.sleep(5000);
 	   	         Assert.assertEquals(driver.findElement(By.id("8-20")).isSelected(), false); //View Packetizer Settings
 	   	         Assert.assertEquals(driver.findElement(By.id("8-21")).isEnabled(), false); //Create/Edit Packetizer Settings
 	   	         Assert.assertEquals(driver.findElement(By.id("8-22")).isEnabled(), false); //Delete Packetizer Settings
 	   	        	            } 
                
 	            Status = "Pass";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+	            ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1252,7 +1261,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -1287,12 +1296,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		  Thread.sleep(10000);
+         		  ////Thread.sleep(10000);
          		
          	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                 Thread.sleep(5000);
+                 ////Thread.sleep(5000);
                  // Click on SIP Trunk [+]
                  driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[8]/td[1]/img")).click();
               
@@ -1300,7 +1309,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                   	 driver.findElement(By.id("21-45")).click(); //uncheck and then check permissions
                   	 
                      // Check permissions disabled
-                     Thread.sleep(5000);
+                     ////Thread.sleep(5000);
                      Assert.assertEquals(driver.findElement(By.id("21-45")).isSelected(), false); //View SIP Trunk
                      Assert.assertEquals(driver.findElement(By.id("21-46")).isEnabled(), false); //Create/Edit SIP Trunk
                      Assert.assertEquals(driver.findElement(By.id("21-47")).isEnabled(), false);  //Delete SIP Trunk 
@@ -1309,14 +1318,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  else if (driver.findElement(By.id("21-45")).isSelected() == false) {
                   	 
                      // Check permissions disabled
-                     Thread.sleep(5000);
+                     ////Thread.sleep(5000);
                      Assert.assertEquals(driver.findElement(By.id("21-45")).isSelected(), false); //View SIP Trunk
                      Assert.assertEquals(driver.findElement(By.id("21-46")).isEnabled(), false); //Create/Edit SIP Trunk
                      Assert.assertEquals(driver.findElement(By.id("21-47")).isEnabled(), false);  //Delete SIP Trunk
                                   } 
                 
                  Status = "Pass";
- 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1324,7 +1333,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
  			} catch (Throwable e) {
  				System.out.println("Error : " + e);
  				Status = "Fail";
- 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+ 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  			}
@@ -1359,12 +1368,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              		
              		  ((SharedFunctions)sf).loginServerAdmin();
         			  ((SharedFunctions)sf).clickPermissions();
-             		Thread.sleep(10000);
+             		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
                     driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                     Thread.sleep(5000);
+                     ////Thread.sleep(5000);
                      // Click on Trunk Group [+]
                      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[9]/td[1]/img")).click();
                   
@@ -1372,7 +1381,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                       	 driver.findElement(By.id("24-54")).click(); //uncheck and then check permissions
                      
             	         // Check permissions disabled
-            	         Thread.sleep(5000);
+            	         ////Thread.sleep(5000);
             	         Assert.assertEquals(driver.findElement(By.id("24-54")).isSelected(), false); //View Trunk Group
             	         Assert.assertEquals(driver.findElement(By.id("24-55")).isEnabled(), false); //Create/Edit Trunk Group
             	         Assert.assertEquals(driver.findElement(By.id("24-56")).isEnabled(), false); //Delete Trunk Group
@@ -1381,14 +1390,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                      else if (driver.findElement(By.id("24-54")).isSelected() == false) {
                      
             	         // Check permissions disabled
-            	         Thread.sleep(5000);
+            	         ////Thread.sleep(5000);
             	         Assert.assertEquals(driver.findElement(By.id("24-54")).isSelected(), false); //View Trunk Group
             	         Assert.assertEquals(driver.findElement(By.id("24-55")).isEnabled(), false); //Create/Edit Trunk Group
             	         Assert.assertEquals(driver.findElement(By.id("24-56")).isEnabled(), false); //Delete Trunk Group
             	                     	         } 
    
                      Status = "Pass";
-         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                     ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1396,7 +1405,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		} catch (Throwable e) {
          			System.out.println("Error : " + e);
          			Status = "Fail";
-         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          		}
@@ -1431,12 +1440,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
             
              		 ((SharedFunctions)sf).loginServerAdmin();
         			 ((SharedFunctions)sf).clickPermissions();
-             		Thread.sleep(10000);
+             		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
                     driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                    Thread.sleep(7000);
+                    ////Thread.sleep(7000);
                     // Click on Board [+]
                     driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[10]/td[1]/img")).click();
                   
@@ -1444,7 +1453,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                       	 driver.findElement(By.id("22-48")).click(); //uncheck and then check permissions
                       	 
                          // Check permissions disabled
-                         Thread.sleep(5000);
+                         ////Thread.sleep(5000);
                          Assert.assertEquals(driver.findElement(By.id("22-48")).isSelected(), false); //View Board
                          Assert.assertEquals(driver.findElement(By.id("22-49")).isEnabled(), false); //Create/Edit Board
                          Assert.assertEquals(driver.findElement(By.id("22-50")).isEnabled(), false); //Delete Board
@@ -1452,14 +1461,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                      
                     else if (driver.findElement(By.id("22-48")).isSelected() == false) {
                     	// Check permissions disabled
-                         Thread.sleep(5000);
+                         //Thread.sleep(5000);
                          Assert.assertEquals(driver.findElement(By.id("22-48")).isSelected(), false); //View Board
                          Assert.assertEquals(driver.findElement(By.id("22-49")).isEnabled(), false); //Create/Edit Board
                          Assert.assertEquals(driver.findElement(By.id("22-50")).isEnabled(), false); //Delete Board
                         } 
             
                     Status = "Pass";
-        			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                    ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
         			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
         			testresultlist.add(objtestreult);
         			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1467,7 +1476,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         		} catch (Throwable e) {
         			System.out.println("Error : " + e);
         			Status = "Fail";
-        			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+        			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
         			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
         			testresultlist.add(objtestreult);
         		}
@@ -1501,12 +1510,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
       
              		 ((SharedFunctions)sf).loginServerAdmin();
         			 ((SharedFunctions)sf).clickPermissions();
-             		Thread.sleep(10000);
+             		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
                     driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                     Thread.sleep(5000);
+                     ////Thread.sleep(5000);
                      // Click on Equipment [+]
                      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[11]/td[1]/img")).click();
                   
@@ -1514,7 +1523,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                       	 driver.findElement(By.id("23-51")).click(); //uncheck and then check permissions
                       	 
                          // Check permissions disabled
-                         Thread.sleep(5000);
+                         ////Thread.sleep(5000);
                          Assert.assertEquals(driver.findElement(By.id("23-51")).isSelected(), false); //View Equipment
                          Assert.assertEquals(driver.findElement(By.id("23-52")).isEnabled(), false); //Create/Edit Equipment
                          Assert.assertEquals(driver.findElement(By.id("23-53")).isEnabled(), false); //Delete Equipment
@@ -1522,14 +1531,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                        
                      else if (driver.findElement(By.id("23-51")).isSelected() == false) {
                     	 
-                    	 Thread.sleep(5000);
+                    	 ////Thread.sleep(5000);
                          Assert.assertEquals(driver.findElement(By.id("23-51")).isSelected(), false); //View Equipment
                          Assert.assertEquals(driver.findElement(By.id("23-52")).isEnabled(), false); //Create/Edit Equipment
                          Assert.assertEquals(driver.findElement(By.id("23-53")).isEnabled(), false); //Delete Equipment
                      }
                                  
                      Status = "Pass";
-         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                     ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1537,7 +1546,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		} catch (Throwable e) {
          			System.out.println("Error : " + e);
          			Status = "Fail";
-         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          		}
@@ -1571,12 +1580,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 
                  		  ((SharedFunctions)sf).loginServerAdmin();
             			  ((SharedFunctions)sf).clickPermissions();
-                 		Thread.sleep(10000);
+                 		////Thread.sleep(10000);
                  		
                  	    // Click on edit permissions
                         driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                        Thread.sleep(5000);
+                        //Thread.sleep(5000);
                         // Click on Storage Settings [+]
                         driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[12]/td[1]/img")).click();
                       
@@ -1584,7 +1593,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                          	 driver.findElement(By.id("9-23")).click(); //uncheck and then check permissions
                          	 
                          	 // Check permissions disabled
-                             Thread.sleep(5000);
+                             //Thread.sleep(5000);
                              Assert.assertEquals(driver.findElement(By.id("9-23")).isSelected(), false); //View Storage Settings
                              Assert.assertEquals(driver.findElement(By.id("9-24")).isEnabled(), false);  //Update Storage Settings
                             } 
@@ -1592,14 +1601,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                         else if (driver.findElement(By.id("9-23")).isSelected() == false) {
                         	
                         	// Check permissions disabled
-                            Thread.sleep(5000);
+                            //Thread.sleep(5000);
                             Assert.assertEquals(driver.findElement(By.id("9-23")).isSelected(), false); //View Storage Settings
                             Assert.assertEquals(driver.findElement(By.id("9-24")).isEnabled(), false);  //Update Storage Settings
                          } 
                 
                         
                         Status = "Pass";
-            			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                        ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
             			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
             			testresultlist.add(objtestreult);
             			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1607,7 +1616,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
             		} catch (Throwable e) {
             			System.out.println("Error : " + e);
             			Status = "Fail";
-            			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+            			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
             			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
             			testresultlist.add(objtestreult);
             		}
@@ -1643,12 +1652,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                Thread.sleep(5000);
+                //Thread.sleep(5000);
                 // Click on System [+]
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[13]/td[1]/img")).click();
               
@@ -1656,7 +1665,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 	 driver.findElement(By.id("10-25")).click(); //uncheck and then check permissions
                 
                  // Check permissions disabled
-                 Thread.sleep(5000);
+                 //Thread.sleep(5000);
                  Assert.assertEquals(driver.findElement(By.id("10-25")).isSelected(), false); //View Storage Settings
                  Assert.assertEquals(driver.findElement(By.id("10-26")).isEnabled(), false);  //Update Storage Settings
                 }
@@ -1664,13 +1673,13 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 else if (driver.findElement(By.id("10-25")).isSelected() == false) {
                 	 
                 	// Check permissions disabled
-                    Thread.sleep(5000);
+                    //Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("10-25")).isSelected(), false); //View Storage Settings
                     Assert.assertEquals(driver.findElement(By.id("10-26")).isEnabled(), false);  //Update Storage Settings
                     }
               
                 Status = "Pass";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1678,7 +1687,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     		} catch (Throwable e) {
     			System.out.println("Error : " + e);
     			Status = "Fail";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
@@ -1712,12 +1721,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                Thread.sleep(5000);
+                //Thread.sleep(5000);
                 // Click on Traces [+]
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[15]/td[1]/img")).click();
               
@@ -1725,7 +1734,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                	    driver.findElement(By.id("11-27")).click(); //uncheck and then check permissions
                	    
                	    // Check permissions disabled
-                    Thread.sleep(5000);
+                    //Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("11-27")).isSelected(), false); //View Traces
                     Assert.assertEquals(driver.findElement(By.id("11-28")).isEnabled(), false);  //Update Trace
                     }
@@ -1733,7 +1742,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 else if (driver.findElement(By.id("11-27")).isSelected() == false) {
                 
                 	// Check permissions disabled
-                    Thread.sleep(5000);
+                    //Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("11-27")).isSelected(), false); //View Traces
                     Assert.assertEquals(driver.findElement(By.id("11-28")).isEnabled(), false);  //Update Traces
                  }
@@ -1741,7 +1750,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
         
                 Status = "Pass";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1749,7 +1758,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     		} catch (Throwable e) {
     			System.out.println("Error : " + e);
     			Status = "Fail";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
@@ -1783,12 +1792,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                Thread.sleep(5000);
+                //Thread.sleep(5000);
                 // Click on Email Template [+]
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[18]/td[1]/img")).click();
               
@@ -1796,7 +1805,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                	    driver.findElement(By.id("16-35")).click(); //uncheck and then check permissions
                	    
                	    // Check permissions disabled
-                    Thread.sleep(5000);
+                    //Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("16-35")).isSelected(), false); //View Email Template
                     Assert.assertEquals(driver.findElement(By.id("16-36")).isEnabled(), false);  //Edit Email Template
                   } 
@@ -1804,13 +1813,13 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 else if (driver.findElement(By.id("16-35")).isSelected() == false) {
                 	
                 	// Check permissions disabled
-                    Thread.sleep(5000);
+                    //Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("16-35")).isSelected(), false); //View Email Template
                     Assert.assertEquals(driver.findElement(By.id("16-36")).isEnabled(), false);  //Edit Email Template
                   } 
                 
                 Status = "Pass";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1818,7 +1827,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     		} catch (Throwable e) {
     			System.out.println("Error : " + e);
     			Status = "Fail";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
@@ -1853,12 +1862,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                 Thread.sleep(5000);
+                 //Thread.sleep(5000);
                  // Click on Email Template [+]
                  driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[19]/td[1]/img")).click();
               
@@ -1866,7 +1875,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 	    driver.findElement(By.id("17-37")).click(); //uncheck and then check permissions
                 	    
                 	    // Check permissions disabled
-                        Thread.sleep(5000);
+                        //Thread.sleep(5000);
                         Assert.assertEquals(driver.findElement(By.id("17-37")).isSelected(), false); //View Email Template
                         Assert.assertEquals(driver.findElement(By.id("17-38")).isEnabled(), false);  //Edit Email Template
                        } 
@@ -1874,13 +1883,13 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  else if (driver.findElement(By.id("17-37")).isSelected() == false) {
                 	 
                 	// Check permissions disabled
-                     Thread.sleep(5000);
+                     //Thread.sleep(5000);
                      Assert.assertEquals(driver.findElement(By.id("17-37")).isSelected(), false); //View Email Template
                      Assert.assertEquals(driver.findElement(By.id("17-38")).isEnabled(), false);  //Edit Email Template 
                     } 
                 
                  Status = "Pass";
-     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1888,7 +1897,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      		} catch (Throwable e) {
      			System.out.println("Error : " + e);
      			Status = "Fail";
-     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      		}	
@@ -1922,12 +1931,12 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
                 driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-                 Thread.sleep(5000);
+                 //Thread.sleep(5000);
                  // Click on Branch [+]
                  driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[5]/td[1]/img")).click();
               
@@ -1935,7 +1944,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              	    driver.findElement(By.id("20-42")).click(); //uncheck and then check permissions
              	    
              	    // Check permissions disabled
-                    Thread.sleep(5000);
+                    //Thread.sleep(5000);
                     Assert.assertEquals(driver.findElement(By.id("20-42")).isSelected(), false); //View Branch
                     Assert.assertEquals(driver.findElement(By.id("20-43")).isEnabled(), false); //Create/Edit Branch
                     Assert.assertEquals(driver.findElement(By.id("20-44")).isEnabled(), false); //Delete Branch
@@ -1944,14 +1953,14 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  else if  (driver.findElement(By.id("20-42")).isSelected() == false) {
                 	 
                 	// Check permissions disabled
-                     Thread.sleep(5000);
+                     //Thread.sleep(5000);
                      Assert.assertEquals(driver.findElement(By.id("20-42")).isSelected(), false); //View Branch
                      Assert.assertEquals(driver.findElement(By.id("20-43")).isEnabled(), false);  //Create/Edit Branch
                      Assert.assertEquals(driver.findElement(By.id("20-44")).isEnabled(), false);  //Delete Branch
                      } 
                 
                  Status = "Pass";
-     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1959,7 +1968,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      		} catch (Throwable e) {
      			System.out.println("Error : " + e);
      			Status = "Fail";
-     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      		}
@@ -1993,62 +2002,62 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
          		  ((SharedFunctions)sf).loginServerAdmin();
     			  ((SharedFunctions)sf).clickPermissions();
-         		Thread.sleep(10000);
+         		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
          	    driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
-         	    Thread.sleep(5000);
+         	    //Thread.sleep(5000);
          	    // Click on Server [+]
          	    driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[4]/td[1]/img")).click();
          	      
          	      if (driver.findElement(By.id("3-6")).isSelected() == true) {
          	   	      driver.findElement(By.id("3-6")).click(); //uncheck and then check permissions
          	   	      // Check permissions disabled
-         	          Thread.sleep(3000);
+         	          //Thread.sleep(3000);
          	          Assert.assertEquals(driver.findElement(By.id("3-6")).isSelected(), false); //View Server
          	          Assert.assertEquals(driver.findElement(By.id("3-7")).isEnabled(), false);  //Change server status  
           	          } 
          	      
          	      else if  (driver.findElement(By.id("3-6")).isSelected() == false) {
          	    	// Check permissions disabled
-         	          Thread.sleep(3000);
+         	          //Thread.sleep(3000);
          	          Assert.assertEquals(driver.findElement(By.id("3-6")).isSelected(), false); //View Server
          	          Assert.assertEquals(driver.findElement(By.id("3-7")).isEnabled(), false);  //Change server status
            	      } 
             
-      Thread.sleep(7000);
+      //Thread.sleep(7000);
       // Click on Nodes [+]
       driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[7]/td[1]/img")).click();
       
       if (driver.findElement(By.id("7-14")).isSelected() == true) {
    	      driver.findElement(By.id("7-14")).click(); //uncheck and then check permissions  	      
    	      // Check permissions disabled
-   	      Thread.sleep(3000);
+   	      //Thread.sleep(3000);
    	      Assert.assertEquals(driver.findElement(By.id("7-14")).isSelected(), false); } //View Nodes
       else if (driver.findElement(By.id("7-14")).isSelected() == false) {
     	// Check permissions disabled
-   	      Thread.sleep(3000);
+   	      //Thread.sleep(3000);
    	      Assert.assertEquals(driver.findElement(By.id("7-14")).isSelected(), false); } //View Nodes
       
       
-      Thread.sleep(7000);
+      //Thread.sleep(7000);
       // Click on Packetizer Settings [+]
       driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[9]/td[1]/img")).click();
       
       if (driver.findElement(By.id("8-20")).isSelected() == true) {
    	      driver.findElement(By.id("8-20")).click(); //uncheck and then check permissions
    	      // Check permissions disabled
-   	      Thread.sleep(3000);
+   	      //Thread.sleep(3000);
    	      Assert.assertEquals(driver.findElement(By.id("8-20")).isSelected(), false); } //View Packetizer Settings
       
       else if (driver.findElement(By.id("8-20")).isSelected() == false) {
     	  // Check permissions disabled
-   	      Thread.sleep(3000);
+   	      //Thread.sleep(3000);
    	      Assert.assertEquals(driver.findElement(By.id("8-20")).isSelected(), false); } //View Packetizer Settings
       
       Status = "Pass";
-		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+      ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 		// obj.updateResult(TestCaseID, SheetName, Status);
@@ -2056,7 +2065,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	} catch (Throwable e) {
 		System.out.println("Error : " + e);
 		Status = "Fail";
-		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 	}	
@@ -2097,21 +2106,21 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
      
        // Click On Permissions
-       Thread.sleep(10000);
+       //Thread.sleep(10000);
        driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
        
 //      //  Click on copy Server admin
 //       driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[1]/td[3]/div/img[2]")).click();
 
        // Click on Users
-       Thread.sleep(10000);
+       //Thread.sleep(10000);
        driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
        
        // Make a new user
        // Click on Add Users
        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/div/table[1]/tbody/tr[2]/td/a")).click();
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Fillout the form for new user
        // Locate Fname and enter value
        driver.findElement(By.id("tbFirstName")).sendKeys("James R.");
@@ -2119,7 +2128,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        // Locate Lname and enter value
        driver.findElement(By.id("tbLastName")).sendKeys("Williams");
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Locate username and enter value
        driver.findElement(By.id("tbUserName")).sendKeys("jameswilliams");
        
@@ -2129,7 +2138,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        // Locate confirm password and enter value
        driver.findElement(By.id("tbConfirmPassword")).sendKeys("1234567a");
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Locate Password Never Expires checkbox and check
        WebElement PasswordNeverExpires = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[7]/td[2]/input")) ;
        PasswordNeverExpires.click();
@@ -2138,7 +2147,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        WebElement emailbox = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[9]/td[2]/input"));
        emailbox.sendKeys("jameswilliams@jourrapide.com");
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Locate Enable Account checkbox and check
        WebElement EnableAccount = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[10]/td[2]/input"));
        EnableAccount.click();
@@ -2159,11 +2168,11 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      	}
      	}
      	System.out.println(rowNo);
-     	Thread.sleep(8000);	
+     	//Thread.sleep(8000);	
      	driver.findElement(By.xpath("//*[@id=\"divSecurityGroup\"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option["+rowNo+"]")).click();
 
        
-//       Thread.sleep(5000);
+//       //Thread.sleep(5000);
 //       // Locate Security Groups Roles and Click/Select
 //       WebElement ServerAdmin = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option[2]"));
 //       ServerAdmin.click();
@@ -2171,11 +2180,11 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        // Locate ">" and click
        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/input")).click();
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Locate Save button and click
        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/input[1]")).click();
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Check alert message
        JavascriptExecutor jsx = (JavascriptExecutor)driver;
        jsx.executeScript("window.confirm('Settings have been saved successfully')");
@@ -2183,26 +2192,26 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
        Dismissed user prompt dialog: Settings have been updated successfully:*/
        driver.switchTo().alert().accept();
-       Thread.sleep(5000); 
+       //Thread.sleep(5000); 
        
        // Click on okay button
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button/span")).click();
        
        // Click On Permissions
-       Thread.sleep(8000);
+       //Thread.sleep(8000);
        driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
        
        // Click edit permissions Server Admin - Copy
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
        
 /////////////////////////////////////////////////////Un-check all pages after expand      
        // Click on Expand button 
-       Thread.sleep(7000);
+       //Thread.sleep(7000);
        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr/td[2]/img[2]")).click();
        
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        // Un-check View Users
        driver.findElement(By.id("4-1")).click();
        
@@ -2263,7 +2272,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        // Click on update button
        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[4]/td/input[1]")).click();
        
-       Thread.sleep(8000);
+       //Thread.sleep(8000);
        // Check alert message
        JavascriptExecutor jsd = (JavascriptExecutor)driver;
        jsd.executeScript("window.confirm('Settings have been saved successfully')");
@@ -2271,10 +2280,10 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
        Dismissed user prompt dialog: Settings have been updated successfully:*/
        driver.switchTo().alert().accept();
-       Thread.sleep(5000); 
+       //Thread.sleep(5000); 
        
        // Click on okay button
-       Thread.sleep(5000);
+       //Thread.sleep(5000);
        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button/span")).click();
        
        // Click on Logout
@@ -2291,13 +2300,13 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
        Dismissed user prompt dialog: Settings have been updated successfully:*/
        driver.switchTo().alert().accept();
-       Thread.sleep(5000); 
+       //Thread.sleep(5000); 
        
        // Click on okay button
-       Thread.sleep(8000);
+       //Thread.sleep(8000);
        driver.findElement(By.id("btnOK")).click();
        
-       Thread.sleep(8000); 
+       //Thread.sleep(8000); 
        // Enter Old Password, New Password & Confirm Password
        driver.findElement(By.id("ctrl_ChangePassword1_tbOldPassword")).sendKeys("1234567a");
        driver.findElement(By.id("ctrl_ChangePassword1_tbNewPassword")).sendKeys("admin12345");
@@ -2306,7 +2315,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        // Click on update button
        driver.findElement(By.id("ctrl_ChangePassword1_btnUpdate")).click();
        
-       Thread.sleep(10000);
+       //Thread.sleep(10000);
        
        // Check pages present
        boolean value = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).isDisplayed();
@@ -2378,7 +2387,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //       Assert.assertEquals(value18, false); // Reports
                     
 	    Status = "Pass";
-		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+	    ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 		// obj.updateResult(TestCaseID, SheetName, Status);
@@ -2386,7 +2395,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	} catch (Throwable e) {
 		System.out.println("Error : " + e);
 		Status = "Fail";
-		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status);
+		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 }
@@ -2401,100 +2410,71 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 ////////////////////////////////////////           
       @Test (priority = 30)
       public void ClearPermissionsAfterTest() throws InterruptedException {
-		System.setProperty("webdriver.gecko.driver", driverPath);
-		driver = new FirefoxDriver();
-	      driver.get(baseUrl);	
-	
-	      // Signing in OmniPCX
-	      driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
-	      driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a"); 
-	      driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
-	      
-	      // Delete remaining Users and Permission group
-		  // Users
-		  // Click on Users
-	      Thread.sleep(10000);
-	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
-	      
-	      Thread.sleep(7000);
-	      
-	      // Click all check-boxes
-	      List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
-	      for (WebElement el:elements) {
-	      el.click(); }
-	      
-	      // Click multiple delete
-	      driver.findElement(By.id("dltMultiple")).click();
-	      
-	      Thread.sleep(7000);
-	      
-	      // Click on delete selected
-	      driver.findElement(By.xpath("/html/body/ul[1]")).click();
-	      
-	      // Check alert message
-	      JavascriptExecutor jsx = (JavascriptExecutor)driver;
-	      jsx.executeScript("window.confirm('Are you sure you want to delete?')");
-	      
-	      /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-	      Dismissed user prompt dialog: Settings have been updated successfully:*/
-	      driver.switchTo().alert().accept();
-	      
-	      // Click on delete button
-          Thread.sleep(5000);
-	      driver.findElement(By.id("btnDelete")).click();
-	      
-	      String expectedUserDeleted = "Selected users are deleted successfully.";
-	      
-	      Thread.sleep(5000);
-	      // Get message "Record has been deleted successfully"
-	      String actualUserDeleted = driver.findElement(By.id("lblMessage")).getText();
-	      
-	      Assert.assertEquals(actualUserDeleted, expectedUserDeleted);
+  		System.setProperty("webdriver.gecko.driver", driverPath);
+  		driver = new FirefoxDriver();
+  	      driver.get(baseUrl);	
+  	
+  	      // Signing in OmniPCX
+  	      driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+  	      driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a"); 
+  	      driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+  	      
+  	      // Delete remaining Users and Permission group
+  		  // Users
+  		  // Click on Users
+  	      //Thread.sleep(10000);
+  	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
+  	      
+  	      //Thread.sleep(7000);
+  	      
+  	      // Click all check-boxes
+  	      List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+  	      for (WebElement el:elements) {
+  	      el.click(); }
+  	      
+  	      // Click multiple delete
+  	      driver.findElement(By.id("dltMultiple")).click();
+  	      
+  	      //Thread.sleep(7000);
+  	      
+  	      // Click on delete selected
+  	      driver.findElement(By.xpath("/html/body/ul[1]")).click();
+  	      
+  	      // Click on delete button
+          //Thread.sleep(5000);
+  	      driver.findElement(By.id("btnDelete")).click();
+  	      
+//  	      String expectedUserDeleted = "Selected users are deleted successfully.";
+//  	      
+//  	      //Thread.sleep(5000);
+//  	      // Get message "Record has been deleted successfully"
+//  	      String actualUserDeleted = driver.findElement(By.id("lblMessage")).getText();
+//  	      
+//  	      Assert.assertEquals(actualUserDeleted, expectedUserDeleted);
         
-	      // Click On Permissions
-	      Thread.sleep(7000);
-	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();	
-	             
-	      String[] groups = {"Server Admin - Copy", "Jackets", "Goal Diggers", "New_!@342%^&*Group3", "This is a group name a group is ..."};
-	      
-	      for (int j=0; j < groups.length; j++) {
-	      //Get the table and row
-	      WebElement table2 = driver.findElement(By.id("gvGroups"));
-		  WebElement tbody2 = table2.findElement(By.tagName("tbody"));
-		  List<WebElement> rows=tbody2.findElements(By.tagName("tr"));
-		  String rowNo="";
-		  String title = groups[j];
-		    for(int i=0;i<rows.size();i++) {
-			WebElement row = tbody2.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+(i+1)+"]"));
-			if(row.getText().trim().contains(title)) {
-			rowNo=Integer.toString(i+1);
-			break;  }
-			}
-		  driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo+"]/td[3]/div/img[4]")).click();
-		   	
-    	  // Check alert message
-      	  JavascriptExecutor jsd = (JavascriptExecutor)driver;
-      	  jsd.executeScript("window.confirm('Are you sure you want to delete?')");
-      	      
-      	  /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-      	  Dismissed user prompt dialog: Settings have been updated successfully:*/
-      	  driver.switchTo().alert().accept();
-      	      
-      	  // Click on delete button
-          Thread.sleep(5000);
-      	  driver.findElement(By.id("btnDelete")).click();
-		   	
-		  Thread.sleep(6000); }
-	      driver.close();	  		  		  
-	}  
-      
-      
-      
-      
-      
-      
-      @AfterTest 
-      public void afterTest() {
+  	      // Click On Permissions
+//  	      //Thread.sleep(7000);
+  	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();	
+  	   
+  	    List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
+  	  	int rowscount = rows.size();
+  	  	System.out.println(rowscount);
+  	  	
+  	  	for (int i=2 ; i<=rowscount; i++)
+  	  	{
+  	  	////Thread.sleep(2000);
+  	  	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
+
+  	  	driver.findElement(By.id("btnDelete")).click();
+  	  	}
+  	  		
+  	  		driver.close();	  		  		  
+  	  	} 	
+  	
+  		  		        
+          
+      @AfterClass 
+      public void afterClass() {
      	 
      	 try {
      		 System.out.println("Closing the Browser");

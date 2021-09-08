@@ -5,8 +5,9 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
-    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -23,8 +24,9 @@
   <body>
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\sarah.mahmood\AppData\Local\Temp\testng-eclipse--475807414\testng-customsuite.xml</span>
+                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse--2016147777\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">31 methods, 1 failed,   30 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="ClearPermissionsAfterTest">ClearPermissionsAfterTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +118,152 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.Server" class="method navigator-link" hash-for-method="f">f</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAddNewPermissionGroup">verifyAddNewPermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAddNewPermissionGroupwithDescription">verifyAddNewPermissionGroupwithDescription</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAddNewPermissionGroupwithLength50">verifyAddNewPermissionGroupwithLength50</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAddNewPermissionGroupwithSpecialCharacters">verifyAddNewPermissionGroupwithSpecialCharacters</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAddNewPermissionGroupwithmaxLength">verifyAddNewPermissionGroupwithmaxLength</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAddNewPermissionGroupwithoutGroupName">verifyAddNewPermissionGroupwithoutGroupName</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyAllPermissionsexceptFourEyePrinciple">verifyAllPermissionsexceptFourEyePrinciple</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyCopyDefaultPermissionGroup">verifyCopyDefaultPermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyDefaultPermissionGroup">verifyDefaultPermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyDeleteDefaultPermissionGroup">verifyDeleteDefaultPermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyDeletePermissionGroup">verifyDeletePermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyDeletePermissionGroupotherthanDefaultassignedtoUser">verifyDeletePermissionGroupotherthanDefaultassignedtoUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyEditDefaultPermissionGroup">verifyEditDefaultPermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyEnablePermissioncbEnabledwhenViewUsersnotenabled">verifyEnablePermissioncbEnabledwhenViewUsersnotenabled</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforBoardinGroup">verifyPermissionforBoardinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforBranchinGroup">verifyPermissionforBranchinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforEmailTemplateinGroup">verifyPermissionforEmailTemplateinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforEquipmentinGroup">verifyPermissionforEquipmentinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforNodesinGroup">verifyPermissionforNodesinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforPacketizerinGroup">verifyPermissionforPacketizerinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforSIPTrunkinGroup">verifyPermissionforSIPTrunkinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforServerIncidentsinGroup">verifyPermissionforServerIncidentsinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforStorageSettingsinGroup">verifyPermissionforStorageSettingsinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforSysteminGroup">verifyPermissionforSysteminGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforTracesinGroup">verifyPermissionforTracesinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforTrunkinGroup">verifyPermissionforTrunkinGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyPermissionforUserinGroups">verifyPermissionforUserinGroups</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyViewDefaultPermissionGroup">verifyViewDefaultPermissionGroup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyViewServerPermissionAgainstPage">verifyViewServerPermissionAgainstPage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="ServerAdministration.ServerPermissions" class="method navigator-link" hash-for-method="verifyViewServerPermissiondisabled">verifyViewServerPermissiondisabled</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -117,17 +278,288 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">ServerAdministration.Server</span>
+              <img src="failed.png"/>
+              <span class="class-name">ServerAdministration.ServerPermissions</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="f">
-                  </a> <!-- f -->
-                  <span class="method-name">f</span>
+                  <a name="ClearPermissionsAfterTest">
+                  </a> <!-- ClearPermissionsAfterTest -->
+                  <span class="method-name">ClearPermissionsAfterTest</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: Element &lt;a id=&quot;ctl00_ctrl_LeftMenuCloud1_hlnkPermissions&quot; href=&quot;PermissionRole.aspx&quot;&gt; is not clickable at point (104,276) because another element &lt;div id=&quot;Clientloading&quot; class=&quot;LoadingClass&quot;&gt; obscures it
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;DESKTOP-RTH7PMT&apos;, ip: &apos;172.20.12.26&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d961833e-b694-4a23-b6b2-ec02b7430323, clickElement {id=9bf6293f-85c6-483b-8083-f711165182ac}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 91.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210823123856, moz:debuggerAddress: localhost:55788, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 12984, moz:profile: C:\Users\Administrator\AppD..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), se:cdp: ws://localhost:55788/devtoo..., se:cdpVersion: 85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Element: [[FirefoxDriver: firefox on WINDOWS (d961833e-b694-4a23-b6b2-ec02b7430323)] -&gt; id: ctl00_ctrl_LeftMenuCloud1_hlnkPermissions]
+Session ID: d961833e-b694-4a23-b6b2-ec02b7430323
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:237)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:75)
+	at ServerAdministration.ServerPermissions.ClearPermissionsAfterTest(ServerPermissions.java:2457)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">ServerAdministration.ServerPermissions</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddNewPermissionGroup">
+                  </a> <!-- verifyAddNewPermissionGroup -->
+                  <span class="method-name">verifyAddNewPermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddNewPermissionGroupwithDescription">
+                  </a> <!-- verifyAddNewPermissionGroupwithDescription -->
+                  <span class="method-name">verifyAddNewPermissionGroupwithDescription</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddNewPermissionGroupwithLength50">
+                  </a> <!-- verifyAddNewPermissionGroupwithLength50 -->
+                  <span class="method-name">verifyAddNewPermissionGroupwithLength50</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddNewPermissionGroupwithSpecialCharacters">
+                  </a> <!-- verifyAddNewPermissionGroupwithSpecialCharacters -->
+                  <span class="method-name">verifyAddNewPermissionGroupwithSpecialCharacters</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddNewPermissionGroupwithmaxLength">
+                  </a> <!-- verifyAddNewPermissionGroupwithmaxLength -->
+                  <span class="method-name">verifyAddNewPermissionGroupwithmaxLength</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddNewPermissionGroupwithoutGroupName">
+                  </a> <!-- verifyAddNewPermissionGroupwithoutGroupName -->
+                  <span class="method-name">verifyAddNewPermissionGroupwithoutGroupName</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAllPermissionsexceptFourEyePrinciple">
+                  </a> <!-- verifyAllPermissionsexceptFourEyePrinciple -->
+                  <span class="method-name">verifyAllPermissionsexceptFourEyePrinciple</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyCopyDefaultPermissionGroup">
+                  </a> <!-- verifyCopyDefaultPermissionGroup -->
+                  <span class="method-name">verifyCopyDefaultPermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyDefaultPermissionGroup">
+                  </a> <!-- verifyDefaultPermissionGroup -->
+                  <span class="method-name">verifyDefaultPermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyDeleteDefaultPermissionGroup">
+                  </a> <!-- verifyDeleteDefaultPermissionGroup -->
+                  <span class="method-name">verifyDeleteDefaultPermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyDeletePermissionGroup">
+                  </a> <!-- verifyDeletePermissionGroup -->
+                  <span class="method-name">verifyDeletePermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyDeletePermissionGroupotherthanDefaultassignedtoUser">
+                  </a> <!-- verifyDeletePermissionGroupotherthanDefaultassignedtoUser -->
+                  <span class="method-name">verifyDeletePermissionGroupotherthanDefaultassignedtoUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyEditDefaultPermissionGroup">
+                  </a> <!-- verifyEditDefaultPermissionGroup -->
+                  <span class="method-name">verifyEditDefaultPermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyEnablePermissioncbEnabledwhenViewUsersnotenabled">
+                  </a> <!-- verifyEnablePermissioncbEnabledwhenViewUsersnotenabled -->
+                  <span class="method-name">verifyEnablePermissioncbEnabledwhenViewUsersnotenabled</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforBoardinGroup">
+                  </a> <!-- verifyPermissionforBoardinGroup -->
+                  <span class="method-name">verifyPermissionforBoardinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforBranchinGroup">
+                  </a> <!-- verifyPermissionforBranchinGroup -->
+                  <span class="method-name">verifyPermissionforBranchinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforEmailTemplateinGroup">
+                  </a> <!-- verifyPermissionforEmailTemplateinGroup -->
+                  <span class="method-name">verifyPermissionforEmailTemplateinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforEquipmentinGroup">
+                  </a> <!-- verifyPermissionforEquipmentinGroup -->
+                  <span class="method-name">verifyPermissionforEquipmentinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforNodesinGroup">
+                  </a> <!-- verifyPermissionforNodesinGroup -->
+                  <span class="method-name">verifyPermissionforNodesinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforPacketizerinGroup">
+                  </a> <!-- verifyPermissionforPacketizerinGroup -->
+                  <span class="method-name">verifyPermissionforPacketizerinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforSIPTrunkinGroup">
+                  </a> <!-- verifyPermissionforSIPTrunkinGroup -->
+                  <span class="method-name">verifyPermissionforSIPTrunkinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforServerIncidentsinGroup">
+                  </a> <!-- verifyPermissionforServerIncidentsinGroup -->
+                  <span class="method-name">verifyPermissionforServerIncidentsinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforStorageSettingsinGroup">
+                  </a> <!-- verifyPermissionforStorageSettingsinGroup -->
+                  <span class="method-name">verifyPermissionforStorageSettingsinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforSysteminGroup">
+                  </a> <!-- verifyPermissionforSysteminGroup -->
+                  <span class="method-name">verifyPermissionforSysteminGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforTracesinGroup">
+                  </a> <!-- verifyPermissionforTracesinGroup -->
+                  <span class="method-name">verifyPermissionforTracesinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforTrunkinGroup">
+                  </a> <!-- verifyPermissionforTrunkinGroup -->
+                  <span class="method-name">verifyPermissionforTrunkinGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyPermissionforUserinGroups">
+                  </a> <!-- verifyPermissionforUserinGroups -->
+                  <span class="method-name">verifyPermissionforUserinGroups</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyViewDefaultPermissionGroup">
+                  </a> <!-- verifyViewDefaultPermissionGroup -->
+                  <span class="method-name">verifyViewDefaultPermissionGroup</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyViewServerPermissionAgainstPage">
+                  </a> <!-- verifyViewServerPermissionAgainstPage -->
+                  <span class="method-name">verifyViewServerPermissionAgainstPage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyViewServerPermissiondisabled">
+                  </a> <!-- verifyViewServerPermissiondisabled -->
+                  <span class="method-name">verifyViewServerPermissiondisabled</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,16 +567,16 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\sarah.mahmood\AppData\Local\Temp\testng-eclipse--475807414\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse--2016147777\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;ServerAdministration.Server&quot;/&gt;
+      &lt;class name=&quot;ServerAdministration.ServerPermissions&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -184,16 +616,136 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(31);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'f')
-data.setCell(0, 2, 'ServerAdministration.Server')
-data.setCell(0, 3, 14);
+data.setCell(0, 1, 'verifyCopyDefaultPermissionGroup')
+data.setCell(0, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(0, 3, 24714);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyViewServerPermissiondisabled')
+data.setCell(1, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(1, 3, 21608);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyPermissionforEmailTemplateinGroup')
+data.setCell(2, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(2, 3, 21068);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'verifyEnablePermissioncbEnabledwhenViewUsersnotenabled')
+data.setCell(3, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(3, 3, 20846);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'verifyDeletePermissionGroupotherthanDefaultassignedtoUser')
+data.setCell(4, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(4, 3, 20615);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'verifyPermissionforBranchinGroup')
+data.setCell(5, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(5, 3, 20532);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'verifyPermissionforSIPTrunkinGroup')
+data.setCell(6, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(6, 3, 20485);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'verifyPermissionforTracesinGroup')
+data.setCell(7, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(7, 3, 20408);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'verifyPermissionforUserinGroups')
+data.setCell(8, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(8, 3, 20380);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'verifyPermissionforNodesinGroup')
+data.setCell(9, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(9, 3, 20270);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'verifyDeletePermissionGroup')
+data.setCell(10, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(10, 3, 20065);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'verifyPermissionforStorageSettingsinGroup')
+data.setCell(11, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(11, 3, 20021);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'verifyViewServerPermissionAgainstPage')
+data.setCell(12, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(12, 3, 19939);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'verifyPermissionforEquipmentinGroup')
+data.setCell(13, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(13, 3, 19912);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'verifyPermissionforTrunkinGroup')
+data.setCell(14, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(14, 3, 19668);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'verifyPermissionforServerIncidentsinGroup')
+data.setCell(15, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(15, 3, 19639);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'verifyAddNewPermissionGroupwithoutGroupName')
+data.setCell(16, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(16, 3, 18859);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'verifyPermissionforBoardinGroup')
+data.setCell(17, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(17, 3, 18849);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'verifyPermissionforSysteminGroup')
+data.setCell(18, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(18, 3, 18783);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'verifyAddNewPermissionGroupwithmaxLength')
+data.setCell(19, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(19, 3, 18685);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'verifyAllPermissionsexceptFourEyePrinciple')
+data.setCell(20, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(20, 3, 18666);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'verifyAddNewPermissionGroupwithLength50')
+data.setCell(21, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(21, 3, 18043);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'verifyAddNewPermissionGroupwithDescription')
+data.setCell(22, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(22, 3, 17884);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'verifyDeleteDefaultPermissionGroup')
+data.setCell(23, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(23, 3, 17764);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'verifyPermissionforPacketizerinGroup')
+data.setCell(24, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(24, 3, 17753);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'ClearPermissionsAfterTest')
+data.setCell(25, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(25, 3, 17659);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'verifyAddNewPermissionGroup')
+data.setCell(26, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(26, 3, 17658);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'verifyAddNewPermissionGroupwithSpecialCharacters')
+data.setCell(27, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(27, 3, 16817);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'verifyViewDefaultPermissionGroup')
+data.setCell(28, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(28, 3, 16763);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'verifyEditDefaultPermissionGroup')
+data.setCell(29, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(29, 3, 15999);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'verifyDefaultPermissionGroup')
+data.setCell(30, 2, 'ServerAdministration.ServerPermissions')
+data.setCell(30, 3, 12012);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 14 ms</span>
+              <span class="suite-total-time">Total running time: 9 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -219,14 +771,145 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">ServerAdministration.Server</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">f</span>
+              <div class="chronological-class-name">ServerAdministration.ServerPermissions</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">verifyDefaultPermissionGroup</span>
+                <span class="method-start">9107 ms</span>
               </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyDeleteDefaultPermissionGroup</span>
+                <span class="method-start">21125 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyEditDefaultPermissionGroup</span>
+                <span class="method-start">38893 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyViewDefaultPermissionGroup</span>
+                <span class="method-start">54897 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyCopyDefaultPermissionGroup</span>
+                <span class="method-start">71665 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAllPermissionsexceptFourEyePrinciple</span>
+                <span class="method-start">96384 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddNewPermissionGroupwithDescription</span>
+                <span class="method-start">115059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddNewPermissionGroup</span>
+                <span class="method-start">132947 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyDeletePermissionGroupotherthanDefaultassignedtoUser</span>
+                <span class="method-start">150607 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddNewPermissionGroupwithoutGroupName</span>
+                <span class="method-start">171226 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddNewPermissionGroupwithSpecialCharacters</span>
+                <span class="method-start">190088 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddNewPermissionGroupwithLength50</span>
+                <span class="method-start">206908 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddNewPermissionGroupwithmaxLength</span>
+                <span class="method-start">224955 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyDeletePermissionGroup</span>
+                <span class="method-start">243644 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforUserinGroups</span>
+                <span class="method-start">263712 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyEnablePermissioncbEnabledwhenViewUsersnotenabled</span>
+                <span class="method-start">284096 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforNodesinGroup</span>
+                <span class="method-start">304946 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforPacketizerinGroup</span>
+                <span class="method-start">325219 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforSIPTrunkinGroup</span>
+                <span class="method-start">342975 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforTrunkinGroup</span>
+                <span class="method-start">363463 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforBoardinGroup</span>
+                <span class="method-start">383132 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforEquipmentinGroup</span>
+                <span class="method-start">401986 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforStorageSettingsinGroup</span>
+                <span class="method-start">421901 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforSysteminGroup</span>
+                <span class="method-start">441925 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforTracesinGroup</span>
+                <span class="method-start">460711 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforEmailTemplateinGroup</span>
+                <span class="method-start">481123 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforServerIncidentsinGroup</span>
+                <span class="method-start">502195 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyPermissionforBranchinGroup</span>
+                <span class="method-start">521836 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyViewServerPermissionAgainstPage</span>
+                <span class="method-start">542371 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyViewServerPermissiondisabled</span>
+                <span class="method-start">562311 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">ClearPermissionsAfterTest</span>
+                <span class="method-start">583921 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">601589 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
 </html>

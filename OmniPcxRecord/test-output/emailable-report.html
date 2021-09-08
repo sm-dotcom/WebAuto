@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <title>TestNG Report</title>
@@ -7,12 +7,93 @@
 </head>
 <body>
 <table>
-<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">42</td><td></td><td></td></tr>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">30</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">612,831</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">ServerAdministration.Server</td><td><a href="#m0">f</a></td><td rowspan="1">1630402812375</td><td rowspan="1">14</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">ServerAdministration.ServerPermissions</td><td><a href="#m0">ClearPermissionsAfterTest</a></td><td rowspan="1">1631107580039</td><td rowspan="1">17659</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="30">ServerAdministration.ServerPermissions</td><td><a href="#m1">verifyAddNewPermissionGroup</a></td><td rowspan="1">1631107129065</td><td rowspan="1">17658</td></tr><tr class="passedeven"><td><a href="#m2">verifyAddNewPermissionGroupwithDescription</a></td><td rowspan="1">1631107111177</td><td rowspan="1">17884</td></tr><tr class="passedeven"><td><a href="#m3">verifyAddNewPermissionGroupwithLength50</a></td><td rowspan="1">1631107203026</td><td rowspan="1">18043</td></tr><tr class="passedeven"><td><a href="#m4">verifyAddNewPermissionGroupwithSpecialCharacters</a></td><td rowspan="1">1631107186206</td><td rowspan="1">16817</td></tr><tr class="passedeven"><td><a href="#m5">verifyAddNewPermissionGroupwithmaxLength</a></td><td rowspan="1">1631107221073</td><td rowspan="1">18685</td></tr><tr class="passedeven"><td><a href="#m6">verifyAddNewPermissionGroupwithoutGroupName</a></td><td rowspan="1">1631107167344</td><td rowspan="1">18859</td></tr><tr class="passedeven"><td><a href="#m7">verifyAllPermissionsexceptFourEyePrinciple</a></td><td rowspan="1">1631107092502</td><td rowspan="1">18666</td></tr><tr class="passedeven"><td><a href="#m8">verifyCopyDefaultPermissionGroup</a></td><td rowspan="1">1631107067783</td><td rowspan="1">24714</td></tr><tr class="passedeven"><td><a href="#m9">verifyDefaultPermissionGroup</a></td><td rowspan="1">1631107005225</td><td rowspan="1">12012</td></tr><tr class="passedeven"><td><a href="#m10">verifyDeleteDefaultPermissionGroup</a></td><td rowspan="1">1631107017243</td><td rowspan="1">17764</td></tr><tr class="passedeven"><td><a href="#m11">verifyDeletePermissionGroup</a></td><td rowspan="1">1631107239762</td><td rowspan="1">20065</td></tr><tr class="passedeven"><td><a href="#m12">verifyDeletePermissionGroupotherthanDefaultassignedtoUser</a></td><td rowspan="1">1631107146725</td><td rowspan="1">20615</td></tr><tr class="passedeven"><td><a href="#m13">verifyEditDefaultPermissionGroup</a></td><td rowspan="1">1631107035011</td><td rowspan="1">15999</td></tr><tr class="passedeven"><td><a href="#m14">verifyEnablePermissioncbEnabledwhenViewUsersnotenabled</a></td><td rowspan="1">1631107280214</td><td rowspan="1">20846</td></tr><tr class="passedeven"><td><a href="#m15">verifyPermissionforBoardinGroup</a></td><td rowspan="1">1631107379250</td><td rowspan="1">18849</td></tr><tr class="passedeven"><td><a href="#m16">verifyPermissionforBranchinGroup</a></td><td rowspan="1">1631107517954</td><td rowspan="1">20532</td></tr><tr class="passedeven"><td><a href="#m17">verifyPermissionforEmailTemplateinGroup</a></td><td rowspan="1">1631107477241</td><td rowspan="1">21068</td></tr><tr class="passedeven"><td><a href="#m18">verifyPermissionforEquipmentinGroup</a></td><td rowspan="1">1631107398104</td><td rowspan="1">19912</td></tr><tr class="passedeven"><td><a href="#m19">verifyPermissionforNodesinGroup</a></td><td rowspan="1">1631107301064</td><td rowspan="1">20270</td></tr><tr class="passedeven"><td><a href="#m20">verifyPermissionforPacketizerinGroup</a></td><td rowspan="1">1631107321337</td><td rowspan="1">17753</td></tr><tr class="passedeven"><td><a href="#m21">verifyPermissionforSIPTrunkinGroup</a></td><td rowspan="1">1631107339093</td><td rowspan="1">20485</td></tr><tr class="passedeven"><td><a href="#m22">verifyPermissionforServerIncidentsinGroup</a></td><td rowspan="1">1631107498313</td><td rowspan="1">19639</td></tr><tr class="passedeven"><td><a href="#m23">verifyPermissionforStorageSettingsinGroup</a></td><td rowspan="1">1631107418019</td><td rowspan="1">20021</td></tr><tr class="passedeven"><td><a href="#m24">verifyPermissionforSysteminGroup</a></td><td rowspan="1">1631107438043</td><td rowspan="1">18783</td></tr><tr class="passedeven"><td><a href="#m25">verifyPermissionforTracesinGroup</a></td><td rowspan="1">1631107456829</td><td rowspan="1">20408</td></tr><tr class="passedeven"><td><a href="#m26">verifyPermissionforTrunkinGroup</a></td><td rowspan="1">1631107359581</td><td rowspan="1">19668</td></tr><tr class="passedeven"><td><a href="#m27">verifyPermissionforUserinGroups</a></td><td rowspan="1">1631107259830</td><td rowspan="1">20380</td></tr><tr class="passedeven"><td><a href="#m28">verifyViewDefaultPermissionGroup</a></td><td rowspan="1">1631107051015</td><td rowspan="1">16763</td></tr><tr class="passedeven"><td><a href="#m29">verifyViewServerPermissionAgainstPage</a></td><td rowspan="1">1631107538489</td><td rowspan="1">19939</td></tr><tr class="passedeven"><td><a href="#m30">verifyViewServerPermissiondisabled</a></td><td rowspan="1">1631107558429</td><td rowspan="1">21608</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">ServerAdministration.Server#f</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">ServerAdministration.ServerPermissions#ClearPermissionsAfterTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: Element &lt;a id=&quot;ctl00_ctrl_LeftMenuCloud1_hlnkPermissions&quot; href=&quot;PermissionRole.aspx&quot;&gt; is not clickable at point (104,276) because another element &lt;div id=&quot;Clientloading&quot; class=&quot;LoadingClass&quot;&gt; obscures it
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;DESKTOP-RTH7PMT&apos;, ip: &apos;172.20.12.26&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d961833e-b694-4a23-b6b2-ec02b7430323, clickElement {id=9bf6293f-85c6-483b-8083-f711165182ac}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 91.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210823123856, moz:debuggerAddress: localhost:55788, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 12984, moz:profile: C:\Users\Administrator\AppD..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), se:cdp: ws://localhost:55788/devtoo..., se:cdpVersion: 85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Element: [[FirefoxDriver: firefox on WINDOWS (d961833e-b694-4a23-b6b2-ec02b7430323)] -&gt; id: ctl00_ctrl_LeftMenuCloud1_hlnkPermissions]
+Session ID: d961833e-b694-4a23-b6b2-ec02b7430323
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:237)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:75)
+	at ServerAdministration.ServerPermissions.ClearPermissionsAfterTest(ServerPermissions.java:2457)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">ServerAdministration.ServerPermissions#verifyAddNewPermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">ServerAdministration.ServerPermissions#verifyAddNewPermissionGroupwithDescription</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">ServerAdministration.ServerPermissions#verifyAddNewPermissionGroupwithLength50</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">ServerAdministration.ServerPermissions#verifyAddNewPermissionGroupwithSpecialCharacters</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">ServerAdministration.ServerPermissions#verifyAddNewPermissionGroupwithmaxLength</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">ServerAdministration.ServerPermissions#verifyAddNewPermissionGroupwithoutGroupName</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">ServerAdministration.ServerPermissions#verifyAllPermissionsexceptFourEyePrinciple</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">ServerAdministration.ServerPermissions#verifyCopyDefaultPermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">ServerAdministration.ServerPermissions#verifyDefaultPermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">ServerAdministration.ServerPermissions#verifyDeleteDefaultPermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">ServerAdministration.ServerPermissions#verifyDeletePermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">ServerAdministration.ServerPermissions#verifyDeletePermissionGroupotherthanDefaultassignedtoUser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">ServerAdministration.ServerPermissions#verifyEditDefaultPermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">ServerAdministration.ServerPermissions#verifyEnablePermissioncbEnabledwhenViewUsersnotenabled</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">ServerAdministration.ServerPermissions#verifyPermissionforBoardinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m16">ServerAdministration.ServerPermissions#verifyPermissionforBranchinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m17">ServerAdministration.ServerPermissions#verifyPermissionforEmailTemplateinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m18">ServerAdministration.ServerPermissions#verifyPermissionforEquipmentinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m19">ServerAdministration.ServerPermissions#verifyPermissionforNodesinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m20">ServerAdministration.ServerPermissions#verifyPermissionforPacketizerinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m21">ServerAdministration.ServerPermissions#verifyPermissionforSIPTrunkinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m22">ServerAdministration.ServerPermissions#verifyPermissionforServerIncidentsinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m23">ServerAdministration.ServerPermissions#verifyPermissionforStorageSettingsinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m24">ServerAdministration.ServerPermissions#verifyPermissionforSysteminGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m25">ServerAdministration.ServerPermissions#verifyPermissionforTracesinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m26">ServerAdministration.ServerPermissions#verifyPermissionforTrunkinGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m27">ServerAdministration.ServerPermissions#verifyPermissionforUserinGroups</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m28">ServerAdministration.ServerPermissions#verifyViewDefaultPermissionGroup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m29">ServerAdministration.ServerPermissions#verifyViewServerPermissionAgainstPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m30">ServerAdministration.ServerPermissions#verifyViewServerPermissiondisabled</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

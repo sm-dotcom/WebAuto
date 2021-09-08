@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 //import java.util.List;
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
@@ -59,7 +61,7 @@ public class NewTestPage {
 	
 	public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
 
-	String driverPath = "C:\\Users\\sarah.mahmood\\Downloads\\gecko-driver\\geckodriver.exe";
+	String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
 		
 	public WebDriver driver;	
 	
@@ -76,36 +78,97 @@ public class NewTestPage {
 ///* 
 //* Open "Incident Subscription" and see if check box is mark as check
 //*/		
-	@Test (priority = 1)
-	public void checkEmail_SMScheckbox_isCheckedinIncidentSubscription() throws InterruptedException, IOException {
-		System.setProperty("webdriver.gecko.driver", driverPath);
-	    driver = new FirefoxDriver();
-	    driver.get(baseUrl);
-    
-	       // Signing in OmniPCX 
-	      driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
-	      driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
-	      driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
-	      
-	        // Click On Permissions 
-	        Thread.sleep(10000);
-		    driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
-	 	    
-//		    (SharedFunctions)sf).loginServerAdmin();
-//			  ((SharedFunctions)sf).clickPermissions();
-//         		Thread.sleep(10000);
-	     	    
-         		// Get Delete button and check if it's enabled
-         		String actual = driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr/td[3]/div/img[4]")).getAttribute("class");
-         		System.out.println(actual);
-         		String expected = "";
-       
-         		Assert.assertEquals(actual,expected);
-	  	  
-//	  	MakeDirectory();
-         		
-         		driver.close();         		
-  }	
+//	@Test (priority = 1)
+//	public void checkEmail_SMScheckbox_isCheckedinIncidentSubscription() throws InterruptedException, IOException {
+//		System.setProperty("webdriver.gecko.driver", driverPath);
+//	    driver = new FirefoxDriver();
+//	    driver.get(baseUrl);
+//    
+//	       // Signing in OmniPCX 
+//	      driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+//	      driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+//	      driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+//	      
+//	        // Click On Permissions 
+//	        Thread.sleep(10000);
+//		    driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
+//	 	    
+////		    (SharedFunctions)sf).loginServerAdmin();
+////			  ((SharedFunctions)sf).clickPermissions();
+////         		Thread.sleep(10000);
+//	     	    
+//         		// Get Delete button and check if it's enabled
+//         		String actual = driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr/td[3]/div/img[4]")).getAttribute("class");
+//         		System.out.println(actual);
+//         		String expected = "";
+//       
+//         		Assert.assertEquals(actual,expected);
+//	  	  
+////	  	MakeDirectory();
+//         		
+//         		driver.close();         		
+//  }	
+	
+
+	
+	
+	@Test (priority = 0)
+	public void ClearBranchTable() throws InterruptedException {
+
+	driver.get(baseUrl);
+
+	// Signing in OmniPCX
+	driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+	driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+	driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+
+	// Click On Branches
+	//Thread.sleep(2000);
+	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink5")).click();
+
+
+	// int size = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).size();
+
+	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr"));
+	int rowscount = rows.size();
+	System.out.println(rowscount);
+
+	for (int i=1 ; i<=rowscount; i++)
+	{
+
+	// Check if branch is already disabled then click delete
+	String title = driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[4]/img")).getAttribute("title");
+	if (title.equals("Disabled")) {
+
+	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
+
+	driver.findElement(By.id("btnDelete")).click();
+	i=i+1;
+	}
+
+	// If branch is active, edit > Disable
+	else {
+	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).click();
+	Select dropdown = new Select(driver.findElement(By.id("ddlBranchLicenseEnable")));
+	dropdown.selectByValue("0");
+
+	driver.findElement(By.id("btnSvae")).click();
+
+	// driver.switchTo().alert();
+	driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button")).click();
+	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
+
+	driver.findElement(By.id("btnDelete")).click();
+	i=i+1;
+
+	}
+
+	}
+
+	driver.close();
+	}
+	
+	
 	
 	
 

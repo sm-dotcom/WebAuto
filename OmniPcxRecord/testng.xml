@@ -3,22 +3,13 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="ServerAdministration.ServerIncidents"/>
-      <class name="ServerAdministration.ServerTracesandDecryptAuditLog"/>
-      <class name="ServerAdministration.ServerUser"/>
-      <class name="ServerAdministration.ServerNodesandPCMllSettings"/>
-      <class name="ServerAdministration.ServerSIPTrunkRecording"/>
-      <class name="ServerAdministration.ServerBranches"/>
-      <class name="ServerAdministration.ServerSystemConfiguration"/>
-      <class name="ServerAdministration.NewTestPage"/>
-      <class name="ServerAdministration.ServerEmailTemplates"/>
-      <class name="ServerAdministration.QuickSuiteTeams"/>
-      <class name="ServerAdministration.ServerChangePassword"/>
-      <class name="ServerAdministration.ServerPermissions"/>
-      <class name="ServerAdministration.ServerStorageSettings"/>
-      <class name="ServerAdministration.ServerReport"/>
-      <class name="ServerAdministration.ServerBoardandEquipment"/>
-      <class name="ServerAdministration.ServerSMSNotificationSettings"/>
+
+      <class name="ServerAdministration.ServerPermissions">
+      <methods>
+      <include name = "ClearPermissionsAfterTest"/>
+      </methods>
+      </class>
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

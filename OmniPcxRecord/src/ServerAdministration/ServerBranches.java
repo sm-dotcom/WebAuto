@@ -1907,6 +1907,67 @@ public class ServerBranches {
                } 
                 
 
+                
+////////////////Clear Branch Data                 
+            	@Test (priority = 32)
+            	public void ClearBranchTable() throws InterruptedException {
+
+            	driver.get(baseUrl);
+
+            	// Signing in OmniPCX
+            	driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+            	driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+            	driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+
+            	// Click On Branches
+            	//Thread.sleep(2000);
+            	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink5")).click();
+
+
+            	// int size = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).size();
+
+            	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr"));
+            	int rowscount = rows.size();
+            	System.out.println(rowscount);
+
+            	for (int i=1 ; i<=rowscount; i++)
+            	{
+
+            	// Check if branch is already disabled then click delete
+            	String title = driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[4]/img")).getAttribute("title");
+            	if (title.equals("Disabled")) {
+
+            	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
+
+            	driver.findElement(By.id("btnDelete")).click();
+            	i=i+1;
+            	}
+
+            	// If branch is active, edit > Disable
+            	else {
+            	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).click();
+            	Select dropdown = new Select(driver.findElement(By.id("ddlBranchLicenseEnable")));
+            	dropdown.selectByValue("0");
+
+            	driver.findElement(By.id("btnSvae")).click();
+
+            	// driver.switchTo().alert();
+            	driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button")).click();
+            	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
+
+            	driver.findElement(By.id("btnDelete")).click();
+            	i=i+1;
+
+            	}
+
+            	}
+
+            	driver.close();
+            	}
+            	
+                
+                
+
                 @AfterClass
                 public void tearDown() throws Exception {
             	        driver.quit();	}               

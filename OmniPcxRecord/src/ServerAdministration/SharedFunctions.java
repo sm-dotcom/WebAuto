@@ -47,28 +47,29 @@ public class  SharedFunctions {
 	}
 	
 	
-	public void TakeScreenshot(WebDriver driver, String TestCaseID, String Status)
+	public void TakeScreenshot(WebDriver driver, String TestCaseID, String Status, String ClassName)
 	{
-		TakesScreenshot ts = (TakesScreenshot) driver;
+	TakesScreenshot ts = (TakesScreenshot) driver;
 
-		// capture screenshot as output type FILE
-		File file = ts.getScreenshotAs(OutputType.FILE);
+	// capture screenshot as output type FILE
+	File file = ts.getScreenshotAs(OutputType.FILE);
 
-		try {
-			// save the screenshot taken in destination path
-			FileUtils.copyFile(file, new File("C:\\Users\\sarah.mahmood\\Desktop\\ServerPermissions\\"+TestCaseID+"_"+Status+".png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	try {
+	// save the screenshot taken in destination path
+	FileUtils.copyFile(file, new File("C:\\Users\\Administrator\\Pictures\\Screenshots\\"+ClassName+"\\"+Status+"\\"+TestCaseID+"_"+Status+".png"));
+
+	} catch (IOException e) {
+	e.printStackTrace();
+	}
 	}
 	
-	public void MakeDirectory() {
-		String Path = "C:\\Users\\sarah.mahmood\\Desktop\\";
-	    String FileName = "ServerPermissions";
-	    Path = Path + FileName;
-	    System.out.println( Path);	    
-	    File dir1 = new File(Path);  //Specify the Folder name here
-	    dir1.mkdir();  //Creates the folder with the above specified name	
-	}
+//	public void MakeDirectory() {
+//		String Path = "C:\\Users\\sarah.mahmood\\Desktop\\";
+//	    String FileName = "ServerPermissions";
+//	    Path = Path + FileName;
+//	    System.out.println( Path);	    
+//	    File dir1 = new File(Path);  //Specify the Folder name here
+//	    dir1.mkdir();  //Creates the folder with the above specified name	
+//	}
 	
 }
