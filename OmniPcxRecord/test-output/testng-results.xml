@@ -1,61 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+<testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-09T18:35:44 PKT" name="Default suite" finished-at="2021-09-09T18:37:55 PKT" duration-ms="130684">
+  <suite started-at="2021-09-10T17:15:52 PKT" name="Default suite" finished-at="2021-09-10T17:18:29 PKT" duration-ms="157456">
     <groups>
     </groups>
-    <test started-at="2021-09-09T18:35:44 PKT" name="Default test" finished-at="2021-09-09T18:37:55 PKT" duration-ms="130684">
+    <test started-at="2021-09-10T17:15:52 PKT" name="Default test" finished-at="2021-09-10T17:18:29 PKT" duration-ms="157456">
       <class name="ServerAdministration.Permissions">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:35:44 PKT" name="beforeTest" finished-at="2021-09-09T18:35:54 PKT" duration-ms="9868" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:15:52 PKT" name="beforeTest" finished-at="2021-09-10T17:16:01 PKT" duration-ms="9521" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="verifyDefaultPermissionGroup()[pri:0, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:35:54 PKT" name="verifyDefaultPermissionGroup" finished-at="2021-09-09T18:36:12 PKT" duration-ms="17793" status="PASS">
+        <test-method signature="verifyDefaultPermissionGroup()[pri:0, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:16:01 PKT" name="verifyDefaultPermissionGroup" finished-at="2021-09-10T17:16:26 PKT" duration-ms="24403" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDefaultPermissionGroup -->
-        <test-method signature="verifyDeleteDefaultPermissionGroup()[pri:1, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:36:12 PKT" name="verifyDeleteDefaultPermissionGroup" finished-at="2021-09-09T18:36:21 PKT" duration-ms="9207" status="PASS">
+        <test-method signature="verifyDeleteDefaultPermissionGroup()[pri:1, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:16:26 PKT" name="verifyDeleteDefaultPermissionGroup" finished-at="2021-09-10T17:16:35 PKT" duration-ms="8802" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDeleteDefaultPermissionGroup -->
-        <test-method signature="verifyEditDefaultPermissionGroup()[pri:2, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:36:21 PKT" name="verifyEditDefaultPermissionGroup" finished-at="2021-09-09T18:36:29 PKT" duration-ms="8144" status="PASS">
+        <test-method signature="verifyEditDefaultPermissionGroup()[pri:2, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:16:35 PKT" name="verifyEditDefaultPermissionGroup" finished-at="2021-09-10T17:16:43 PKT" duration-ms="8244" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyEditDefaultPermissionGroup -->
-        <test-method signature="verifyViewDefaultPermissionGroup()[pri:3, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:36:29 PKT" name="verifyViewDefaultPermissionGroup" finished-at="2021-09-09T18:36:39 PKT" duration-ms="9599" status="PASS">
+        <test-method signature="verifyViewDefaultPermissionGroup()[pri:3, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:16:43 PKT" name="verifyViewDefaultPermissionGroup" finished-at="2021-09-10T17:16:53 PKT" duration-ms="10125" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyViewDefaultPermissionGroup -->
-        <test-method signature="verifyCopyDefaultPermissionGroup()[pri:4, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:36:39 PKT" name="verifyCopyDefaultPermissionGroup" finished-at="2021-09-09T18:36:49 PKT" duration-ms="10171" status="PASS">
+        <test-method signature="verifyCopyDefaultPermissionGroup()[pri:4, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:16:53 PKT" name="verifyCopyDefaultPermissionGroup" finished-at="2021-09-10T17:17:03 PKT" duration-ms="10109" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCopyDefaultPermissionGroup -->
-        <test-method signature="verifyAllPermissionsexceptFourEyePrinciple()[pri:5, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:36:49 PKT" name="verifyAllPermissionsexceptFourEyePrinciple" finished-at="2021-09-09T18:37:00 PKT" duration-ms="10949" status="PASS">
+        <test-method signature="verifyAllPermissionsexceptFourEyePrinciple()[pri:5, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:17:03 PKT" name="verifyAllPermissionsexceptFourEyePrinciple" finished-at="2021-09-10T17:17:14 PKT" duration-ms="11248" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAllPermissionsexceptFourEyePrinciple -->
-        <test-method signature="verifyAddNewPermissionGroupwithDescription()[pri:6, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:37:00 PKT" name="verifyAddNewPermissionGroupwithDescription" finished-at="2021-09-09T18:37:10 PKT" duration-ms="9625" status="PASS">
+        <test-method signature="verifyAddNewPermissionGroupwithDescription()[pri:6, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:17:14 PKT" name="verifyAddNewPermissionGroupwithDescription" finished-at="2021-09-10T17:17:24 PKT" duration-ms="9960" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAddNewPermissionGroupwithDescription -->
-        <test-method signature="verifyAddNewPermissionGroup()[pri:7, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:37:10 PKT" name="verifyAddNewPermissionGroup" finished-at="2021-09-09T18:37:20 PKT" duration-ms="10096" status="PASS">
+        <test-method signature="verifyAddNewPermissionGroup()[pri:7, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:17:24 PKT" name="verifyAddNewPermissionGroup" finished-at="2021-09-10T17:17:34 PKT" duration-ms="10072" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAddNewPermissionGroup -->
-        <test-method signature="verifyAddNewPermissionGroupwithoutGroupName()[pri:9, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:37:20 PKT" name="verifyAddNewPermissionGroupwithoutGroupName" finished-at="2021-09-09T18:37:30 PKT" duration-ms="10434" status="PASS">
+        <test-method signature="verifyAddNewPermissionGroupwithoutGroupName()[pri:9, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:17:34 PKT" name="verifyAddNewPermissionGroupwithoutGroupName" finished-at="2021-09-10T17:17:45 PKT" duration-ms="10493" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAddNewPermissionGroupwithoutGroupName -->
-        <test-method signature="verifyAddNewPermissionGroupwithmaxLength()[pri:13, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:37:30 PKT" name="verifyAddNewPermissionGroupwithmaxLength" finished-at="2021-09-09T18:37:39 PKT" duration-ms="8748" status="PASS">
+        <test-method signature="verifyAddNewPermissionGroupwithmaxLength()[pri:13, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:17:45 PKT" name="verifyAddNewPermissionGroupwithmaxLength" finished-at="2021-09-10T17:17:54 PKT" duration-ms="8875" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAddNewPermissionGroupwithmaxLength -->
-        <test-method signature="verifyDeletePermissionGroup()[pri:14, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:37:39 PKT" name="verifyDeletePermissionGroup" finished-at="2021-09-09T18:37:52 PKT" duration-ms="12799" status="PASS">
+        <test-method signature="verifyDeletePermissionGroup()[pri:14, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:17:54 PKT" name="verifyDeletePermissionGroup" finished-at="2021-09-10T17:18:07 PKT" duration-ms="13395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDeletePermissionGroup -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:ServerAdministration.Permissions@35cabb2a]" started-at="2021-09-09T18:37:52 PKT" name="afterTest" finished-at="2021-09-09T18:37:55 PKT" duration-ms="3061" status="PASS">
+        <test-method signature="ClearPermissionsAfterTest()[pri:30, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:18:07 PKT" name="ClearPermissionsAfterTest" finished-at="2021-09-10T17:18:25 PKT" duration-ms="17953" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClearPermissionsAfterTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:ServerAdministration.Permissions@7e07db1f]" started-at="2021-09-10T17:18:25 PKT" name="afterTest" finished-at="2021-09-10T17:18:29 PKT" duration-ms="3955" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

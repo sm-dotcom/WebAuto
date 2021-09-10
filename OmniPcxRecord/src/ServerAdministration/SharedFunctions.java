@@ -55,6 +55,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	FirefoxProfile profile = new FirefoxProfile();
 	FirefoxOptions options = new FirefoxOptions();
 	options.setProfile(profile);
+	options.setHeadless(true);
 	driver = new FirefoxDriver(options);
 	
 //	driver = new FirefoxDriver(options);

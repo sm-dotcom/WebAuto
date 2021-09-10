@@ -29,6 +29,7 @@ import org.openqa.selenium.support.ui.Select;
 //import org.openqa.selenium.remote.ScreenshotException;
 //import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 //import org.testng.annotations.AfterTest;
 //import com.twilio.jwt.accesstoken.AccessToken;
 //import com.twilio.jwt.accesstoken.ChatGrant;
@@ -58,20 +59,24 @@ import org.testng.annotations.Test;
 public class NewTestPage {
   
 	public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
-	
+
 	public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
 
-	String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
-		
-	public WebDriver driver;	
+	public WebDriver driver;
+//	public String SheetName = "29- Permission's";
+
 	
-//	public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
-//
-//	public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
-	
-	public SharedFunctions sf = new SharedFunctions();
-	
+   public SharedFunctions sf = new SharedFunctions();
+     
 	UpdateTestResult obj = new UpdateTestResult();
+
+
+	@BeforeClass
+	public void beforeTest() {
+		
+		System.out.println(this.getClass().getName());
+		driver=((SharedFunctions)sf).InitializeDriver(); 
+    }
 	  
 	
 ////Test ID: 31-28
@@ -112,62 +117,118 @@ public class NewTestPage {
 
 	
 	
-	@Test (priority = 0)
-	public void ClearBranchTable() throws InterruptedException {
-
-	driver.get(baseUrl);
-
-	// Signing in OmniPCX
-	driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
-	driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
-	driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
-
-	// Click On Branches
-	//Thread.sleep(2000);
-	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink5")).click();
-
-
-	// int size = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).size();
-
-	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr"));
+//	@Test (priority = 0)
+//	public void ClearBranchTable() throws InterruptedException {
+//
+//	driver.get(baseUrl);
+//
+//	// Signing in OmniPCX
+//	driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+//	driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+//	driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+//
+//	// Click On Branches
+//	//Thread.sleep(2000);
+//	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink5")).click();
+//
+//
+//	// int size = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).size();
+//
+//	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr"));
+//	int rowscount = rows.size();
+//	System.out.println(rowscount);
+//
+//	for (int i=1 ; i<=rowscount; i++)
+//	{
+//
+//	// Check if branch is already disabled then click delete
+//	String title = driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[4]/img")).getAttribute("title");
+//	if (title.equals("Disabled")) {
+//
+//	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
+//
+//	driver.findElement(By.id("btnDelete")).click();
+//	i=i+1;
+//	}
+//
+//	// If branch is active, edit > Disable
+//	else {
+//	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).click();
+//	Select dropdown = new Select(driver.findElement(By.id("ddlBranchLicenseEnable")));
+//	dropdown.selectByValue("0");
+//
+//	driver.findElement(By.id("btnSvae")).click();
+//
+//	// driver.switchTo().alert();
+//	driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button")).click();
+//	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
+//
+//	driver.findElement(By.id("btnDelete")).click();
+//	i=i+1;
+//
+//	}
+//
+//	}
+//
+//	driver.close();
+//	}
+	
+	
+	
+	
+	
+	
+	@Test (priority = 30)
+	public void ClearPermissionsAfterTest() throws InterruptedException, IOException {
+		
+		driver.get(baseUrl);
+		
+	((SharedFunctions)sf).loginServerAdmin(driver);
+	((SharedFunctions)sf).clickPermissions(driver);
+	
+//	// Delete remaining Users and Permission group
+//	// Users
+//	// Click on Users
+//	//Thread.sleep(10000);
+//	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
+//	
+//	//Thread.sleep(7000);
+//	
+//	// Click all check-boxes
+//	List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+//	for (WebElement el:elements) {
+//	el.click(); }
+//	
+//	// Click multiple delete
+//	driver.findElement(By.id("dltMultiple")).click();
+//	
+//	//Thread.sleep(7000);
+//	
+//	// Click on delete selected
+//	driver.findElement(By.xpath("/html/body/ul[1]")).click();
+//	
+//	// Click on delete button
+//	//Thread.sleep(5000);
+//	driver.findElement(By.id("btnDelete")).click();
+//	
+//	// Click On Permissions
+//	//Thread.sleep(7000);
+//	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();	
+//	
+	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
 	int rowscount = rows.size();
 	System.out.println(rowscount);
-
-	for (int i=1 ; i<=rowscount; i++)
+	
+	for (int i=2 ; i<=rowscount; i++)
 	{
-
-	// Check if branch is already disabled then click delete
-	String title = driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[4]/img")).getAttribute("title");
-	if (title.equals("Disabled")) {
-
-	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
-
+	////Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
+	
 	driver.findElement(By.id("btnDelete")).click();
-	i=i+1;
-	}
-
-	// If branch is active, edit > Disable
-	else {
-	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[2]")).click();
-	Select dropdown = new Select(driver.findElement(By.id("ddlBranchLicenseEnable")));
-	dropdown.selectByValue("0");
-
-	driver.findElement(By.id("btnSvae")).click();
-
-	// driver.switchTo().alert();
-	driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button")).click();
-	driver.findElement(By.xpath("//*[@id=\"tblBranch\"]/tbody/tr[1]/td[5]/img[3]")).click();
-
-	driver.findElement(By.id("btnDelete")).click();
-	i=i+1;
-
-	}
-
-	}
-
-	driver.close();
 	}
 	
+	driver.close();	  		  		  
+	} 
 	
 	
 	

@@ -59,13 +59,14 @@ public class Permissions {
 			
 			((SharedFunctions)sf).loginServerAdmin(driver);
 			((SharedFunctions)sf).clickPermissions(driver);
-
+			Thread.sleep(3000);
 
 			// Only Admin Data would be present in the table Groups | Descriptions
 			String expectedColumnData = "Server admin Administrator for the server configuration";
 
 			// Get's Table data form User's Table and returns whole table data
 			// Following code get's row data from the table and prints it
+			Thread.sleep(2000);
 			List<WebElement> allColumnsInRow = driver.findElements(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr"));
 			for (WebElement e : allColumnsInRow) {
 //            System.out.println(e.getText());
@@ -2208,12 +2209,12 @@ public class Permissions {
 /////////////////////////////////////////      
 /////////Clear data after all test run      
 ////////////////////////////////////////
-//			@Test (priority = 30)
-//			public void ClearPermissionsAfterTest() throws InterruptedException {
-//				driver.get(baseUrl);
-//				
-//			((SharedFunctions)sf).loginServerAdmin(driver);
-//			((SharedFunctions)sf).clickPermissions(driver);
+			@Test (priority = 30)
+			public void ClearPermissionsAfterTest() throws InterruptedException {
+				driver.get(baseUrl);
+				
+			((SharedFunctions)sf).loginServerAdmin(driver);
+			((SharedFunctions)sf).clickPermissions(driver);
 //			
 //			// Delete remaining Users and Permission group
 //			// Users
@@ -2244,20 +2245,20 @@ public class Permissions {
 //			//Thread.sleep(7000);
 //			driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();	
 ////			
-//			List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
-//			int rowscount = rows.size();
-//			System.out.println(rowscount);
-//			
-//			for (int i=2 ; i<=rowscount; i++)
-//			{
-//			////Thread.sleep(2000);
-//			driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
-//			
-//			driver.findElement(By.id("btnDelete")).click();
-//			}
-//			
-//			driver.close();	  		  		  
-//			} 	
+			List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
+			int rowscount = rows.size();
+			System.out.println(rowscount);
+			
+			for (int i=2 ; i<=rowscount; i++)
+			{
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
+			
+			driver.findElement(By.id("btnDelete")).click();
+			}
+			
+			driver.close();	  		  		  
+			} 	
 	
 	
 	
