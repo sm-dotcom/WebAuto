@@ -3,13 +3,21 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="ServerAdministration.ServerPermissions">
+      <class name="ServerAdministration.Permissions">
         <methods>
-          <include name="afterTest"/>
-          <include name="beforeTest"/>
+          <include name="verifyAddNewPermissionGroupwithSpecialCharacters"/>
           <include name="ClearPermissionsAfterTest"/>
+          <include name="verifyAllPermissionsexceptFourEyePrinciple"/>
+          <include name="verifyCopyDefaultPermissionGroup"/>
+          <include name="verifyAddNewPermissionGroupwithDescription"/>
+          <include name="verifyEditDefaultPermissionGroup"/>
+          <include name="verifyAddNewPermissionGroupwithoutGroupName"/>
+          <include name="beforeTest"/>
+          <include name="verifyViewDefaultPermissionGroup"/>
+          <include name="verifyAddNewPermissionGroup"/>
+          <include name="verifyDeletePermissionGroup"/>
         </methods>
-      </class> <!-- ServerAdministration.ServerPermissions -->
+      </class> <!-- ServerAdministration.Permissions -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

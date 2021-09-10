@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ServerAdministration.ServerPermissions">
+      <class name="ServerAdministration.Permissions">
         <methods>
-          <include name="beforeTest"/>
           <include name="ClearPermissionsAfterTest"/>
-          <include name="afterClass"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
         </methods>
-      </class> <!-- ServerAdministration.ServerPermissions -->
+      </class> <!-- ServerAdministration.Permissions -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
