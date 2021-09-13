@@ -1,6 +1,5 @@
 package ServerAdministration;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -26,8 +25,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -55,7 +54,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	FirefoxProfile profile = new FirefoxProfile();
 	FirefoxOptions options = new FirefoxOptions();
 	options.setProfile(profile);
-	options.setHeadless(true);
+//	options.setHeadless(true);
 	driver = new FirefoxDriver(options);
 	
 //	driver = new FirefoxDriver(options);
@@ -77,9 +76,23 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
         
 	}
+	
+	public void loginSiteAdmin(WebDriver driver)
+	{
+		
+		driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
+		driver.findElement(By.id("Ctrl_Login1_txtPassword")).sendKeys("1234567a");
+		driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click();
+        
+	}
+	
 
-	public  void clickPermissions(WebDriver driver) {
+	public  void clickServerPermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
+	}
+	
+	public  void clickSitePermissions(WebDriver driver) {
+		driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink21")).click();
 	}
 	
 	public  void clickUsers(WebDriver driver) {

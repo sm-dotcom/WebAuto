@@ -70,7 +70,7 @@ public class ServerPermissions {
     			  
     			  
     			  ((SharedFunctions)sf).loginServerAdmin(driver);
-    			  ((SharedFunctions)sf).clickPermissions(driver);
+    			  ((SharedFunctions)sf).clickServerPermissions(driver);
 //    			  ((SharedFunctions)sf).MakeDirectory();
     			  
     			  // Only Admin Data would be present in the table Groups | Descriptions
@@ -127,7 +127,7 @@ public class ServerPermissions {
            	try{
 
            		((SharedFunctions)sf).loginServerAdmin(driver);
-  			    ((SharedFunctions)sf).clickPermissions(driver);
+  			    ((SharedFunctions)sf).clickServerPermissions(driver);
 //			  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
   	     	    
            	    // Get Delete button and check if it's enabled
@@ -178,7 +178,7 @@ public class ServerPermissions {
  		  try{
 
  			 ((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickPermissions(driver);
+			  ((SharedFunctions)sf).clickServerPermissions(driver);
 //			  //Thread.sleep(8000);
   	      
   	      // Get edit  button and check if it's enabled
@@ -232,7 +232,7 @@ public class ServerPermissions {
   		  try{
   			  
   			((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickPermissions(driver);
+			  ((SharedFunctions)sf).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
 			  
 			  // Click on view permissions
@@ -292,7 +292,7 @@ public class ServerPermissions {
   		  try{
   			  
   			((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickPermissions(driver);
+			  ((SharedFunctions)sf).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
   			  
   			// Click on copy(permission groups)
@@ -354,7 +354,7 @@ public class ServerPermissions {
      		  try{
 
      			 ((SharedFunctions)sf).loginServerAdmin(driver);
-   			  ((SharedFunctions)sf).clickPermissions(driver);
+   			  ((SharedFunctions)sf).clickServerPermissions(driver);
    			     ////Thread.sleep(10000);
    			     
    			     // Click on view permissions
@@ -409,7 +409,7 @@ public class ServerPermissions {
   		  try{
   			  
   			((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickPermissions(driver);
+			  ((SharedFunctions)sf).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
 
   		      //Get the table and row                                
@@ -491,7 +491,7 @@ public class ServerPermissions {
     		  try{
             
     			  ((SharedFunctions)sf).loginServerAdmin(driver);
-    			  ((SharedFunctions)sf).clickPermissions(driver);
+    			  ((SharedFunctions)sf).clickServerPermissions(driver);
     			  ////Thread.sleep(10000);
     			  
     			  // Click on Group name and add a new name
@@ -547,7 +547,7 @@ public class ServerPermissions {
 		  try{
 			  
 			  ((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickPermissions(driver);
+			  ((SharedFunctions)sf).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
 			  
 			  // Click on Group name and add a new name
@@ -606,7 +606,7 @@ public class ServerPermissions {
          	try{
          		
          		((SharedFunctions)sf).loginServerAdmin(driver);
-  			  ((SharedFunctions)sf).clickPermissions(driver);
+  			  ((SharedFunctions)sf).clickServerPermissions(driver);
          		////Thread.sleep(10000);
                 
                 // Click on Group name and add a description
@@ -664,7 +664,7 @@ public class ServerPermissions {
          	try{
          		
          		((SharedFunctions)sf).loginServerAdmin(driver);
-  			  ((SharedFunctions)sf).clickPermissions(driver);
+  			  ((SharedFunctions)sf).clickServerPermissions(driver);
          		////Thread.sleep(10000);
          		
          	    // Click on Group name and add a new name
@@ -724,7 +724,7 @@ public class ServerPermissions {
        	try{
        		
        		((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickPermissions(driver);
+			  ((SharedFunctions)sf).clickServerPermissions(driver);
        		////Thread.sleep(10000);
             
             // Click on Group name and add a new name
@@ -782,7 +782,7 @@ public class ServerPermissions {
          	try{
         
          		((SharedFunctions)sf).loginServerAdmin(driver);
-  			  ((SharedFunctions)sf).clickPermissions(driver);
+  			  ((SharedFunctions)sf).clickServerPermissions(driver);
          		////Thread.sleep(10000);
          		
          	    // Click on Group name and add a new name
@@ -931,7 +931,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
             
           // Click On Permissions
           ////Thread.sleep(7000);
-  		((SharedFunctions)sf).clickPermissions(driver);
+  		((SharedFunctions)sf).clickServerPermissions(driver);
       
           //Get the table and row
     	  WebElement table1 =driver.findElement(By.id("gvGroups"));
@@ -1015,7 +1015,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      	try{
      		
      		((SharedFunctions)sf).loginServerAdmin(driver);
-    		((SharedFunctions)sf).clickPermissions(driver);
+    		((SharedFunctions)sf).clickServerPermissions(driver);
      		////Thread.sleep(10000);
      		
      		 // Click on edit permissions
@@ -1085,7 +1085,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        	try{
        		
        		((SharedFunctions)sf).loginServerAdmin(driver);
-    		((SharedFunctions)sf).clickPermissions(driver);
+    		((SharedFunctions)sf).clickServerPermissions(driver);
        		////Thread.sleep(10000);
             
             // Click on edit permissions
@@ -1150,7 +1150,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
         
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
            		////Thread.sleep(10000);
            		
            	    // Click on edit permissions
@@ -1223,7 +1223,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	      	try{
 	     
 	      		((SharedFunctions)sf).loginServerAdmin(driver);
-	    		((SharedFunctions)sf).clickPermissions(driver);
+	    		((SharedFunctions)sf).clickServerPermissions(driver);
 	      		////Thread.sleep(10000);
 	      		
 	      	    // Click on edit permissions
@@ -1294,7 +1294,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
         
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
          		  ////Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1366,7 +1366,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              	try{
              		
              		((SharedFunctions)sf).loginServerAdmin(driver);
-            		((SharedFunctions)sf).clickPermissions(driver);
+            		((SharedFunctions)sf).clickServerPermissions(driver);
              		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
@@ -1438,7 +1438,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              	try{
             
              		((SharedFunctions)sf).loginServerAdmin(driver);
-            		((SharedFunctions)sf).clickPermissions(driver);
+            		((SharedFunctions)sf).clickServerPermissions(driver);
              		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
@@ -1508,7 +1508,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              	try{
       
              		((SharedFunctions)sf).loginServerAdmin(driver);
-            		((SharedFunctions)sf).clickPermissions(driver);
+            		((SharedFunctions)sf).clickServerPermissions(driver);
              		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
@@ -1578,7 +1578,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  	try{
                 
                  		((SharedFunctions)sf).loginServerAdmin(driver);
-                		((SharedFunctions)sf).clickPermissions(driver);
+                		((SharedFunctions)sf).clickServerPermissions(driver);
                  		////Thread.sleep(10000);
                  		
                  	    // Click on edit permissions
@@ -1650,7 +1650,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
          		
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1719,7 +1719,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
         
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1790,7 +1790,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
         
          		  ((SharedFunctions)sf).loginServerAdmin(driver);
-         		  ((SharedFunctions)sf).clickPermissions(driver);
+         		  ((SharedFunctions)sf).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1860,7 +1860,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
         
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1929,7 +1929,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
          		
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -2000,7 +2000,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          	try{
         
          		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickPermissions(driver);
+        		((SharedFunctions)sf).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions

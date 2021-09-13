@@ -184,7 +184,7 @@ public class NewTestPage {
 		driver.get(baseUrl);
 		
 	((SharedFunctions)sf).loginServerAdmin(driver);
-	((SharedFunctions)sf).clickPermissions(driver);
+	((SharedFunctions)sf).clickServerPermissions(driver);
 	
 //	// Delete remaining Users and Permission group
 //	// Users
