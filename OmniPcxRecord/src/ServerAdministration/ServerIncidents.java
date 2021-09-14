@@ -4,7 +4,6 @@ Created on July 28, 2021
 */
 package ServerAdministration;
 
-
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,6 +18,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import Settings.SharedFunctions;
+import Settings.TestResult;
+import Settings.UpdateTestResult;
 
 public class ServerIncidents {
 	

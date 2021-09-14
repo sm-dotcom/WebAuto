@@ -5,13 +5,14 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
+import Settings.SharedFunctions;
+import Settings.TestResult;
+import Settings.UpdateTestResult;
 
 
 public class Permissions {

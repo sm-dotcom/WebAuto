@@ -328,41 +328,42 @@ public class ServerNodesandPCMllSettings {
 ////Test ID: 16-50
 ///* 
 //* Add node in the system with duplicate node name 
-//*/          
-                    @Test (priority = 8)
-                    public void AddaNodewithDuplicateNodename() throws InterruptedException {
-                         	  
-                    System.setProperty("webdriver.gecko.driver", driverPath);
-                    driver = new FirefoxDriver();
-                    driver.get(baseUrl);
+//*/    
+           @Test (priority = 8)
+           public void AddaNodewithDuplicateNodename() throws InterruptedException {
+                	  
+           System.setProperty("webdriver.gecko.driver", driverPath);
+           driver = new FirefoxDriver();
+           driver.get(baseUrl);
 
-                    // Signing in OmniPCX 
-                    driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
-                    driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
-                    driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+           // Signing in OmniPCX 
+           driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+           driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+           driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+           
+           // Click On Nodes
+           Thread.sleep(7000);
+    	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkNodes")).click();
+    	      
+    	   // Enter a node name
+    	   driver.findElement(By.id("tbNodeName")).sendKeys("AaNode");
+    	      
+    	   // Enter Primary Hostname/IP Address
+    	   driver.findElement(By.id("tbPrimaryIP")).sendKeys("44.21.162.60");  
+    	      
+    	   // Click on save button
+    	   driver.findElement(By.id("btnSave")).click();
+    	   Thread.sleep(4000);
+    	      
+ 		  String expected = "Name already exists";
+ 		  // Get label msg
+     	  String actual = driver.findElement(By.id("lblMessage")).getText();
+   
+     	  Assert.assertEquals(actual, expected);
+ 		  
+		      driver.close();	  
+       }
                     
-                    // Click On Nodes
-                    Thread.sleep(7000);
-             	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkNodes")).click();
-             	      
-             	   // Enter a node name
-             	   driver.findElement(By.id("tbNodeName")).sendKeys("AaNode");
-             	      
-             	   // Enter Primary Hostname/IP Address
-             	   driver.findElement(By.id("tbPrimaryIP")).sendKeys("44.21.162.60");  
-             	      
-             	   // Click on save button
-             	   driver.findElement(By.id("btnSave")).click();
-             	   Thread.sleep(4000);
-             	      
-          		  String expected = "Name already exists";
-          		  // Get label msg
-              	  String actual = driver.findElement(By.id("lblMessage")).getText();
-            
-              	  Assert.assertEquals(actual, expected);
-          		  
-         		      driver.close();	  
-                }
 
                     
                     

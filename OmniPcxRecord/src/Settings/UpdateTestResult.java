@@ -1,4 +1,9 @@
-package ServerAdministration;
+/**
+ * @author sarah.mahmood
+ *
+ * Sep 14, 2021 6:09:39 PM
+ */
+package Settings;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -97,9 +102,4 @@ public class UpdateTestResult
 		  }
 	}
 }
-
-
-
-
-
 

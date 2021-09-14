@@ -22,7 +22,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
- 
+import Settings.SharedFunctions;
+import Settings.TestResult;
+import Settings.UpdateTestResult; 
 
 public class ServerPermissions {
 	
