@@ -38,6 +38,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import java.util.Random;
+
+
 
 public class SharedFunctions {
 
@@ -120,6 +123,48 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 			e.printStackTrace();
 		}
 	}
+	
+	public String GenerateStringofLength10()
+	{
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+		String randomString = "";
+		int length = 11;
+		
+		Random rand = new Random();
+		char[] text = new char[length];
+		
+		for (int i=0; i<length; i++) {
+			text[i] = characters.charAt(rand.nextInt(characters.length()));	
+		}
+		
+		for (int i = 0; i<text.length; i++) {
+			randomString += text[i];
+		}
+		
+		return randomString;
+	}
+	
+	public String GenerateStringofLength250()
+	{
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+		String randomString = "";
+		int length = 260;
+		
+		Random rand = new Random();
+		char[] text = new char[length];
+		
+		for (int i=0; i<length; i++) {
+			text[i] = characters.charAt(rand.nextInt(characters.length()));	
+		}
+		
+		for (int i = 0; i<text.length; i++) {
+			randomString += text[i];
+		}
+		
+		return randomString;
+	}
+	
+	
 	
 	public void SendEmail()
 	{
