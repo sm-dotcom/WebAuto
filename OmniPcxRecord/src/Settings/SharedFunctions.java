@@ -27,17 +27,22 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 import javax.mail.internet.MimeMultipart;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
+
 import java.util.Random;
 
 
@@ -91,14 +96,92 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		
 		driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
 		driver.findElement(By.id("Ctrl_Login1_txtPassword")).sendKeys("1234567a");
-		driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click();
-        
+		driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click(); 
 	}
 	
 
 	public  void clickServerPermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
 	}
+	
+	public void CreateUser(WebDriver driver) {
+		
+		loginServerAdmin(driver);
+		clickUsers(driver);
+		
+//		driver.findElement(By.id("ctl00_lblLogOut")).click();
+		
+		  // Click on Add Users
+	      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/div/table[1]/tbody/tr[2]/td/a")).click();		
+		  
+	      // Fillout the form for new user
+	      // Locate Fname and enter value
+	      driver.findElement(By.id("tbFirstName")).sendKeys("Maeve");
+	      
+	      // Locate Lname and enter value
+	      driver.findElement(By.id("tbLastName")).sendKeys("Rojas");
+	      
+//	      Thread.sleep(5000);
+	      // Locate username and enter value
+	      driver.findElement(By.id("tbUserName")).sendKeys("Mrojas567");
+	      
+	      // Locate password and enter value
+	      driver.findElement(By.id("tbPassword")).sendKeys("1234567a");
+	      
+	      // Locate confirm password and enter value
+	      driver.findElement(By.id("tbConfirmPassword")).sendKeys("1234567a");
+	      
+//	      Thread.sleep(5000);
+	      // Locate Password Never Expires checkbox and check
+	      WebElement PasswordNeverExpires = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[7]/td[2]/input")) ;
+	      PasswordNeverExpires.click();
+	      
+	      // Locate email and enter value
+	      WebElement emailbox = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[9]/td[2]/input"));
+	      emailbox.sendKeys("nooria.ashraf@amigo-software.com");
+	      
+//	      Thread.sleep(5000);
+	      // Locate Enable Account checkbox and check
+	      WebElement EnableAccount = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr[10]/td[2]/input"));
+	      EnableAccount.click();
+	      
+//	      Thread.sleep(5000);
+	      // Locate Security Groups Roles and Click/Select
+	      WebElement ServerAdmin = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option"));
+	      ServerAdmin.click();
+	      
+	      // Locate ">" and click
+	      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/input")).click();
+	      
+//	      Thread.sleep(5000);
+	      // Locate Save button and click
+	      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/input[1]")).click();
+	      
+//	      Thread.sleep(5000);
+	      // Check alert message
+	      JavascriptExecutor jsx = (JavascriptExecutor)driver;
+	      jsx.executeScript("window.confirm('Settings have been saved successfully')");
+	    
+	      String expectedAlertUserSaved = "Settings have been saved successfully";
+	      Alert confirmation = driver.switchTo().alert();
+	      String actualAlertUserSaved = confirmation.getText(); //Get text present on alert Message
+	    
+	      Assert.assertEquals(actualAlertUserSaved, expectedAlertUserSaved);
+	    
+	      //Print Alert where needed
+	      //System.out.println("Alert text is :" + actualAlert);
+	    
+	      /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
+	      Dismissed user prompt dialog: Settings have been updated successfully:*/
+	      driver.switchTo().alert().accept();
+	   
+//	      Thread.sleep(5000);
+	      // Click on okay button
+//	      Thread.sleep(5000);
+	      driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button/span")).click();
+		
+	}
+	
 	
 	public  void clickSitePermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink21")).click();

@@ -38,44 +38,44 @@ public class SitePermissions {
 ///* 
 //* Verify that default permission group is available 
 //*/	
-//	@Test(priority = 0)
-//	public void verifyDefaultPermissionGroups() throws InterruptedException, IOException {
-//
-//		driver.get(siteUrl);
-//
-////		String TestCaseID = "29-01";
-////		String Status = "";
-//
-//		if (driver == null) {
-//
-//			System.out.println("WebDriver not initialized");
-//			return;
-//		}
-//			
-//			((SharedFunctions)sf).loginSiteAdmin(driver);
-//			Thread.sleep(8000);
-//			((SharedFunctions)sf).clickSitePermissions(driver);
-//			
-//          String[] expectedData  = {"Groups", "Super Admin", "Group Admin", "Agent", "Configuration Manager"};
-//	
-//			List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
-//			  	int rowscount = rows.size();
-//			  	System.out.println(rowscount);
-//			
-//			  String actualData = "";
-//			for (int i=0 ; i<=rowscount; i++){    
-//				List<WebElement> allColumnsInRow=driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+i+"]/td[1]"));
-//		       for(WebElement e: allColumnsInRow) {
-//		//        System.out.println(e.getText());
-//		        actualData = e.getText();
-//		        System.out.println(actualData);
-//		        Assert.assertEquals(actualData, expectedData[i]);
-//		        Thread.sleep(2000);
-//		       }
-//			}			
-//			
+	@Test(priority = 0)
+	public void verifyDefaultPermissionGroups() throws InterruptedException, IOException {
+
+		driver.get(siteUrl);
+
+//		String TestCaseID = "29-01";
+//		String Status = "";
+
+		if (driver == null) {
+
+			System.out.println("WebDriver not initialized");
+			return;
+		}
+			
+			((SharedFunctions)sf).loginSiteAdmin(driver);
+			Thread.sleep(8000);
+			((SharedFunctions)sf).clickSitePermissions(driver);
+			
+          String[] expectedData  = {"Groups", "Super Admin", "Group Admin", "Agent", "Configuration Manager"};
+	
+			List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
+			  	int rowscount = rows.size();
+			  	System.out.println(rowscount);
+			
+			  String actualData = "";
+			for (int i=0 ; i<=rowscount; i++){    
+				List<WebElement> allColumnsInRow=driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+i+"]/td[1]"));
+		       for(WebElement e: allColumnsInRow) {
+		//        System.out.println(e.getText());
+		        actualData = e.getText();
+		        System.out.println(actualData);
+		        Assert.assertEquals(actualData, expectedData[i]);
+		        Thread.sleep(2000);
+		       }
+			}			
+			
 //			driver.close();
-//		  	 } 
+		  	 } 
 	
 	
 	
@@ -90,7 +90,7 @@ public class SitePermissions {
 
 //		String TestCaseID = "29-01";
 //		String Status = "";
-
+		
 		if (driver == null) {
 
 			System.out.println("WebDriver not initialized");
@@ -98,7 +98,7 @@ public class SitePermissions {
 		}
 			
 		((SharedFunctions)sf).loginSiteAdmin(driver);
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		((SharedFunctions)sf).clickSitePermissions(driver);
 		
 		// Click on Group name and add a new name
@@ -108,12 +108,12 @@ public class SitePermissions {
 
 		// Click on add button
 		driver.findElement(By.id("imgbtnAddUpdate")).click();
-		
+		Thread.sleep(3000);
 		// Check if that text is present on page
 		boolean check = driver.getPageSource().contains(groupname);
 		Assert.assertEquals(check, true);
 		
-		driver.close();
+//		driver.close();
 		  	 }	
 
 			
@@ -121,41 +121,42 @@ public class SitePermissions {
 ///* 
 //* Verify the description security group.
 //*/	
-//	@Test(priority = 2)
-//	public void verifyGroupDescription250Characters() throws InterruptedException, IOException {
-//
-//		driver.get(siteUrl);
-//
-////		String TestCaseID = "29-01";
-////		String Status = "";
-//
-//		if (driver == null) {
-//
-//			System.out.println("WebDriver not initialized");
-//			return;
-//		}
-//			
-//		((SharedFunctions)sf).loginSiteAdmin(driver);
-//		Thread.sleep(6000);
-//		((SharedFunctions)sf).clickSitePermissions(driver);
-//		
-//		// Click on Group name and add 
-//		String groupname = ((SharedFunctions)sf).GenerateStringofLength10();
-//		driver.findElement(By.id("txtGroupName")).sendKeys(groupname);
-//		System.out.println(groupname);
-//		
-//		// Click on Group description and add 
-//		String groupdesp = ((SharedFunctions)sf).GenerateStringofLength250();
-//		driver.findElement(By.id("txtDescription")).sendKeys(groupdesp);
-//		System.out.println(groupdesp);
-//		
-//		String groupdespadd = driver.findElement(By.id("txtDescription")).getAttribute("value");
-//		groupdespadd.length();
-//		
-//		Assert.assertEquals(groupdespadd.length(), 250);
-//		
+	@Test(priority = 2)
+	public void verifyGroupDescription250Characters() throws InterruptedException, IOException {
+
+		driver.get(siteUrl);
+
+//		String TestCaseID = "29-01";
+//		String Status = "";
+
+		if (driver == null) {
+
+			System.out.println("WebDriver not initialized");
+			return;
+		}
+			
+		((SharedFunctions)sf).loginSiteAdmin(driver);
+		
+		((SharedFunctions)sf).clickSitePermissions(driver);
+		
+		// Click on Group name and add 
+		String groupname = ((SharedFunctions)sf).GenerateStringofLength10();
+		driver.findElement(By.id("txtGroupName")).sendKeys(groupname);
+		System.out.println(groupname);
+		
+		// Click on Group description and add 
+		String groupdesp = ((SharedFunctions)sf).GenerateStringofLength250();
+		driver.findElement(By.id("txtDescription")).sendKeys(groupdesp);
+		System.out.println(groupdesp);
+		
+		String groupdespadd = driver.findElement(By.id("txtDescription")).getAttribute("value");
+		int len = groupdespadd.length();
+		System.out.println(len);
+		
+		Assert.assertEquals(groupdespadd.length(), 250);
+		
 //		driver.close();
-//		  	 }	
+		  	 }	
 
 
 			
