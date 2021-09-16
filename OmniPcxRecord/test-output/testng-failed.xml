@@ -5,7 +5,7 @@
     <classes>
       <class name="SiteAdministration.SitePermissions">
         <methods>
-          <include name="verifyDefaultPermissionGroup"/>
+          <include name="verifyGroupCreation"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- SiteAdministration.SitePermissions -->
