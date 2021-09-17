@@ -100,8 +100,20 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	}
 	
 
-	public  void clickServerPermissions(WebDriver driver) {
+	public void clickServerPermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
+	}
+	
+	public String GenerateNames() {
+	String names[] = {
+            "Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "William", "Sophia", "Elijah", "Isabella", "Jeff",
+            "James", "Charlotte", "Benjamin", "Amelia", "Lucas", "Mia", "Mason", "Harper", "Ethan", "Evelyn", 
+            "Maeve", "Rojas", "Mark", "Anthony", "Jack", "Black" , "Bloom", "Stella", "Martin", "Edward", "Rowley", 
+        };
+	
+	 System.out.println(names [new Random().nextInt(names.length)]);
+	 return names [new Random().nextInt(names.length)];
+	
 	}
 	
 	public void CreateUser(WebDriver driver) {
@@ -116,10 +128,12 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		  
 	      // Fillout the form for new user
 	      // Locate Fname and enter value
-	      driver.findElement(By.id("tbFirstName")).sendKeys("Maeve");
+	      String fname = GenerateNames();
+	      driver.findElement(By.id("tbFirstName")).sendKeys(); //sendKeys("Maeve");
 	      
 	      // Locate Lname and enter value
-	      driver.findElement(By.id("tbLastName")).sendKeys("Rojas");
+	      String lname = GenerateNames();
+	      driver.findElement(By.id("tbLastName")).sendKeys();
 	      
 //	      Thread.sleep(5000);
 	      // Locate username and enter value
@@ -179,9 +193,26 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	      // Click on okay button
 //	      Thread.sleep(5000);
 	      driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/button/span")).click();
-		
 	}
 	
+	
+	public void CreatePermissionsGroup (WebDriver driver) {
+		
+		loginServerAdmin(driver);
+		clickServerPermissions(driver);
+		
+		// Click on Group name and add a new name
+		driver.findElement(By.id("txtGroupName")).sendKeys("Jackets");
+		
+		driver.findElement(By.id("txtDescription")).sendKeys("A new group is created.");
+
+		// Click on add button
+		driver.findElement(By.id("imgbtnAddUpdate")).click();
+		
+		boolean groupname = driver.findElement(By.xpath("//*[text()='Jackets']")).isDisplayed();
+		Assert.assertEquals(true, groupname);
+		
+	}
 	
 	public  void clickSitePermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink21")).click();
