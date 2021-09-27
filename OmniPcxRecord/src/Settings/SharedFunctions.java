@@ -238,6 +238,20 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		}
 	}
 	
+	
+	public String GenerateGroupNames() {
+		String gnames[] = {
+	            "Titans", "Squad", "Tribe", "United", "Vikings", "Warriors", "Wolf Pack", "Jackets", "Maniacs", "Lightning", "Icons",
+	            "Goal Diggers", "Hot Shots", "Dominators", "Hustle", "Rebels", "Revolution", "Ringmasters", "Rule Breakers", "Shakedown", "Bandits", 
+	            "Brute Force", "Empire", "Fury", "Gladiators", "Inferno", "Trouble Makers" , "Venom", "Samurais", "Matrix", "Kingsmen", "Intimidators", 
+	        };
+		
+		 System.out.println(gnames [new Random().nextInt(gnames.length)]);
+		 return gnames [new Random().nextInt(gnames.length)];
+		
+		}
+	
+	
 	public String GenerateStringofLength10()
 	{
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

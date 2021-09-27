@@ -2,19 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-16T18:19:33 PKT" name="Default suite" finished-at="2021-09-16T18:20:05 PKT" duration-ms="31548">
+  <suite started-at="2021-09-27T17:01:30 PKT" name="Default suite" finished-at="2021-09-27T17:02:06 PKT" duration-ms="35388">
     <groups>
     </groups>
-    <test started-at="2021-09-16T18:19:33 PKT" name="Default test" finished-at="2021-09-16T18:20:05 PKT" duration-ms="31548">
+    <test started-at="2021-09-27T17:01:30 PKT" name="Default test" finished-at="2021-09-27T17:02:06 PKT" duration-ms="35388">
       <class name="SiteAdministration.CallSearch">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:SiteAdministration.CallSearch@dd8ba08]" started-at="2021-09-16T18:19:33 PKT" name="beforeTest" finished-at="2021-09-16T18:19:43 PKT" duration-ms="9913" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:SiteAdministration.CallSearch@6c64cb25]" started-at="2021-09-27T17:01:30 PKT" name="beforeTest" finished-at="2021-09-27T17:01:40 PKT" duration-ms="9998" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="f()[pri:0, instance:SiteAdministration.CallSearch@dd8ba08]" started-at="2021-09-16T18:19:43 PKT" name="f" finished-at="2021-09-16T18:20:05 PKT" duration-ms="21230" status="PASS">
+        <test-method signature="f()[pri:0, instance:SiteAdministration.CallSearch@6c64cb25]" started-at="2021-09-27T17:01:41 PKT" name="f" finished-at="2021-09-27T17:02:04 PKT" duration-ms="23100" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:SiteAdministration.CallSearch@6c64cb25]" started-at="2021-09-27T17:02:04 PKT" name="afterTest" finished-at="2021-09-27T17:02:06 PKT" duration-ms="2179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
       </class> <!-- SiteAdministration.CallSearch -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -38,7 +38,7 @@ public class ServerPermissions {
     
 	public static WebDriver driver;
 
-	public SharedFunctions sf = new SharedFunctions();
+	public SharedFunctions SF = new SharedFunctions();
 	
 	UpdateTestResult obj = new UpdateTestResult();
 	
@@ -47,7 +47,7 @@ public class ServerPermissions {
 	public void beforeTest() {
 		
 		System.out.println(this.getClass().getName());
-		driver=((SharedFunctions)sf).InitializeDriver(); 
+		driver=((SharedFunctions)SF).InitializeDriver(); 
     }
 	
 ////Test ID: 29-01
@@ -71,9 +71,9 @@ public class ServerPermissions {
     		  try{
     			  
     			  
-    			  ((SharedFunctions)sf).loginServerAdmin(driver);
-    			  ((SharedFunctions)sf).clickServerPermissions(driver);
-//    			  ((SharedFunctions)sf).MakeDirectory();
+    			  ((SharedFunctions)SF).loginServerAdmin(driver);
+    			  ((SharedFunctions)SF).clickServerPermissions(driver);
+//    			  ((SharedFunctions)SF).MakeDirectory();
     			  
     			  // Only Admin Data would be present in the table Groups | Descriptions
     	  	      String expectedColumnData ="Server admin Administrator for the server configuration";
@@ -89,7 +89,7 @@ public class ServerPermissions {
     	           }
     	               
     	           Status = "Pass";
-    	           ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+    	           ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     				testresultlist.add(objtestreult);
     				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -97,7 +97,7 @@ public class ServerPermissions {
     			} catch (Throwable e) {
     				System.out.println("Error : " + e);
     				Status = "Fail";
-    				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+    				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     				testresultlist.add(objtestreult);
     			}
@@ -128,8 +128,8 @@ public class ServerPermissions {
            		  
            	try{
 
-           		((SharedFunctions)sf).loginServerAdmin(driver);
-  			    ((SharedFunctions)sf).clickServerPermissions(driver);
+           		((SharedFunctions)SF).loginServerAdmin(driver);
+  			    ((SharedFunctions)SF).clickServerPermissions(driver);
 //			  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
   	     	    
            	    // Get Delete button and check if it's enabled
@@ -140,7 +140,7 @@ public class ServerPermissions {
          		Assert.assertEquals(actual,expected);           		
           
            	 Status = "Pass";
-           	((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+           	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -148,7 +148,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}	
@@ -179,8 +179,8 @@ public class ServerPermissions {
  		  
  		  try{
 
- 			 ((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickServerPermissions(driver);
+ 			 ((SharedFunctions)SF).loginServerAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
 //			  //Thread.sleep(8000);
   	      
   	      // Get edit  button and check if it's enabled
@@ -193,7 +193,7 @@ public class ServerPermissions {
           Assert.assertEquals(false,expectedValue);
           
           Status = "Pass";
-          ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+          ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -201,7 +201,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		} 
@@ -233,8 +233,8 @@ public class ServerPermissions {
   		  
   		  try{
   			  
-  			((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickServerPermissions(driver);
+  			((SharedFunctions)SF).loginServerAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
 			  
 			  // Click on view permissions
@@ -249,7 +249,7 @@ public class ServerPermissions {
 	          Assert.assertEquals(actualTitle, expectedTitle);
 
 	          Status = "Pass";
-	          ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+	          ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -257,7 +257,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -293,8 +293,8 @@ public class ServerPermissions {
   		  
   		  try{
   			  
-  			((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickServerPermissions(driver);
+  			((SharedFunctions)SF).loginServerAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
   			  
   			// Click on copy(permission groups)
@@ -315,7 +315,7 @@ public class ServerPermissions {
   	         }
           
   	       Status = "Pass";
-  	     ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+  	     ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -323,7 +323,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -355,8 +355,8 @@ public class ServerPermissions {
      		  
      		  try{
 
-     			 ((SharedFunctions)sf).loginServerAdmin(driver);
-   			  ((SharedFunctions)sf).clickServerPermissions(driver);
+     			 ((SharedFunctions)SF).loginServerAdmin(driver);
+   			  ((SharedFunctions)SF).clickServerPermissions(driver);
    			     ////Thread.sleep(10000);
    			     
    			     // Click on view permissions
@@ -373,7 +373,7 @@ public class ServerPermissions {
    	 	         Assert.assertEquals(required, false);
    	         
    	 	     Status = "Pass";
-   	 	        ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+   	 	        ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -381,7 +381,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -410,8 +410,8 @@ public class ServerPermissions {
   		  
   		  try{
   			  
-  			((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickServerPermissions(driver);
+  			((SharedFunctions)SF).loginServerAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
 
   		      //Get the table and row                                
@@ -438,7 +438,7 @@ public class ServerPermissions {
   	          jsy.executeScript("window.confirm('Are you sure you want to delete this group?')");
   	         
   	          /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-  	          Dismissed user prompt dialog: Settings have been updated successfully:*/
+  	          Dismissed user prompt dialog: Settings have been updated succesSFully:*/
   	          driver.switchTo().alert().accept();
   	         
   	          // Click on delete button
@@ -446,13 +446,13 @@ public class ServerPermissions {
   	          driver.findElement(By.id("btnDelete")).click(); 
   	          
   	          ////Thread.sleep(6000);
-  	          String Expectedmsg = "Record has been deleted successfully";
+  	          String Expectedmsg = "Record has been deleted succesSFully";
   	          String Actualmsg = driver.findElement(By.id("lblGridMsg")).getText();
   	          
   	          Assert.assertEquals(Actualmsg, Expectedmsg);
   	          
   	        Status = "Pass";
-  	      ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+  	      ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -460,7 +460,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -492,8 +492,8 @@ public class ServerPermissions {
     		  
     		  try{
             
-    			  ((SharedFunctions)sf).loginServerAdmin(driver);
-    			  ((SharedFunctions)sf).clickServerPermissions(driver);
+    			  ((SharedFunctions)SF).loginServerAdmin(driver);
+    			  ((SharedFunctions)SF).clickServerPermissions(driver);
     			  ////Thread.sleep(10000);
     			  
     			  // Click on Group name and add a new name
@@ -507,7 +507,7 @@ public class ServerPermissions {
     		      Assert.assertEquals(true, groupname);
     		      
     		      Status = "Pass";
-    		      ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+    		      ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
   				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
   				testresultlist.add(objtestreult);
   				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -515,7 +515,7 @@ public class ServerPermissions {
   			} catch (Throwable e) {
   				System.out.println("Error : " + e);
   				Status = "Fail";
-  				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+  				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
   				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
   				testresultlist.add(objtestreult);
   			}
@@ -548,8 +548,8 @@ public class ServerPermissions {
 		  
 		  try{
 			  
-			  ((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickServerPermissions(driver);
+			  ((SharedFunctions)SF).loginServerAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
 			  ////Thread.sleep(10000);
 			  
 			  // Click on Group name and add a new name
@@ -566,7 +566,7 @@ public class ServerPermissions {
 		      Assert.assertEquals(true, groupname);
 
 		      Status = "Pass";
-		        ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+		        ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -574,7 +574,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -607,8 +607,8 @@ public class ServerPermissions {
          		  
          	try{
          		
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-  			  ((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+  			  ((SharedFunctions)SF).clickServerPermissions(driver);
          		////Thread.sleep(10000);
                 
                 // Click on Group name and add a description
@@ -624,7 +624,7 @@ public class ServerPermissions {
                 Assert.assertEquals(actualmsg, expectedmsg);   
                 
                 Status = "Pass";
-                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -632,7 +632,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -665,8 +665,8 @@ public class ServerPermissions {
          		  
          	try{
          		
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-  			  ((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+  			  ((SharedFunctions)SF).clickServerPermissions(driver);
          		////Thread.sleep(10000);
          		
          	    // Click on Group name and add a new name
@@ -684,7 +684,7 @@ public class ServerPermissions {
                 Assert.assertEquals(actualgroupadd, expectedgroupadd);
                 
                 Status = "Pass";
-                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -692,7 +692,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -725,8 +725,8 @@ public class ServerPermissions {
        		  
        	try{
        		
-       		((SharedFunctions)sf).loginServerAdmin(driver);
-			  ((SharedFunctions)sf).clickServerPermissions(driver);
+       		((SharedFunctions)SF).loginServerAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
        		////Thread.sleep(10000);
             
             // Click on Group name and add a new name
@@ -741,7 +741,7 @@ public class ServerPermissions {
             Assert.assertEquals(actualgroupadd, expectedgroupadd);
             
             Status = "Pass";
-            ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+            ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -749,7 +749,7 @@ public class ServerPermissions {
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -783,8 +783,8 @@ public class ServerPermissions {
          		  
          	try{
         
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-  			  ((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+  			  ((SharedFunctions)SF).clickServerPermissions(driver);
          		////Thread.sleep(10000);
          		
          	    // Click on Group name and add a new name
@@ -801,7 +801,7 @@ public class ServerPermissions {
                 System.out.println("Test Case Fail, to pass assert not equals");
         
                 Status = "Pass";
-                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -809,7 +809,7 @@ public class ServerPermissions {
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -843,9 +843,9 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
    		  
    	try{
   
-   		((SharedFunctions)sf).loginServerAdmin(driver);
+   		((SharedFunctions)SF).loginServerAdmin(driver);
    	   // Click On Users
-   	    ((SharedFunctions)sf).clickUsers(driver);
+   	    ((SharedFunctions)SF).clickUsers(driver);
    		////Thread.sleep(10000);
    		
    	    // Click on Add Users
@@ -914,9 +914,9 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
           ////Thread.sleep(5000);
           // Check alert message
           JavascriptExecutor jsx = (JavascriptExecutor)driver;
-          jsx.executeScript("window.confirm('Settings have been saved successfully')");
+          jsx.executeScript("window.confirm('Settings have been saved succesSFully')");
         
-          String expectedAlertUserSaved = "Settings have been saved successfully";
+          String expectedAlertUserSaved = "Settings have been saved succesSFully";
           Alert confirmation = driver.switchTo().alert();
           String actualAlertUserSaved = confirmation.getText(); //Get text present on alert Message
          
@@ -933,7 +933,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
             
           // Click On Permissions
           ////Thread.sleep(7000);
-  		((SharedFunctions)sf).clickServerPermissions(driver);
+  		((SharedFunctions)SF).clickServerPermissions(driver);
       
           //Get the table and row
     	  WebElement table1 =driver.findElement(By.id("gvGroups"));
@@ -954,7 +954,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
           ////Thread.sleep(5000);
           
           JavascriptExecutor jsc = (JavascriptExecutor)driver;
-          jsc.executeScript("window.confirm('Settings have been saved successfully')");
+          jsc.executeScript("window.confirm('Settings have been saved succesSFully')");
 
         	
           driver.switchTo().alert();
@@ -971,7 +971,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
           Assert.assertEquals(Actualmsg, Expectedmsg); 	
           
           Status = "Pass";
-          ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+          ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -979,7 +979,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -1016,8 +1016,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      		  
      	try{
      		
-     		((SharedFunctions)sf).loginServerAdmin(driver);
-    		((SharedFunctions)sf).clickServerPermissions(driver);
+     		((SharedFunctions)SF).loginServerAdmin(driver);
+    		((SharedFunctions)SF).clickServerPermissions(driver);
      		////Thread.sleep(10000);
      		
      		 // Click on edit permissions
@@ -1046,7 +1046,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      	    	      	    	 } 
 
      	    Status = "Pass";
-     	   ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+     	   ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1054,7 +1054,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 		} catch (Throwable e) {
 			System.out.println("Error : " + e);
 			Status = "Fail";
-			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
@@ -1086,8 +1086,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        		  
        	try{
        		
-       		((SharedFunctions)sf).loginServerAdmin(driver);
-    		((SharedFunctions)sf).clickServerPermissions(driver);
+       		((SharedFunctions)SF).loginServerAdmin(driver);
+    		((SharedFunctions)SF).clickServerPermissions(driver);
        		////Thread.sleep(10000);
             
             // Click on edit permissions
@@ -1112,7 +1112,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  	             }
            	
              Status = "Pass";
-             ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+             ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1120,7 +1120,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}       
@@ -1151,8 +1151,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
         
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
            		////Thread.sleep(10000);
            		
            	    // Click on edit permissions
@@ -1183,7 +1183,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                                       }
                 
                  Status = "Pass";
-                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                 ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1191,7 +1191,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
  			} catch (Throwable e) {
  				System.out.println("Error : " + e);
  				Status = "Fail";
- 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+ 				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  			}
@@ -1224,8 +1224,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	      		  
 	      	try{
 	     
-	      		((SharedFunctions)sf).loginServerAdmin(driver);
-	    		((SharedFunctions)sf).clickServerPermissions(driver);
+	      		((SharedFunctions)SF).loginServerAdmin(driver);
+	    		((SharedFunctions)SF).clickServerPermissions(driver);
 	      		////Thread.sleep(10000);
 	      		
 	      	    // Click on edit permissions
@@ -1254,7 +1254,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	   	        	            } 
                
 	            Status = "Pass";
-	            ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+	            ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1262,7 +1262,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 			} catch (Throwable e) {
 				System.out.println("Error : " + e);
 				Status = "Fail";
-				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
@@ -1295,8 +1295,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
         
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
          		  ////Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1326,7 +1326,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                                   } 
                 
                  Status = "Pass";
-                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                 ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  				// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1334,7 +1334,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
  			} catch (Throwable e) {
  				System.out.println("Error : " + e);
  				Status = "Fail";
- 				((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+ 				((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  			}
@@ -1367,8 +1367,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              		  
              	try{
              		
-             		((SharedFunctions)sf).loginServerAdmin(driver);
-            		((SharedFunctions)sf).clickServerPermissions(driver);
+             		((SharedFunctions)SF).loginServerAdmin(driver);
+            		((SharedFunctions)SF).clickServerPermissions(driver);
              		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
@@ -1398,7 +1398,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
             	                     	         } 
    
                      Status = "Pass";
-                     ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                     ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1406,7 +1406,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		} catch (Throwable e) {
          			System.out.println("Error : " + e);
          			Status = "Fail";
-         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+         			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          		}
@@ -1439,8 +1439,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              		  
              	try{
             
-             		((SharedFunctions)sf).loginServerAdmin(driver);
-            		((SharedFunctions)sf).clickServerPermissions(driver);
+             		((SharedFunctions)SF).loginServerAdmin(driver);
+            		((SharedFunctions)SF).clickServerPermissions(driver);
              		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
@@ -1469,7 +1469,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                         } 
             
                     Status = "Pass";
-                    ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                    ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
         			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
         			testresultlist.add(objtestreult);
         			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1477,7 +1477,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         		} catch (Throwable e) {
         			System.out.println("Error : " + e);
         			Status = "Fail";
-        			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+        			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
         			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
         			testresultlist.add(objtestreult);
         		}
@@ -1509,8 +1509,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
              		  
              	try{
       
-             		((SharedFunctions)sf).loginServerAdmin(driver);
-            		((SharedFunctions)sf).clickServerPermissions(driver);
+             		((SharedFunctions)SF).loginServerAdmin(driver);
+            		((SharedFunctions)SF).clickServerPermissions(driver);
              		////Thread.sleep(10000);
              		
              	    // Click on edit permissions
@@ -1539,7 +1539,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                      }
                                  
                      Status = "Pass";
-                     ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                     ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1547,7 +1547,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		} catch (Throwable e) {
          			System.out.println("Error : " + e);
          			Status = "Fail";
-         			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+         			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          		}
@@ -1579,8 +1579,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                  		  
                  	try{
                 
-                 		((SharedFunctions)sf).loginServerAdmin(driver);
-                		((SharedFunctions)sf).clickServerPermissions(driver);
+                 		((SharedFunctions)SF).loginServerAdmin(driver);
+                		((SharedFunctions)SF).clickServerPermissions(driver);
                  		////Thread.sleep(10000);
                  		
                  	    // Click on edit permissions
@@ -1609,7 +1609,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                 
                         
                         Status = "Pass";
-                        ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                        ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
             			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
             			testresultlist.add(objtestreult);
             			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1617,7 +1617,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
             		} catch (Throwable e) {
             			System.out.println("Error : " + e);
             			Status = "Fail";
-            			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+            			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
             			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
             			testresultlist.add(objtestreult);
             		}
@@ -1651,8 +1651,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
          		
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1680,7 +1680,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                     }
               
                 Status = "Pass";
-                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1688,7 +1688,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     		} catch (Throwable e) {
     			System.out.println("Error : " + e);
     			Status = "Fail";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+    			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
@@ -1720,8 +1720,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
         
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1751,7 +1751,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         
         
                 Status = "Pass";
-                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1759,7 +1759,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     		} catch (Throwable e) {
     			System.out.println("Error : " + e);
     			Status = "Fail";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+    			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
@@ -1791,8 +1791,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
         
-         		  ((SharedFunctions)sf).loginServerAdmin(driver);
-         		  ((SharedFunctions)sf).clickServerPermissions(driver);
+         		  ((SharedFunctions)SF).loginServerAdmin(driver);
+         		  ((SharedFunctions)SF).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1820,7 +1820,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                   } 
                 
                 Status = "Pass";
-                ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1828,7 +1828,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     		} catch (Throwable e) {
     			System.out.println("Error : " + e);
     			Status = "Fail";
-    			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+    			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
@@ -1861,8 +1861,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
         
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1890,7 +1890,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                     } 
                 
                  Status = "Pass";
-                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                 ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1898,7 +1898,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      		} catch (Throwable e) {
      			System.out.println("Error : " + e);
      			Status = "Fail";
-     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+     			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      		}	
@@ -1930,8 +1930,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
          		
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -1961,7 +1961,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
                      } 
                 
                  Status = "Pass";
-                 ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+                 ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      			// obj.updateResult(TestCaseID, SheetName, Status);
@@ -1969,7 +1969,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      		} catch (Throwable e) {
      			System.out.println("Error : " + e);
      			Status = "Fail";
-     			((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+     			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
      			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
      			testresultlist.add(objtestreult);
      		}
@@ -2001,8 +2001,8 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          		  
          	try{
         
-         		((SharedFunctions)sf).loginServerAdmin(driver);
-        		((SharedFunctions)sf).clickServerPermissions(driver);
+         		((SharedFunctions)SF).loginServerAdmin(driver);
+        		((SharedFunctions)SF).clickServerPermissions(driver);
          		//Thread.sleep(10000);
          		
          	    // Click on edit permissions
@@ -2058,7 +2058,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
    	      Assert.assertEquals(driver.findElement(By.id("8-20")).isSelected(), false); } //View Packetizer Settings
       
       Status = "Pass";
-      ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+      ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 		// obj.updateResult(TestCaseID, SheetName, Status);
@@ -2066,7 +2066,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	} catch (Throwable e) {
 		System.out.println("Error : " + e);
 		Status = "Fail";
-		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+		((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 	}	
@@ -2188,10 +2188,10 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        //Thread.sleep(5000);
        // Check alert message
        JavascriptExecutor jsx = (JavascriptExecutor)driver;
-       jsx.executeScript("window.confirm('Settings have been saved successfully')");
+       jsx.executeScript("window.confirm('Settings have been saved succesSFully')");
      
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-       Dismissed user prompt dialog: Settings have been updated successfully:*/
+       Dismissed user prompt dialog: Settings have been updated succesSFully:*/
        driver.switchTo().alert().accept();
        //Thread.sleep(5000); 
        
@@ -2276,10 +2276,10 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        //Thread.sleep(8000);
        // Check alert message
        JavascriptExecutor jsd = (JavascriptExecutor)driver;
-       jsd.executeScript("window.confirm('Settings have been saved successfully')");
+       jsd.executeScript("window.confirm('Settings have been saved succesSFully')");
      
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-       Dismissed user prompt dialog: Settings have been updated successfully:*/
+       Dismissed user prompt dialog: Settings have been updated succesSFully:*/
        driver.switchTo().alert().accept();
        //Thread.sleep(5000); 
        
@@ -2299,7 +2299,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        jsr.executeScript("window.confirm('Please change your password to continue. Your account will be disabled if you click Cancel button 3 times.')");
      
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-       Dismissed user prompt dialog: Settings have been updated successfully:*/
+       Dismissed user prompt dialog: Settings have been updated succesSFully:*/
        driver.switchTo().alert().accept();
        //Thread.sleep(5000); 
        
@@ -2388,7 +2388,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //       Assert.assertEquals(value18, false); // Reports
                     
 	    Status = "Pass";
-	    ((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+	    ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 		// obj.updateResult(TestCaseID, SheetName, Status);
@@ -2396,7 +2396,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 	} catch (Throwable e) {
 		System.out.println("Error : " + e);
 		Status = "Fail";
-		((SharedFunctions)sf).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+		((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 }
@@ -2445,10 +2445,10 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
           //Thread.sleep(5000);
   	      driver.findElement(By.id("btnDelete")).click();
   	      
-//  	      String expectedUserDeleted = "Selected users are deleted successfully.";
+//  	      String expectedUserDeleted = "Selected users are deleted succesSFully.";
 //  	      
 //  	      //Thread.sleep(5000);
-//  	      // Get message "Record has been deleted successfully"
+//  	      // Get message "Record has been deleted succesSFully"
 //  	      String actualUserDeleted = driver.findElement(By.id("lblMessage")).getText();
 //  	      
 //  	      Assert.assertEquals(actualUserDeleted, expectedUserDeleted);

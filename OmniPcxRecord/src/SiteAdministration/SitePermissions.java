@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import Settings.SharedFunctions;
@@ -74,7 +75,6 @@ public class SitePermissions {
 		       }
 			}			
 			
-//			driver.close();
 		  	 } 
 	
 	
@@ -113,7 +113,6 @@ public class SitePermissions {
 		boolean check = driver.getPageSource().contains(groupname);
 		Assert.assertEquals(check, true);
 		
-//		driver.close();
 		  	 }	
 
 			
@@ -155,16 +154,63 @@ public class SitePermissions {
 		
 		Assert.assertEquals(groupdespadd.length(), 250);
 		
-//		driver.close();
 		  	 }	
 
 
+
+
+
+////Test ID: 29-37
+///* 
+//* Edit newly created group and assign permissions by expanding the existing tabs.
+//*/	
+	@Test(priority = 3)
+	public void verifyGroupAssignedPermissions() throws InterruptedException, IOException {
+		driver.get(siteUrl);
+
+//		String TestCaseID = "29-37";
+//		String Status = "";
+
+		if (driver == null) {
+
+			System.out.println("WebDriver not initialized");
+			return;
+		}
+			
+		((SharedFunctions)sf).loginSiteAdmin(driver);
+		
+		((SharedFunctions)sf).clickSitePermissions(driver);
+		
+		// Click on Group name and add 
+		String groupname = ((SharedFunctions)sf).GenerateGroupNames();
+		driver.findElement(By.id("txtGroupName")).sendKeys(groupname);
+		System.out.println(groupname);
+		
+		// Click on Group description and add 
+		String groupdesp = ((SharedFunctions)sf).GenerateStringofLength10();
+		driver.findElement(By.id("txtDescription")).sendKeys(groupdesp);
+		System.out.println(groupdesp);
+		
+		
+		
+//		String groupdespadd = driver.findElement(By.id("txtDescription")).getAttribute("value");
+//		int len = groupdespadd.length();
+//		System.out.println(len);
+//		
+//		Assert.assertEquals(groupdespadd.length(), 250);
+//		
+//		driver.close();
+		  	 }	
+	
+	
 			
 			
 			
 			
-			
-			
+	  @AfterClass 
+	  public void afterTest() {
+		  driver.quit();
+	}				
 			
 			
 			
