@@ -246,7 +246,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	            "Brute Force", "Empire", "Fury", "Gladiators", "Inferno", "Trouble Makers" , "Venom", "Samurais", "Matrix", "Kingsmen", "Intimidators", 
 	        };
 		
-		 System.out.println(gnames [new Random().nextInt(gnames.length)]);
+//		 System.out.println(gnames [new Random().nextInt(gnames.length)]);
 		 return gnames [new Random().nextInt(gnames.length)];
 		
 		}

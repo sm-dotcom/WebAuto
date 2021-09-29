@@ -191,15 +191,29 @@ public class SitePermissions {
 		driver.findElement(By.id("txtDescription")).sendKeys(groupdesp);
 		System.out.println(groupdesp);
 		
+		// Click on add button
+	    driver.findElement(By.id("imgbtnAddUpdate")).click();
+	    
+	    //Get the table and row                              
+     	WebElement table =driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table")); //   //*[@id="divSecurityGroup"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table
+     	WebElement tbody=table.findElement(By.tagName("tbody"));
+     	List<WebElement> rows=tbody.findElements(By.tagName("tr"));
+     	String rowNo="";
+     	String pGroups = groupname;
+     	for(int i=0;i<rows.size();i++)
+     	{
+     	WebElement row = tbody.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+(i+1)+"]")); // //*[@id="divSecurityGroup"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option[2]
+     	if(row.getText().trim().contains(pGroups))
+     	{
+     	rowNo=Integer.toString(i+1);
+     	break;
+     	}
+     	}
+     	System.out.println(rowNo);	
+     	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[5]/td[3]/div/img["+rowNo+"]")).click();
+
 		
-		
-//		String groupdespadd = driver.findElement(By.id("txtDescription")).getAttribute("value");
-//		int len = groupdespadd.length();
-//		System.out.println(len);
-//		
-//		Assert.assertEquals(groupdespadd.length(), 250);
-//		
-//		driver.close();
+		  	 	
 		  	 }	
 	
 	
