@@ -1,21 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-27T17:01:30 PKT" name="Default suite" finished-at="2021-09-27T17:02:06 PKT" duration-ms="35388">
+  <suite started-at="2021-09-29T17:57:13 PKT" name="Default suite" finished-at="2021-09-29T18:11:47 PKT" duration-ms="873729">
     <groups>
     </groups>
-    <test started-at="2021-09-27T17:01:30 PKT" name="Default test" finished-at="2021-09-27T17:02:06 PKT" duration-ms="35388">
+    <test started-at="2021-09-29T17:57:13 PKT" name="Default test" finished-at="2021-09-29T18:11:47 PKT" duration-ms="873729">
       <class name="SiteAdministration.CallSearch">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:SiteAdministration.CallSearch@6c64cb25]" started-at="2021-09-27T17:01:30 PKT" name="beforeTest" finished-at="2021-09-27T17:01:40 PKT" duration-ms="9998" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:SiteAdministration.CallSearch@6ae5aa72]" started-at="2021-09-29T17:57:13 PKT" name="beforeTest" finished-at="2021-09-29T17:57:23 PKT" duration-ms="9722" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="f()[pri:0, instance:SiteAdministration.CallSearch@6c64cb25]" started-at="2021-09-27T17:01:41 PKT" name="f" finished-at="2021-09-27T17:02:04 PKT" duration-ms="23100" status="PASS">
+        <test-method signature="f()[pri:0, instance:SiteAdministration.CallSearch@6ae5aa72]" started-at="2021-09-29T17:57:23 PKT" name="f" finished-at="2021-09-29T18:11:45 PKT" duration-ms="862560" status="FAIL">
+          <exception class="org.openqa.selenium.InvalidSelectorException">
+            <message>
+              <![CDATA[Given xpath expression "/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[]/td[3]/div/img[3] " is invalid: SyntaxError: Document.evaluate: The expression is not a legal expression
+For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception
+Build info: version: '4.0.0-beta-3', revision: '5d108f9a67'
+System info: host: 'DESKTOP-RTH7PMT', ip: '172.20.12.26', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [56b76956-360a-4081-8dfb-e34117a79ff0, findElement {using=xpath, value=/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[]/td[3]/div/img[3] }]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 91.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210823123856, moz:debuggerAddress: localhost:52422, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 3776, moz:profile: C:\Users\Administrator\AppD..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), se:cdp: ws://localhost:52422/devtoo..., se:cdpVersion: 85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 56b76956-360a-4081-8dfb-e34117a79ff0]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidSelectorException: Given xpath expression "/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[]/td[3]/div/img[3] " is invalid: SyntaxError: Document.evaluate: The expression is not a legal expression
+For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception
+Build info: version: '4.0.0-beta-3', revision: '5d108f9a67'
+System info: host: 'DESKTOP-RTH7PMT', ip: '172.20.12.26', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [56b76956-360a-4081-8dfb-e34117a79ff0, findElement {using=xpath, value=/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[]/td[3]/div/img[3] }]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 91.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210823123856, moz:debuggerAddress: localhost:52422, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 3776, moz:profile: C:\Users\Administrator\AppD..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), se:cdp: ws://localhost:52422/devtoo..., se:cdpVersion: 85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 56b76956-360a-4081-8dfb-e34117a79ff0
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+at org.openqa.selenium.remote.RemoteWebDriver$Mechanism$2.findElement(RemoteWebDriver.java:1258)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:386)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+at SiteAdministration.CallSearch.f(CallSearch.java:82)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:SiteAdministration.CallSearch@6c64cb25]" started-at="2021-09-27T17:02:04 PKT" name="afterTest" finished-at="2021-09-27T17:02:06 PKT" duration-ms="2179" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:SiteAdministration.CallSearch@6ae5aa72]" started-at="2021-09-29T18:11:46 PKT" name="afterTest" finished-at="2021-09-29T18:11:47 PKT" duration-ms="1332" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

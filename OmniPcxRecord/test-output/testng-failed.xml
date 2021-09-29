@@ -5,6 +5,7 @@
     <classes>
       <class name="SiteAdministration.CallSearch">
         <methods>
+          <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="f"/>
         </methods>
