@@ -36,11 +36,8 @@ public class CallSearch {
 	
   @Test
   public void f() throws InterruptedException, IOException {
-	  driver.get(siteUrl);
-
-//		String TestCaseID = "29-37";
-//		String Status = "";
-
+		driver.get(siteUrl);	
+		
 		if (driver == null) {
 
 			System.out.println("WebDriver not initialized");
@@ -50,26 +47,16 @@ public class CallSearch {
         ((SharedFunctions)sf).loginSiteAdmin(driver);
 		
 		((SharedFunctions)sf).clickSitePermissions(driver);
-		
-		// Click on Group name and add 
-		String groupname = ((SharedFunctions)sf).GenerateGroupNames();
-		driver.findElement(By.id("txtGroupName")).sendKeys(groupname);
-		System.out.println(groupname);
-		
-		// Click on Group description and add 
-		String groupdesp = ((SharedFunctions)sf).GenerateStringofLength10();
-		driver.findElement(By.id("txtDescription")).sendKeys(groupdesp);
-		System.out.println(groupdesp);
-		
-		// Click on add button
-	    driver.findElement(By.id("imgbtnAddUpdate")).click();
-	    
-        //Get the table and row
+				
+		// Make admin copy
+		driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[1]/td[3]/div/img[2]")).click();
+      
+		//Get the table and row
 	  	WebElement table1 =driver.findElement(By.id("gvGroups"));
 	  	WebElement tbody1=table1.findElement(By.tagName("tbody"));
 	  	List<WebElement> rows1=tbody1.findElements(By.tagName("tr"));
 	  	String rowNo1="";
-	  	String Groups  = "Bandits";
+	  	String Groups  = "Super Admin - Copy";
 	  	for(int i=0;i<rows1.size();i++)
 	  		{
 	  		WebElement row = tbody1.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+(i+1)+"]"));
@@ -79,10 +66,8 @@ public class CallSearch {
 	  		break;
 	  		}
 	  		}
-	  	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo1+"]/td[3]/div/img[3] ")).click(); 
-  	                               
-	    
-		
+      
+	  	Assert.assertTrue(true);
 		  	 }	
   
   

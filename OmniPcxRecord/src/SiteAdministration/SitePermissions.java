@@ -177,7 +177,7 @@ public class SitePermissions {
 			return;
 		}
 			
-		((SharedFunctions)sf).loginSiteAdmin(driver);
+        ((SharedFunctions)sf).loginSiteAdmin(driver);
 		
 		((SharedFunctions)sf).clickSitePermissions(driver);
 		
@@ -194,32 +194,132 @@ public class SitePermissions {
 		// Click on add button
 	    driver.findElement(By.id("imgbtnAddUpdate")).click();
 	    
-	    //Get the table and row                              
-     	WebElement table =driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table")); //   //*[@id="divSecurityGroup"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table
-     	WebElement tbody=table.findElement(By.tagName("tbody"));
-     	List<WebElement> rows=tbody.findElements(By.tagName("tr"));
-     	String rowNo="";
-     	String pGroups = groupname;
-     	for(int i=0;i<rows.size();i++)
-     	{
-     	WebElement row = tbody.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+(i+1)+"]")); // //*[@id="divSecurityGroup"]/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option[2]
-     	if(row.getText().trim().contains(pGroups))
-     	{
-     	rowNo=Integer.toString(i+1);
-     	break;
-     	}
-     	}
-     	System.out.println(rowNo);	
-     	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[5]/td[3]/div/img["+rowNo+"]")).click();
-
-		
-		  	 	
+        //Get the table and row
+	  	WebElement table1 =driver.findElement(By.id("gvGroups"));
+	  	WebElement tbody1=table1.findElement(By.tagName("tbody"));
+	  	List<WebElement> rows1=tbody1.findElements(By.tagName("tr"));
+	  	String rowNo1="";
+	  	String Groups  = groupname;
+	  	for(int i=0;i<rows1.size();i++)
+	  		{
+	  		WebElement row = tbody1.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+(i+1)+"]"));
+	  		if(row.getText().trim().contains(Groups))
+	  		{
+	  		rowNo1=Integer.toString(i+1);
+	  		break;
+	  		}
+	  		}
+	  	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo1+"]/td[3]/div/img[3] ")).click(); 
+  	            
+	  	// Click on agents
+	  	driver.findElement(By.xpath("//*[@id=\"gvPermissions\"]/tbody/tr[1]/td[1]/img")).click();
+	  	
+	  	// Check Permissions (agents)
+	  	driver.findElement(By.id("4-1")).click(); // 
+	  	
+		// Click on search calls 
+	  	driver.findElement(By.xpath("//*[@id=\"gvPermissions\"]/tbody/tr[4]/td[1]/img")).click();
+	  	
+	    // Check Permissions (search calls)
+	  	driver.findElement(By.id("1-6")).click();; //	
+	  
+	    // Click on teams
+	  	driver.findElement(By.xpath("//*[@id=\"gvPermissions\"]/tbody/tr[9]/td[1]/img")).click();
+	  	
+	    // Check Permissions (teams)
+	  	driver.findElement(By.id("5-28")).click();; //
+	    
 		  	 }	
 	
 	
+
+	
+
+////Test ID: 29-40
+///* 
+//* Verify by creating a copy of any existing group.
+//*/	
+	@Test(priority = 4)
+	public void verifycreatingCopyofGroup() throws InterruptedException, IOException {
+		driver.get(siteUrl);	
+		
+		if (driver == null) {
+
+			System.out.println("WebDriver not initialized");
+			return;
+		}
 			
+        ((SharedFunctions)sf).loginSiteAdmin(driver);
+		
+		((SharedFunctions)sf).clickSitePermissions(driver);
+				
+        // Make admin copy
+        driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[1]/td[3]/div/img[2]")).click();
+        
+        //Get the table and row
+	  	WebElement table1 =driver.findElement(By.id("gvGroups"));
+	  	WebElement tbody1=table1.findElement(By.tagName("tbody"));
+	  	List<WebElement> rows1=tbody1.findElements(By.tagName("tr"));
+	  	String rowNo1="";
+	  	String Groups  = "Super Admin - Copy";
+	  	for(int i=0;i<rows1.size();i++)
+	  		{
+	  		WebElement row = tbody1.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+(i+1)+"]"));
+	  		if(row.getText().trim().contains(Groups))
+	  		{
+	  		rowNo1=Integer.toString(i+1);
+	  		break;
+	  		}
+	  		}
+        
+	  	Assert.assertTrue(true);		
+	}
 			
+	
+
+////Test ID: 29-41
+///* 
+//* Make copy of a group.Check the Edit and Delete buttons.
+//*/	
+	@Test(priority = 5)
+	public void verifyCopyofGroupbuttonsedit_delete() throws InterruptedException, IOException {
+		driver.get(siteUrl);	
+		
+		if (driver == null) {
+
+			System.out.println("WebDriver not initialized");
+			return;
+		}
 			
+        ((SharedFunctions)sf).loginSiteAdmin(driver);
+		
+		((SharedFunctions)sf).clickSitePermissions(driver);
+				
+        // Make admin copy
+        driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[1]/td[3]/div/img[2]")).click();
+        
+        //Get the table and row
+	  	WebElement table1 =driver.findElement(By.id("gvGroups"));
+	  	WebElement tbody1=table1.findElement(By.tagName("tbody"));
+	  	List<WebElement> rows1=tbody1.findElements(By.tagName("tr"));
+	  	String rowNo1="";
+	  	String Groups  = "Super Admin - Copy";
+	  	for(int i=0;i<rows1.size();i++)
+	  		{
+	  		WebElement row = tbody1.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr["+(i+1)+"]"));
+	  		if(row.getText().trim().contains(Groups))
+	  		{
+	  		rowNo1=Integer.toString(i+1);
+	  		break;
+	  		}
+	  		}
+	  	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo1+"]/td[3]/div/img[3] ")).isEnabled(); 
+	  	
+	  	
+	  	
+	  	Assert.assertTrue(true);		
+	}	
+	
 			
 	  @AfterClass 
 	  public void afterTest() {

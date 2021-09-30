@@ -73,7 +73,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	
 //	driver = new FirefoxDriver(options);
 	
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	driver.manage().window().maximize();
 	Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 	System.out.println("Browser Name is : "+cap.getBrowserName());
