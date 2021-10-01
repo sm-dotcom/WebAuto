@@ -44,14 +44,16 @@ public class CallSearch {
 			return;
 		}
 			
-        ((SharedFunctions)sf).loginSiteAdmin(driver);
-		
-		((SharedFunctions)sf).clickSitePermissions(driver);
-				
-		// Make admin copy
-		driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[1]/td[3]/div/img[2]")).click();
+      ((SharedFunctions)sf).loginSiteAdmin(driver);
       
-		//Get the table and row
+      Thread.sleep(3000);
+		
+	  ((SharedFunctions)sf).clickSitePermissions(driver);
+				
+      // Make admin copy
+      driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[1]/td[3]/div/img[2]")).click();
+      
+      //Get the table and row
 	  	WebElement table1 =driver.findElement(By.id("gvGroups"));
 	  	WebElement tbody1=table1.findElement(By.tagName("tbody"));
 	  	List<WebElement> rows1=tbody1.findElements(By.tagName("tr"));
@@ -66,8 +68,10 @@ public class CallSearch {
 	  		break;
 	  		}
 	  		}
-      
-	  	Assert.assertTrue(true);
+	  	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo1+"]/td[3]/div/img[3]")).isEnabled(); 
+	  	driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr["+rowNo1+"]/td[3]/div/img[4]")).isEnabled(); 
+	  	
+	  	Assert.assertTrue(true);	
 		  	 }	
   
   
