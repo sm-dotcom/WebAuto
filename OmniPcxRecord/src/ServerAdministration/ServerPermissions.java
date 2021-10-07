@@ -112,8 +112,7 @@ public class ServerPermissions {
 //*/     
       @Test (priority = 1)
       public void verifyDeleteDefaultPermissionGroup() throws InterruptedException {  
-    	  System.setProperty("webdriver.gecko.driver", driverPath);
-          driver = new FirefoxDriver();
+    	
           driver.get(baseUrl);
           
           String SheetName = "29- Permission's";
@@ -152,8 +151,7 @@ public class ServerPermissions {
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}	
-          
-          driver.close();	
+
 }//////////////////////////////Pass
   
 
@@ -163,8 +161,7 @@ public class ServerPermissions {
 //*/          
       @Test (priority = 2)
       public void verifyEditDefaultPermissionGroup() throws InterruptedException, IOException {
-    	  System.setProperty("webdriver.gecko.driver", driverPath);
-          driver = new FirefoxDriver();
+    	  
           driver.get(baseUrl);
           
           String SheetName = "29- Permission's";
@@ -205,8 +202,7 @@ public class ServerPermissions {
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		} 
-		  
-		  driver.close();	
+	
 } /////////////////Pass
       
 
@@ -216,9 +212,7 @@ public class ServerPermissions {
 //*/             
       @Test (priority = 3)
       public void verifyViewDefaultPermissionGroup() throws InterruptedException, IOException {
-    	  
-    	  System.setProperty("webdriver.gecko.driver", driverPath);
-          driver = new FirefoxDriver();
+
           driver.get(baseUrl);
           
           String SheetName = "29- Permission's";
@@ -262,7 +256,6 @@ public class ServerPermissions {
 				testresultlist.add(objtestreult);
 			}
 
-  	      driver.close();
 } /////////////////////Pass     
   
   
@@ -272,9 +265,7 @@ public class ServerPermissions {
 //*/         
       @Test (priority = 4)
       public void verifyCopyDefaultPermissionGroup() throws InterruptedException, IOException {
-    	  
-    	  System.setProperty("webdriver.gecko.driver", driverPath);
-          driver = new FirefoxDriver();
+
           driver.get(baseUrl);
 
           System.setProperty("webdriver.gecko.driver", driverPath);
@@ -327,8 +318,7 @@ public class ServerPermissions {
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
-      
-       driver.close();      
+    
 }////////////////////////////////////Pass
 
 	
@@ -338,9 +328,7 @@ public class ServerPermissions {
 //*/   	     
         @Test (priority = 5)
         public void verifyAllPermissionsexceptFourEyePrinciple() throws InterruptedException, IOException {
-	  
-	         System.setProperty("webdriver.gecko.driver", driverPath);
-             driver = new FirefoxDriver();
+
              driver.get(baseUrl);
              
               String SheetName = "29- Permission's";
@@ -393,9 +381,7 @@ public class ServerPermissions {
 //*/   	     
         @Test (priority = 14)
         public void verifyDeletePermissionGroup() throws InterruptedException, IOException {
-        	
-          System.setProperty("webdriver.gecko.driver", driverPath);
-          driver = new FirefoxDriver();
+
           driver.get(baseUrl);
 
           String SheetName = "29- Permission's";
@@ -464,8 +450,7 @@ public class ServerPermissions {
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
-          
-          driver.close();
+
 }////////////////////////////////Pass
  
         
@@ -475,9 +460,7 @@ public class ServerPermissions {
 //*/	
         @Test (priority = 7)
         public void verifyAddNewPermissionGroup() throws InterruptedException, IOException {
-        	
-        	System.setProperty("webdriver.gecko.driver", driverPath);
-            driver = new FirefoxDriver();
+
             driver.get(baseUrl);
 
               String SheetName = "29- Permission's";
@@ -519,8 +502,7 @@ public class ServerPermissions {
   				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
   				testresultlist.add(objtestreult);
   			}
-	        
-  	        driver.close();
+
 }////////////////////////////////Pass
 	
 	
@@ -531,9 +513,7 @@ public class ServerPermissions {
 //*/  
     @Test (priority = 6)
     public void verifyAddNewPermissionGroupwithDescription() throws InterruptedException, IOException {
-    	
-    	System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+
         driver.get(baseUrl);
 
         String SheetName = "29- Permission's";
@@ -578,8 +558,7 @@ public class ServerPermissions {
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
-        
-        driver.close();
+
 }///////////////////////Pass
 
 
@@ -590,9 +569,7 @@ public class ServerPermissions {
 //*/  
     @Test (priority = 9)
     public void verifyAddNewPermissionGroupwithoutGroupName() throws InterruptedException, IOException {
-    	
-    	System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+
         driver.get(baseUrl);    
     
         String SheetName = "29- Permission's";
@@ -636,8 +613,7 @@ public class ServerPermissions {
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
-        
-         driver.close();
+
 }////////////////////////////Pass
 
     
@@ -648,9 +624,7 @@ public class ServerPermissions {
 //*/  
     @Test (priority = 10)
     public void verifyAddNewPermissionGroupwithSpecialCharacters() throws InterruptedException, IOException {   
-    	
-    	System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+
         driver.get(baseUrl);
 
         String SheetName = "29- Permission's";
@@ -696,8 +670,7 @@ public class ServerPermissions {
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
-        
-        driver.close();
+
 }/////////////////////////Pass
 
 
@@ -708,9 +681,7 @@ public class ServerPermissions {
 //*/  
     @Test (priority = 11)
     public void verifyAddNewPermissionGroupwithLength50() throws InterruptedException, IOException { 	
-	 
-      System.setProperty("webdriver.gecko.driver", driverPath);
-      driver = new FirefoxDriver();
+
       driver.get(baseUrl);
 
       String SheetName = "29- Permission's";
@@ -753,8 +724,7 @@ public class ServerPermissions {
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
-      
-      driver.close();
+
 }/////////////////////////Pass
 	
 
@@ -766,9 +736,7 @@ public class ServerPermissions {
 //////////////////////////////////////Test case not valid as you can add more than 50 & 250 characters in group name.		
     @Test (priority = 13)
     public void verifyAddNewPermissionGroupwithmaxLength() throws InterruptedException, IOException { 	    
-    
-    	System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+
         driver.get(baseUrl);
 
         String SheetName = "29- Permission's";
@@ -813,8 +781,7 @@ public class ServerPermissions {
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}
-        
-driver.close();
+
  }
     
     
@@ -827,8 +794,7 @@ driver.close();
 ////*/ 	
 @Test (priority = 8)
 public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws InterruptedException, IOException { 	    
-	System.setProperty("webdriver.gecko.driver", driverPath);
-  driver = new FirefoxDriver();
+	
   driver.get(baseUrl);
 
   String SheetName = "29- Permission's";
@@ -983,8 +949,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
-      
-      driver.close();
+
     }////////////////////////////////Pass
   
 
@@ -1000,8 +965,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
   @Test (priority = 15)
   public void verifyPermissionforUserinGroups() throws InterruptedException, IOException { 	
 
-	System.setProperty("webdriver.gecko.driver", driverPath);
-    driver = new FirefoxDriver();
     driver.get(baseUrl);
     
     String SheetName = "29- Permission's";
@@ -1058,8 +1021,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 			testresultlist.add(objtestreult);
 		}
-     
-    driver.close();
+
 }////////////////////////////////Pass	
 
 	
@@ -1070,8 +1032,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/       
     @Test (priority = 16)
     public void verifyEnablePermissioncbEnabledwhenViewUsersnotenabled() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-      driver = new FirefoxDriver();
+
       driver.get(baseUrl);
 
       String SheetName = "29- Permission's";
@@ -1124,7 +1085,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 				testresultlist.add(objtestreult);
 			}       
-	    driver.close();
 }////////////////////////////////Pass
 
       
@@ -1135,8 +1095,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/   
       @Test (priority = 17)
       public void verifyPermissionforNodesinGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	   
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1195,8 +1154,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  			}
-         
- 	    driver.close();
+
 }///////////////////////////Pass
       
 
@@ -1208,8 +1166,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 ///*/  
       @Test (priority = 18)
 	  public void verifyPermissionforPacketizerinGroup() throws InterruptedException, IOException {	
-		 System.setProperty("webdriver.gecko.driver", driverPath);
-	     driver = new FirefoxDriver();
+
 	     driver.get(baseUrl);
 	     
 	     String SheetName = "29- Permission's";
@@ -1279,8 +1236,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/   
       @Test (priority = 19)
       public void verifyPermissionforSIPTrunkinGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1338,8 +1294,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
  				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
  				testresultlist.add(objtestreult);
  			}
-            
- 	    driver.close();
+
 }///////////////////////////Pass
           
 
@@ -1351,8 +1306,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/                 
           @Test (priority = 20)
           public void verifyPermissionforTrunkinGroup() throws InterruptedException, IOException {	
-    	     System.setProperty("webdriver.gecko.driver", driverPath);
-            driver = new FirefoxDriver();
+
             driver.get(baseUrl);
       
             String SheetName = "29- Permission's";
@@ -1410,8 +1364,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          		}
-             
-	    driver.close();
+
 }///////////////////////////Pass
       
   
@@ -1423,8 +1376,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/  
           @Test (priority = 21)
           public void verifyPermissionforBoardinGroup() throws InterruptedException, IOException {	
-    	     System.setProperty("webdriver.gecko.driver", driverPath);
-            driver = new FirefoxDriver();
+
             driver.get(baseUrl);
       
             String SheetName = "29- Permission's";
@@ -1482,7 +1434,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
         			testresultlist.add(objtestreult);
         		}
 
-         	driver.close();
 }///////////////////////////Pass
  
   
@@ -1493,8 +1444,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/  
           @Test (priority = 22)
           public void verifyPermissionforEquipmentinGroup() throws InterruptedException, IOException {	
-    	     System.setProperty("webdriver.gecko.driver", driverPath);
-            driver = new FirefoxDriver();
+
             driver.get(baseUrl);
             
             String SheetName = "29- Permission's";
@@ -1551,8 +1501,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
          			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
          			testresultlist.add(objtestreult);
          		}
-     
-             driver.close();
+
 }///////////////////////////Pass
               
           
@@ -1561,68 +1510,66 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 ///* 
 //* Verify that Update Storage Settings permission check box is disabled when View Storage Settings permission is not enabled
 //*/
-              @Test (priority = 23)
-              public void verifyPermissionforStorageSettingsinGroup() throws InterruptedException, IOException {	
-        	     System.setProperty("webdriver.gecko.driver", driverPath);
-                driver = new FirefoxDriver();
-                driver.get(baseUrl);
-          
-                String SheetName = "29- Permission's";
-                String TestCaseID = "29-26";
-                String Status = "";
-                 		 
-                   if(driver==null){
-                 			 
-                 	    System.out.println("WebDriver not initialized");
-                 			return;
-                 		}
-                 		  
-                 	try{
-                
-                 		((SharedFunctions)SF).loginServerAdmin(driver);
-                		((SharedFunctions)SF).clickServerPermissions(driver);
-                 		////Thread.sleep(10000);
-                 		
-                 	    // Click on edit permissions
-                        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
+        @Test (priority = 23)
+        public void verifyPermissionforStorageSettingsinGroup() throws InterruptedException, IOException {
+        	
+        	driver.get(baseUrl);
+            
+            String SheetName = "29- Permission's";
+            String TestCaseID = "29-26";
+            String Status = "";
+             		 
+               if(driver==null){
+             			 
+             	    System.out.println("WebDriver not initialized");
+             			return;
+             		}
+             		  
+             	try{
+            
+             		((SharedFunctions)SF).loginServerAdmin(driver);
+            		((SharedFunctions)SF).clickServerPermissions(driver);
+             		////Thread.sleep(10000);
+             		
+             	    // Click on edit permissions
+                    driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr[2]/td[3]/div/img[3]")).click();
 
+                    //Thread.sleep(5000);
+                    // Click on Storage Settings [+]
+                    driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[12]/td[1]/img")).click();
+                  
+                    if (driver.findElement(By.id("9-23")).isSelected() == true) {
+                     	 driver.findElement(By.id("9-23")).click(); //uncheck and then check permissions
+                     	 
+                     	 // Check permissions disabled
+                         //Thread.sleep(5000);
+                         Assert.assertEquals(driver.findElement(By.id("9-23")).isSelected(), false); //View Storage Settings
+                         Assert.assertEquals(driver.findElement(By.id("9-24")).isEnabled(), false);  //Update Storage Settings
+                        } 
+                     
+                    else if (driver.findElement(By.id("9-23")).isSelected() == false) {
+                    	
+                    	// Check permissions disabled
                         //Thread.sleep(5000);
-                        // Click on Storage Settings [+]
-                        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr[12]/td[1]/img")).click();
-                      
-                        if (driver.findElement(By.id("9-23")).isSelected() == true) {
-                         	 driver.findElement(By.id("9-23")).click(); //uncheck and then check permissions
-                         	 
-                         	 // Check permissions disabled
-                             //Thread.sleep(5000);
-                             Assert.assertEquals(driver.findElement(By.id("9-23")).isSelected(), false); //View Storage Settings
-                             Assert.assertEquals(driver.findElement(By.id("9-24")).isEnabled(), false);  //Update Storage Settings
-                            } 
-                         
-                        else if (driver.findElement(By.id("9-23")).isSelected() == false) {
-                        	
-                        	// Check permissions disabled
-                            //Thread.sleep(5000);
-                            Assert.assertEquals(driver.findElement(By.id("9-23")).isSelected(), false); //View Storage Settings
-                            Assert.assertEquals(driver.findElement(By.id("9-24")).isEnabled(), false);  //Update Storage Settings
-                         } 
-                
-                        
-                        Status = "Pass";
-                        ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
-            			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
-            			testresultlist.add(objtestreult);
-            			// obj.updateResult(TestCaseID, SheetName, Status);
+                        Assert.assertEquals(driver.findElement(By.id("9-23")).isSelected(), false); //View Storage Settings
+                        Assert.assertEquals(driver.findElement(By.id("9-24")).isEnabled(), false);  //Update Storage Settings
+                     } 
+            
+                    
+                    Status = "Pass";
+                    ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+        			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+        			testresultlist.add(objtestreult);
+        			// obj.updateResult(TestCaseID, SheetName, Status);
 
-            		} catch (Throwable e) {
-            			System.out.println("Error : " + e);
-            			Status = "Fail";
-            			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
-            			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
-            			testresultlist.add(objtestreult);
-            		}
-              
-         	    driver.close();
+        		} catch (Throwable e) {
+        			System.out.println("Error : " + e);
+        			Status = "Fail";
+        			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+        			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+        			testresultlist.add(objtestreult);
+        		}
+        	   
  }///////////////////////////Pass
               
               
@@ -1635,8 +1582,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/        
       @Test (priority = 24)
       public void verifyPermissionforSysteminGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	   
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1693,7 +1639,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     			testresultlist.add(objtestreult);
     		}
                
- 	    driver.close();
 }///////////////////////////Pass
  
       
@@ -1704,8 +1649,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/            
       @Test (priority = 25)
       public void verifyPermissionforTracesinGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	    
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1763,8 +1707,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
-      
- 	    driver.close();
+
 }///////////////////////////Pass
        
       
@@ -1775,8 +1718,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/           
       @Test (priority = 26)
       public void verifyPermissionforEmailTemplateinGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	     
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1832,8 +1774,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
     			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     			testresultlist.add(objtestreult);
     		}
-        	
-        driver.close();
+
 }///////////////////////////Pass
    
       
@@ -1845,8 +1786,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/           
       @Test (priority = 27)
       public void verifyPermissionforServerIncidentsinGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	    
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1903,7 +1843,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      			testresultlist.add(objtestreult);
      		}	
       
- 	    driver.close();
+
 }////////////////////////////////// Pass
 
       
@@ -1914,8 +1854,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/           
       @Test (priority = 28)
       public void verifyPermissionforBranchinGroup() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	    
         driver.get(baseUrl);
   
         String SheetName = "29- Permission's";
@@ -1974,7 +1913,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
      			testresultlist.add(objtestreult);
      		}
          
- 	    driver.close();
+
 }///////////////////////////Pass
  
       
@@ -1985,8 +1924,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 //*/     
       @Test (priority = 29)
       public void verifyViewServerPermissiondisabled() throws InterruptedException, IOException {	
-	     System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+	    
         driver.get(baseUrl);
       
         String SheetName = "29- Permission's";
@@ -2071,7 +2009,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 		testresultlist.add(objtestreult);
 	}	
       
-      driver.close();        
 }///////////////////////Pass 
       
 
@@ -2085,8 +2022,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 ////*/	
       @Test (priority = 29)
       public void verifyViewServerPermissionAgainstPage() throws InterruptedException, IOException {	
-        System.setProperty("webdriver.gecko.driver", driverPath);
-         driver = new FirefoxDriver();
+      
          driver.get(baseUrl);
 
          String SheetName = "29- Permission's";
@@ -2299,7 +2235,7 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        jsr.executeScript("window.confirm('Please change your password to continue. Your account will be disabled if you click Cancel button 3 times.')");
      
        /* Manage exceptions org.openqa.selenium.UnhandledAlertException: 
-       Dismissed user prompt dialog: Settings have been updated succesSFully:*/
+       Dismissed user prompt dialog: Settings have been updated successfully:*/
        driver.switchTo().alert().accept();
        //Thread.sleep(5000); 
        
@@ -2327,65 +2263,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
        
        boolean value2 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink10")).isDisplayed();
        Assert.assertEquals(value2, true); //Notification Templates
-        
-       
-//       // Check all pages
-//       boolean value = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).isDisplayed();
-//       Assert.assertEquals(value, false); //Users
-//       
-//       boolean value1 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkServer")).isDisplayed();
-//       Assert.assertEquals(value1, false); //Server
-//       
-//       boolean value2 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink5")).isDisplayed();
-//       Assert.assertEquals(value2, false); //Branches
-//       
-//       boolean value3 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkNodes")).isDisplayed();
-//       Assert.assertEquals(value3, false); // Nodes
-//       
-//       boolean value4 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPCM")).isDisplayed();
-//       Assert.assertEquals(value4, false); // Packetizer Settings
-//       
-//       boolean value5 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink7")).isDisplayed();
-//       Assert.assertEquals(value5, false); // Trunk Groups
-//       
-//       boolean value6 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink6")).isDisplayed();
-//       Assert.assertEquals(value6, false); // Boards
-//       
-//       boolean value7 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkSIPTrunk")).isDisplayed();
-//       Assert.assertEquals(value7, false); // SIP Trunk
-//       
-//       boolean value8 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink2")).isDisplayed();
-//       Assert.assertEquals(value8, false); // Storage Settings
-//       
-//       boolean value9 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink3")).isDisplayed();
-//       Assert.assertEquals(value9, false); // System
-//       
-//       boolean value10 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink9")).isDisplayed();
-//       Assert.assertEquals(value10, false); // SNMP Settings
-//       
-//       boolean value11 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink4")).isDisplayed();
-//       Assert.assertEquals(value11, false); // Traces
-//       
-//       boolean value12 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink12")).isDisplayed();
-//       Assert.assertEquals(value12, false); // Email Templates
-//       
-//       boolean value13 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkInciddents")).isDisplayed();
-//       Assert.assertEquals(value13, false); // Server Incidents
-//       
-//       boolean value14 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkAPIToken")).isDisplayed();
-//       Assert.assertEquals(value14, false); // API Token
-//       
-//       boolean value15 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink8")).isDisplayed();
-//       Assert.assertEquals(value15, false); // Update Schedule
-//       
-//       boolean value16 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkLicensing")).isDisplayed();
-//       Assert.assertEquals(value16, false); // Licensing
-//       
-//       boolean value17 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink1")).isDisplayed();
-//       Assert.assertEquals(value17, false); // Change Password
-//       
-//       boolean value18 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlReports")).isDisplayed();
-//       Assert.assertEquals(value18, false); // Reports
                     
 	    Status = "Pass";
 	    ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
@@ -2400,8 +2277,6 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 		TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
 		testresultlist.add(objtestreult);
 }
-       
-       driver.close();    
 }
       
       
@@ -2411,65 +2286,19 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 ////////////////////////////////////////           
       @Test (priority = 30)
       public void ClearPermissionsAfterTest() throws InterruptedException {
-  		System.setProperty("webdriver.gecko.driver", driverPath);
-  		driver = new FirefoxDriver();
-  	      driver.get(baseUrl);	
-  	
-  	      // Signing in OmniPCX
-  	      driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
-  	      driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a"); 
-  	      driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
-  	      
-  	      // Delete remaining Users and Permission group
-  		  // Users
-  		  // Click on Users
-  	      //Thread.sleep(10000);
-  	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
-  	      
-  	      //Thread.sleep(7000);
-  	      
-  	      // Click all check-boxes
-  	      List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
-  	      for (WebElement el:elements) {
-  	      el.click(); }
-  	      
-  	      // Click multiple delete
-  	      driver.findElement(By.id("dltMultiple")).click();
-  	      
-  	      //Thread.sleep(7000);
-  	      
-  	      // Click on delete selected
-  	      driver.findElement(By.xpath("/html/body/ul[1]")).click();
-  	      
-  	      // Click on delete button
-          //Thread.sleep(5000);
-  	      driver.findElement(By.id("btnDelete")).click();
-  	      
-//  	      String expectedUserDeleted = "Selected users are deleted succesSFully.";
-//  	      
-//  	      //Thread.sleep(5000);
-//  	      // Get message "Record has been deleted succesSFully"
-//  	      String actualUserDeleted = driver.findElement(By.id("lblMessage")).getText();
-//  	      
-//  	      Assert.assertEquals(actualUserDeleted, expectedUserDeleted);
-        
-  	      // Click On Permissions
-//  	      //Thread.sleep(7000);
-  	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();	
-  	   
-  	    List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
-  	  	int rowscount = rows.size();
-  	  	System.out.println(rowscount);
-  	  	
-  	  	for (int i=2 ; i<=rowscount; i++)
-  	  	{
-  	  	////Thread.sleep(2000);
-  	  	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
 
-  	  	driver.findElement(By.id("btnDelete")).click();
-  	  	}
-  	  		
-  	  		driver.close();	  		  		  
+  	    driver.get(baseUrl);	
+  	
+   		((SharedFunctions)SF).loginServerAdmin(driver);
+  		((SharedFunctions)SF).clickServerPermissions(driver);
+  		
+  		
+  		// Delete all users after test
+  		((SharedFunctions)SF).DeleteUser(driver);
+  		
+  		// Delete all permissions group after test
+  		((SharedFunctions)SF).DeleteAllPermissionsGroups(driver);
+  		  		  
   	  	} 	
   	
   		  		        
@@ -2492,5 +2321,75 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////Rough Work for 29-32
+
+//// Check all pages
+//boolean value = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).isDisplayed();
+//Assert.assertEquals(value, false); //Users
+//
+//boolean value1 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkServer")).isDisplayed();
+//Assert.assertEquals(value1, false); //Server
+//
+//boolean value2 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink5")).isDisplayed();
+//Assert.assertEquals(value2, false); //Branches
+//
+//boolean value3 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkNodes")).isDisplayed();
+//Assert.assertEquals(value3, false); // Nodes
+//
+//boolean value4 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPCM")).isDisplayed();
+//Assert.assertEquals(value4, false); // Packetizer Settings
+//
+//boolean value5 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink7")).isDisplayed();
+//Assert.assertEquals(value5, false); // Trunk Groups
+//
+//boolean value6 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink6")).isDisplayed();
+//Assert.assertEquals(value6, false); // Boards
+//
+//boolean value7 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkSIPTrunk")).isDisplayed();
+//Assert.assertEquals(value7, false); // SIP Trunk
+//
+//boolean value8 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink2")).isDisplayed();
+//Assert.assertEquals(value8, false); // Storage Settings
+//
+//boolean value9 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink3")).isDisplayed();
+//Assert.assertEquals(value9, false); // System
+//
+//boolean value10 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink9")).isDisplayed();
+//Assert.assertEquals(value10, false); // SNMP Settings
+//
+//boolean value11 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink4")).isDisplayed();
+//Assert.assertEquals(value11, false); // Traces
+//
+//boolean value12 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink12")).isDisplayed();
+//Assert.assertEquals(value12, false); // Email Templates
+//
+//boolean value13 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkInciddents")).isDisplayed();
+//Assert.assertEquals(value13, false); // Server Incidents
+//
+//boolean value14 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkAPIToken")).isDisplayed();
+//Assert.assertEquals(value14, false); // API Token
+//
+//boolean value15 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink8")).isDisplayed();
+//Assert.assertEquals(value15, false); // Update Schedule
+//
+//boolean value16 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkLicensing")).isDisplayed();
+//Assert.assertEquals(value16, false); // Licensing
+//
+//boolean value17 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink1")).isDisplayed();
+//Assert.assertEquals(value17, false); // Change Password
+//
+//boolean value18 = driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlReports")).isDisplayed();
+//Assert.assertEquals(value18, false); // Reports
 
  

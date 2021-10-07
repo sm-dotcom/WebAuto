@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import javax.activation.DataHandler;
@@ -41,6 +42,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Random;
@@ -293,7 +295,56 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	}
 	
 	
+   public void DeleteUser(WebDriver driver) {
+		
+		loginServerAdmin(driver);
+		clickUsers(driver);
+		
+		// Click all check-boxes
+	    List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+	    for (WebElement el:elements) {
+	    el.click(); }
+	      
+	    // Click multiple delete
+	    driver.findElement(By.id("dltMultiple")).click();
+	      
+//	    //Wait for the browser to respond
+//	    WebDriverWait wait = new WebDriverWait(driver,30);
+//	    WebElement btnMain;
+//	    btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Label1")));
+	      
+	      // Click on delete selected
+	      driver.findElement(By.xpath("/html/body/ul[1]")).click();
+	      
+	      // Click on delete button
+	      driver.findElement(By.id("btnDelete")).click();
 	
+   }
+   
+   
+   public void DeleteAllPermissionsGroups(WebDriver driver) {
+	   
+	    loginServerAdmin(driver);
+	    // Click On Permissions
+	    clickServerPermissions(driver);
+    
+	    // Get All elements in table delete one by one 
+	    List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
+	 	int rowscount = rows.size();
+	 	System.out.println(rowscount);
+	 	
+	 	for (int i=2 ; i<=rowscount; i++)
+	 	{
+	 	////Thread.sleep(2000);
+	 	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
+	
+	 	driver.findElement(By.id("btnDelete")).click();
+	 	}
+   
+   }
+   
+   
+   
 	public void SendEmail()
 	{
 		 String to = "muhammad.haris@amigo-software.com";
