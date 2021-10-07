@@ -335,7 +335,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	 	
 	 	for (int i=2 ; i<=rowscount; i++)
 	 	{
-	 	////Thread.sleep(2000);
+	 	
 	 	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
 	
 	 	driver.findElement(By.id("btnDelete")).click();
