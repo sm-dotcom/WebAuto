@@ -17,7 +17,7 @@ import Settings.UpdateTestResult;
 
 public class SitePermissions {
   
-	public String siteUrl = "http://172.20.22.81/OmniPCXRECORD/default.aspx";
+	public String siteUrl = "http://172.20.20.134/OmniPCXRECORD/default.aspx";
 
 	public WebDriver driver;
 	public String SheetName = "29- Permission's";
@@ -34,7 +34,7 @@ public class SitePermissions {
 		driver=((SharedFunctions)sf).InitializeDriver(); 
     }
 	
-	
+
 ////Test ID: 29-34
 ///* 
 //* Verify that default permission group is available 
@@ -78,7 +78,7 @@ public class SitePermissions {
 		  	 } 
 	
 	
-	
+
 ////Test ID: 29-35
 ///* 
 //* Verify the newly created security group. 

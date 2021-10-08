@@ -344,6 +344,28 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
    }
    
    
+    public void GenrateUserName() {
+    	
+    	
+    	loginServerAdmin(driver);
+		clickUsers(driver);
+		
+//		driver.findElement(By.id("ctl00_lblLogOut")).click();
+		
+		  // Click on Add Users
+	      driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/div/table[1]/tbody/tr[2]/td/a")).click();		
+		  
+	       // Locate Fname and get value
+	      String fname  = driver.findElement(By.id("tbFirstName")).getAttribute("value"); //sendKeys("Maeve");
+	      
+	      // Locate Lname and get value
+	      String lname = driver.findElement(By.id("tbLastName")).getAttribute("value");
+    	
+	      
+    	
+    }
+   
+   
    
 	public void SendEmail()
 	{
