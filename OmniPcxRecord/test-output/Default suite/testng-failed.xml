@@ -3,19 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SiteAdministration.SitePermissions">
+      <class name="SiteAdministration.SiteCall_Flags">
         <methods>
-          <include name="verifyGroupDescription250Characters"/>
-          <include name="verifyDefaultPermissionGroups"/>
-          <include name="verifyEditPermissionsofCopiedGroup"/>
-          <include name="verifycreatingCopyofGroup"/>
-          <include name="verifyCopyofGroupbuttonsedit_delete"/>
-          <include name="verifyGroupAssignedPermissions"/>
-          <include name="verifyGroupCreation"/>
-          <include name="afterTest"/>
-          <include name="beforeTest"/>
+          <include name="setUpTest"/>
+          <include name="tearDownTest"/>
+          <include name="AddCallFlagToCall"/>
         </methods>
-      </class> <!-- SiteAdministration.SitePermissions -->
+      </class> <!-- SiteAdministration.SiteCall_Flags -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
