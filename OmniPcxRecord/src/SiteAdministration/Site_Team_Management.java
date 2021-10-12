@@ -24,8 +24,8 @@ public class Site_Team_Management {
 		
 		@BeforeTest
 		public void setUpTest() {
-			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe");
 			
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe");
 			driver=new FirefoxDriver();
 		}
 		

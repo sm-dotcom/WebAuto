@@ -24,7 +24,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ServerUser {
 	
-	public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
+	public String baseUrl = "http://172.20.11.6//OmniPCXRecord/TenantAdmin.aspx";  //http://172.20.22.81/
 	
     String driverPath = "C:\\Users\\sarah.mahmood\\Downloads\\gecko-driver\\geckodriver.exe";
 	

@@ -44,7 +44,7 @@ public class SiteSearch_Calls {
 			driver=new FirefoxDriver();
 		}
 
-		/*	
+			
 
 		//Test ID 28-01
 			//Verify Search button functionality 
@@ -3463,8 +3463,6 @@ public class SiteSearch_Calls {
 				Assert.assertEquals(actualurl2,expectedurl2);
 				Thread.sleep(5000);			
 		}	
-	*/
-		
 	
 		
 		//Test ID 28-59

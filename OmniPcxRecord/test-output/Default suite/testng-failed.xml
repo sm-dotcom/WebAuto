@@ -3,13 +3,42 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SiteAdministration.SiteCall_Flags">
+      <class name="SheetSpecifics.Server_Login_Page">
         <methods>
-          <include name="setUpTest"/>
+          <include name="ResetAuthenticationType1"/>
+          <include name="CMLoginToSiteWithValidCredentials"/>
+          <include name="OPRSUAableToLoginWhenRadiusAuthenticationIsSet"/>
+          <include name="LoginToSiteWithValidUsernameButInvalidPasswordCredentials"/>
+          <include name="Enable_the_user_which_got_disabled_case_02_41"/>
+          <include name="SiteAgentlandsOnChangePasswordPage"/>
+          <include name="AgentLoginToSiteWithValidCredentials"/>
+          <include name="LoginToSiteWithValidUsernameandEmptyPasswordCredentials"/>
+          <include name="ADCMNotAbleToLoginWhenOPRAuthenticationIsSet"/>
           <include name="tearDownTest"/>
-          <include name="AddCallFlagToCall"/>
+          <include name="ADUserUnableToLoginWhenMixModeAuthenticationIsSet"/>
+          <include name="OPRSUAableToLoginSiteWhenRadiusAuthenticationIsSet"/>
+          <include name="RadiusUserAbleToLoginSiteWhenOPRAuthenticationIsSet"/>
+          <include name="SUSitelandsOnChangePasswordPage"/>
+          <include name="LoginToSiteWithInvalidUsernameButValidPasswordCredentials"/>
+          <include name="LoginToSiteWithEmptyUsernameandValidPasswordCredentials"/>
+          <include name="SiteUserDisabled"/>
+          <include name="setUpTest"/>
+          <include name="SUAbleToLoginSiteBySelectingADFromDropdownWhenMixModeAuthenticationIsSet"/>
+          <include name="OPRSiteSUAableToLoginWhenADAuthenticationIsSet"/>
+          <include name="GroupAdminLoginToSiteWithValidCredentials"/>
+          <include name="LoginToSiteWithValidCredentials"/>
+          <include name="SiteGroupAdminlandsOnChangePasswordPage"/>
+          <include name="ADAgentNotAbleToLoginWhenOPRAuthenticationIsSet"/>
+          <include name="OPRAgentUnableToLoginWhenADAuthenticationIsSet"/>
+          <include name="RadiusUserAbleToLoginSiteWhenRadiusAuthenticationIsSet"/>
+          <include name="SUServerlandsOnChangePasswordPage"/>
+          <include name="LoginToSiteWithInvalidUsernameandPasswordCredentials"/>
+          <include name="SiteConfigManagerlandsOnChangePasswordPage"/>
+          <include name="ADGroupAdminNotAbleToLoginWhenOPRAuthenticationIsSet"/>
+          <include name="SUAbleToLoginSiteWhenMixModeAuthenticationIsSet"/>
+          <include name="Verify7AttemptmessageAtSite"/>
         </methods>
-      </class> <!-- SiteAdministration.SiteCall_Flags -->
+      </class> <!-- SheetSpecifics.Server_Login_Page -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
