@@ -26,8 +26,8 @@ public class SiteCall_Flags {
 		private static final WebElement No_Flag = null;
 		WebDriver driver = null;
 		//WebDriverWait wait = new WebDriverWait(driver, 15);
-		public String siteUrl = "http://172.20.22.81/OmniPCXRECORD/default.aspx";
-		public String ExpectedSiteURL = "http://172.20.22.81/OmniPCXRECORD/default.aspx";
+		public String siteUrl = "http://172.20.20.134/OmniPCXRECORD/default.aspx";
+		public String ExpectedSiteURL = "http://172.20.20.134/OmniPCXRECORD/default.aspx";
 		private String url;
 		
 		
@@ -46,7 +46,7 @@ public class SiteCall_Flags {
 			System.out.println("AddCallFlagToCall");
 				driver.get(siteUrl);
 			//Enter Site code
-//				driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
+				driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
 			//Enter Username
 				driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
 			//Enter Password

@@ -344,7 +344,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
    }
    
    
-    public void GenrateUserName() {
+    public void GenrateUserName() { //incomplete
     	
     	
     	loginServerAdmin(driver);
@@ -359,13 +359,32 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	      String fname  = driver.findElement(By.id("tbFirstName")).getAttribute("value"); //sendKeys("Maeve");
 	      
 	      // Locate Lname and get value
-	      String lname = driver.findElement(By.id("tbLastName")).getAttribute("value");
-    	
-	      
+	      String lname = driver.findElement(By.id("tbLastName")).getAttribute("value");      
     	
     }
    
-   
+    public void loginTenantServerAdmin(WebDriver driver)
+	{
+		
+		driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+		driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+		driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+        
+	}
+    
+    
+    public void loginTenantSiteAdmin(WebDriver driver)
+   	{
+    	driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
+   		driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
+   		driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
+   		driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+           
+   	}
+    
+    
+    
+    
    
 	public void SendEmail()
 	{
