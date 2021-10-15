@@ -3,9 +3,15 @@ package SiteAdministration;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.Test;
+
+import Settings.SharedFunctions;
+import Settings.TestResult;
+import Settings.UpdateTestResult;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -20,19 +26,36 @@ import org.openqa.selenium.*;
 
 public class Site_Agent_Management {
 
+   public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
+	
+    public String siteUrl = "http://172.20.20.134/OmniPCXRECORD/Default.aspx";
+	
+    public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
+	
+	public String SheetName = "29- Permission's";
+    
+	public static WebDriver driver;
 
-	WebDriver driver = null;
+	public SharedFunctions SF = new SharedFunctions();
+	
+	UpdateTestResult obj = new UpdateTestResult();
+	
+	
+//	WebDriver driver = null;
 	//WebDriverWait wait = new WebDriverWait(driver, 15);
-	public String siteUrl = "http://172.20.22.81/OmniPCXRECORD/default.aspx";
+//	public String siteUrl = "http://172.20.22.81/OmniPCXRECORD/default.aspx";
 	public String ExpectedSiteURL = "http://172.20.22.81/OmniPCXRECORD/default.aspx";
 	public String ExpectedServerURL = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
 	
 	@BeforeTest
 	public void setUpTest() {
 		
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe");
+		System.out.println(this.getClass().getName());
+		driver=((SharedFunctions)SF).InitializeDriver(); 
 		
-		driver=new FirefoxDriver();
+//		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe");
+//		
+//		driver=new FirefoxDriver();
 	}
 
 	
@@ -44,15 +67,34 @@ public class Site_Agent_Management {
 	public void VerificationOfAddAgentButton() throws InterruptedException {
 		System.out.println("VerificationOfAddAgentButton");
 		driver.get(siteUrl);
-		//Enter Site Code
-			driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
-		//Enter Username
-			driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
-		//Enter Password
-			driver.findElement(By.id("Ctrl_Login1_txtPassword")).sendKeys("1234567a");
-		//Click on Login button
-			driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click();
+		
+		String SheetName = "10- Agents Management";
+		 String TestCaseID = "10-01";
+		 String Status = "";
+		 
+		 if(driver==null){
+			 
+			 System.out.println("WebDriver not initialized");
+			 return;
+		  }
+		  
+		  try{
+			  
+			  
+			  ((SharedFunctions)SF).loginTenantSiteAdmin(driver);
+			  ((SharedFunctions)SF).clickServerPermissions(driver);
+		
+		
+//		//Enter Site Code
+//			driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
+//		//Enter Username
+//			driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
+//		//Enter Password
+//			driver.findElement(By.id("Ctrl_Login1_txtPassword")).sendKeys("1234567a");
+//		//Click on Login button
+//			driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click();
 		//Wait for the browser to respond
+		
 			WebDriverWait wait = new WebDriverWait(driver,30);
 			WebElement btnMain;
 			btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_CtrlLeftMenus1_HyperLink5")));
@@ -69,6 +111,21 @@ public class Site_Agent_Management {
 			String actualmsg = driver.findElement(By.id("ctl00_lblPageCaption")).getText();
 			Assert.assertEquals(actualmsg, expectedmsg); 
 		Thread.sleep(2000);
+	      
+          Status = "Pass";
+          ((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+			testresultlist.add(objtestreult);
+			// obj.updateResult(TestCaseID, SheetName, Status);
+
+		} catch (Throwable e) {
+			System.out.println("Error : " + e);
+			Status = "Fail";
+			((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+			TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+			testresultlist.add(objtestreult);
+		}
+		
 		
 		
 	}		

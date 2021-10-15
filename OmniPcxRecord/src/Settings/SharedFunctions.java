@@ -42,6 +42,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -53,6 +54,7 @@ public class SharedFunctions {
 
 
 public WebDriver driver;
+public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
 public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
 
 	public SharedFunctions()
@@ -101,7 +103,14 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click(); 
 	}
 	
-
+	
+	public void clickAgentTenantsSiteAdmin(WebDriver driver)
+	{
+	driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink5")).click(); 
+	
+	}
+	
+	
 	public void clickServerPermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
 	}
@@ -224,6 +233,18 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
 	}
 	
+	public  void clickBoards(WebDriver driver) {
+		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
+	}
+	
+	
+	public  void clickServerSystem(WebDriver driver) {
+		  
+	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink3")).click();
+	}
+	
+	
+	
 	public void TakeScreenshot(WebDriver driver, String TestCaseID, String Status, String ClassName)
 	{
 		TakesScreenshot ts = (TakesScreenshot) driver;
@@ -308,10 +329,11 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	    // Click multiple delete
 	    driver.findElement(By.id("dltMultiple")).click();
 	      
-//	    //Wait for the browser to respond
-//	    WebDriverWait wait = new WebDriverWait(driver,30);
+	    //Wait for the browser to respond
+//	    @SuppressWarnings("deprecation")
+//		WebDriverWait wait = new WebDriverWait(driver,30);
 //	    WebElement btnMain;
-//	    btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Label1")));
+//	    btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("AlertBoxMessage")));
 	      
 	      // Click on delete selected
 	      driver.findElement(By.xpath("/html/body/ul[1]")).click();
@@ -342,6 +364,59 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	 	}
    
    }
+   
+   
+   public void DeleteAllEquipments(WebDriver driver) {
+	   
+	   loginServerAdmin(driver);
+	      
+   }
+   
+   
+   
+   
+   
+   public void ActiveDirectorywithIncludeallContainers() throws InterruptedException {
+//		System.setProperty("webdriver.gecko.driver", driverPath);
+//	      driver = new FirefoxDriver();
+//	      driver = InitializeDriver(); 
+
+	      driver.get(baseUrl);		
+	
+	      // Signing in OmniPCX
+	      loginServerAdmin(driver);  
+		  
+	      // Click on System
+	      clickServerSystem(driver);
+	      
+		  
+	      // Select from dropdown 
+	      Select dropdown = new Select(driver.findElement(By.id("cboAuthType")));
+		  dropdown.selectByVisibleText("Active Directory");
+		  
+		  // Fill in the required information
+		  // Enter Domain Name
+		  driver.findElement(By.id("txtADDomainName")).clear(); //In case some value already present clear
+		  driver.findElement(By.id("txtADDomainName")).sendKeys("ghostsoftware.local");
+		  
+		  // Enter Username
+		  driver.findElement(By.id("txtADUsername")).clear();
+		  driver.findElement(By.id("txtADUsername")).sendKeys("ahsan.rehman");
+		  
+		  // Enter Password
+		  driver.findElement(By.id("txtADPassword")).clear();
+		  driver.findElement(By.id("txtADPassword")).sendKeys("Abc123*");
+		  
+		  // Check radio button "Include all Containers" for Criteria
+		  driver.findElement(By.id("rbADCriteriaAll")).click();
+		  
+		  // Click on update button
+		  driver.findElement(By.id("btnUpdateAuthSettings")).click(); 
+		  
+		  Thread.sleep(2000);
+	      	  		  
+	  	}		
+   
    
    
     public void GenrateUserName() { //incomplete
@@ -376,11 +451,12 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
     public void loginTenantSiteAdmin(WebDriver driver)
    	{
     	driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
-   		driver.findElement(By.id("ctrl_TenantAdmin1_txtUserName")).sendKeys("admin");
-   		driver.findElement(By.id("ctrl_TenantAdmin1_txtPassword")).sendKeys("1234567a");
-   		driver.findElement(By.id("ctrl_TenantAdmin1_imgBtnLogin")).click();
+   		driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
+   		driver.findElement(By.id("Ctrl_Login1_txtPassword")).sendKeys("1234567a");
+   		driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click();
            
    	}
+    
     
     
     

@@ -101,8 +101,7 @@ public class ServerPermissions {
     				TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
     				testresultlist.add(objtestreult);
     			}
-    		  
-    		  driver.close();
+
 }///////////////////////Pass     
    
       

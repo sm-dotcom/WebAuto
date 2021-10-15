@@ -26,11 +26,15 @@ import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.openqa.selenium.interactions.Actions;
 //import org.openqa.selenium.remote.ScreenshotException;
 //import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 //import org.testng.annotations.AfterTest;
 //import com.twilio.jwt.accesstoken.AccessToken;
@@ -60,26 +64,124 @@ import org.testng.annotations.Test;
 
 public class NewTestPage {
   
-	public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
+	    public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
+		
+	    public String siteUrl = "http://172.20.20.134/OmniPCXRECORD/Default.aspx";
+		
+	    public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
+		
+		public String SheetName = "10- Agents Management";
+	    
+		public static WebDriver driver;
 
-	public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
-
-	public WebDriver driver;
-//	public String SheetName = "29- Permission's";
-
-	
-   public SharedFunctions sf = new SharedFunctions();
-     
-	UpdateTestResult obj = new UpdateTestResult();
+		public SharedFunctions SF = new SharedFunctions();
+		
+		UpdateTestResult obj = new UpdateTestResult();
 
 
 	@BeforeClass
 	public void beforeTest() {
 		
 		System.out.println(this.getClass().getName());
-		driver=((SharedFunctions)sf).InitializeDriver(); 
+		driver=((SharedFunctions)SF).InitializeDriver(); 
     }
 	  
+	
+	//Test ID 10-01
+	//Verification of the 'Add Agents' button.
+
+@Test(priority=0)
+public void VerificationOfAddAgentButton() throws InterruptedException {
+	System.out.println("VerificationOfAddAgentButton");
+	driver.get(siteUrl);
+	
+	String TestCaseID = "10-01";
+	String Status = "";
+
+	if (driver == null) {
+
+		System.out.println("WebDriver not initialized");
+		return;
+	}
+
+	try {
+		  
+		  
+		  ((SharedFunctions)SF).loginTenantSiteAdmin(driver);
+//		  ((SharedFunctions)SF).clickAgentTenantsSiteAdmin(driver);
+
+	
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebElement btnMain;
+		btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_CtrlLeftMenus1_HyperLink5")));
+	//Click on Agent tab from left panel
+		driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink5")).click();
+	//Click on Add Agent 
+		driver.findElement(By.id("linkAddAgent")).click();
+	//Wait for the browser to respond
+		WebDriverWait wait1 = new WebDriverWait(driver,30);
+		WebElement btnMain1;
+		btnMain1= wait1.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_lblPageCaption")));
+	//Check the Agent details page is open
+		String expectedmsg= "Agent Details";
+		String actualmsg = driver.findElement(By.id("ctl00_lblPageCaption")).getText();
+		Assert.assertEquals(actualmsg, expectedmsg); 
+	Thread.sleep(2000);
+      
+
+	Status = "Pass";
+	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+	testresultlist.add(objtestreult);
+	// obj.updateResult(TestCaseID, SheetName, Status);
+
+} catch (Throwable e) {
+	System.out.println("Error : " + e);
+	Status = "Fail";
+	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+	testresultlist.add(objtestreult);
+}
+
+}/////////////////////// Pass
+
+	
+
+
+@AfterClass
+public void afterTest() {
+
+	try {
+		System.out.println("Closing the Browser");
+		obj.updateResult(testresultlist);
+		((SharedFunctions)SF).SendEmail();
+		driver.quit();
+	}
+
+	catch (Throwable e) {
+		System.out.println("Error :" + e);
+	}
+
+}
+
+
+	  
+}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 ////Test ID: 31-28
 ///* 
@@ -180,13 +282,13 @@ public class NewTestPage {
 	
 	
 	
-	@Test (priority = 30)
-	public void ClearPermissionsAfterTest() throws InterruptedException, IOException {
+//	@Test (priority = 30)
+//	public void ClearPermissionsAfterTest() throws InterruptedException, IOException {
+//		
+//		driver.get(baseUrl);
 		
-		driver.get(baseUrl);
-		
-	((SharedFunctions)sf).loginServerAdmin(driver);
-	((SharedFunctions)sf).clickServerPermissions(driver);
+//	((SharedFunctions)sf).loginServerAdmin(driver);
+//	((SharedFunctions)sf).clickServerPermissions(driver);
 	
 //	// Delete remaining Users and Permission group
 //	// Users
@@ -217,20 +319,20 @@ public class NewTestPage {
 //	//Thread.sleep(7000);
 //	driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();	
 //	
-	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
-	int rowscount = rows.size();
-	System.out.println(rowscount);
-	
-	for (int i=2 ; i<=rowscount; i++)
-	{
-	////Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
-	
-	driver.findElement(By.id("btnDelete")).click();
-	}
-	
-	driver.close();	  		  		  
-	} 
+//	List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr"));
+//	int rowscount = rows.size();
+//	System.out.println(rowscount);
+//	
+//	for (int i=2 ; i<=rowscount; i++)
+//	{
+//	////Thread.sleep(2000);
+//	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
+//	
+//	driver.findElement(By.id("btnDelete")).click();
+//	}
+//	
+//	driver.close();	  		  		  
+//	} 
 	
 	
 	
@@ -244,7 +346,7 @@ public class NewTestPage {
 //	    dir1.mkdir();  //Creates the folder with the above specified name	
 //	}	
 
-}
+
 	
 	
 	
