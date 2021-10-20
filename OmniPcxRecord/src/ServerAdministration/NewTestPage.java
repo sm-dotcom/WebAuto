@@ -93,7 +93,8 @@ public class NewTestPage {
 @Test(priority=0)
 public void VerificationOfAddAgentButton() throws InterruptedException {
 	System.out.println("VerificationOfAddAgentButton");
-	driver.get(siteUrl);
+    ((SharedFunctions)SF).loginSiteAdmin_siteURL(driver);
+
 	
 	String TestCaseID = "10-01";
 	String Status = "";
@@ -104,9 +105,9 @@ public void VerificationOfAddAgentButton() throws InterruptedException {
 		return;
 	}
 
-	try {
+//	try {
 		  
-		  
+	      
 		  ((SharedFunctions)SF).loginTenantSiteAdmin(driver);
 //		  ((SharedFunctions)SF).clickAgentTenantsSiteAdmin(driver);
 
@@ -129,19 +130,19 @@ public void VerificationOfAddAgentButton() throws InterruptedException {
 	Thread.sleep(2000);
       
 
-	Status = "Pass";
-	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
-	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
-	testresultlist.add(objtestreult);
-	// obj.updateResult(TestCaseID, SheetName, Status);
-
-} catch (Throwable e) {
-	System.out.println("Error : " + e);
-	Status = "Fail";
-	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
-	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
-	testresultlist.add(objtestreult);
-}
+//	Status = "Pass";
+//	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+//	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+//	testresultlist.add(objtestreult);
+//	// obj.updateResult(TestCaseID, SheetName, Status);
+//
+//} catch (Throwable e) {
+//	System.out.println("Error : " + e);
+//	Status = "Fail";
+//	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
+//	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
+//	testresultlist.add(objtestreult);
+//}
 
 }/////////////////////// Pass
 
@@ -151,16 +152,16 @@ public void VerificationOfAddAgentButton() throws InterruptedException {
 @AfterClass
 public void afterTest() {
 
-	try {
-		System.out.println("Closing the Browser");
-		obj.updateResult(testresultlist);
-		((SharedFunctions)SF).SendEmail();
+//	try {
+//		System.out.println("Closing the Browser");
+//		obj.updateResult(testresultlist);
+//		((SharedFunctions)SF).SendEmail();
 		driver.quit();
-	}
-
-	catch (Throwable e) {
-		System.out.println("Error :" + e);
-	}
+//	}
+//
+//	catch (Throwable e) {
+//		System.out.println("Error :" + e);
+//	}
 
 }
 

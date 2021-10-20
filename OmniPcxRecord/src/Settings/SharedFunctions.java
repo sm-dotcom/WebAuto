@@ -55,6 +55,8 @@ public class SharedFunctions {
 
 public WebDriver driver;
 public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
+public String siteUrl = "http://172.20.20.134/OmniPCXRECORD/Default.aspx";
+
 public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
 
 	public SharedFunctions()
@@ -85,7 +87,18 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	System.out.println("Platform is : "+cap.getPlatform().toString());
 	return (FirefoxDriver)driver;
 	}
+	
+	public void loginServerAdmin_baseURL(WebDriver driver)
+	{
+		driver.get(baseUrl); //opr server admin
+	}
 
+	public void loginSiteAdmin_siteURL(WebDriver driver)
+	{
+		driver.get(siteUrl); //opr site admin
+	}
+	
+	
 	public void loginServerAdmin(WebDriver driver)
 	{
 		
@@ -113,6 +126,12 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	
 	public void clickServerPermissions(WebDriver driver) {
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkPermissions")).click();
+	}
+	
+	public void clickServerSystem(WebDriver driver) {
+     
+		// Click on System
+		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink3")).click();
 	}
 	
 	public String GenerateNames() {
@@ -236,13 +255,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	public  void clickBoards(WebDriver driver) {
 		driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_hlnkUsers")).click();
 	}
-	
-	
-	public  void clickServerSystem(WebDriver driver) {
-		  
-	      driver.findElement(By.id("ctl00_ctrl_LeftMenuCloud1_HyperLink3")).click();
-	}
-	
+
 	
 	
 	public void TakeScreenshot(WebDriver driver, String TestCaseID, String Status, String ClassName)
@@ -379,7 +392,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
    public void ActiveDirectorywithIncludeallContainers() throws InterruptedException {
 //		System.setProperty("webdriver.gecko.driver", driverPath);
 //	      driver = new FirefoxDriver();
-//	      driver = InitializeDriver(); 
+	      driver = InitializeDriver(); 
 
 	      driver.get(baseUrl);		
 	
@@ -389,7 +402,6 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	      // Click on System
 	      clickServerSystem(driver);
 	      
-		  
 	      // Select from dropdown 
 	      Select dropdown = new Select(driver.findElement(By.id("cboAuthType")));
 		  dropdown.selectByVisibleText("Active Directory");
@@ -413,9 +425,71 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 		  // Click on update button
 		  driver.findElement(By.id("btnUpdateAuthSettings")).click(); 
 		  
-		  Thread.sleep(2000);
+		  Thread.sleep(1000);
 	      	  		  
 	  	}		
+   
+   
+   public void ActiveDirectorywithSpecificContainer() throws InterruptedException {
+	      driver = InitializeDriver(); 
+	      driver.get(baseUrl);		
+
+	      // Click on System
+	      clickServerSystem(driver);
+	      
+	      // Select from dropdown 
+	      Select dropdown = new Select(driver.findElement(By.id("cboAuthType")));
+		  dropdown.selectByVisibleText("Active Directory");
+		  
+		  // Fill in the required information
+		  // Enter Domain Name
+		  driver.findElement(By.id("txtADDomainName")).clear(); //In case some value already present clear
+		  driver.findElement(By.id("txtADDomainName")).sendKeys("ghostsoftware.local");
+		  
+		  // Enter Username
+		  driver.findElement(By.id("txtADUsername")).clear();
+		  driver.findElement(By.id("txtADUsername")).sendKeys("ahsan.rehman");
+		  
+		  // Enter Password
+		  driver.findElement(By.id("txtADPassword")).clear();
+		  driver.findElement(By.id("txtADPassword")).sendKeys("Abc123*");
+		  
+		  // Check radio button "Specific Containers" for Criteria
+		  driver.findElement(By.id("rbADCriteriaSpecfic")).click();
+		  
+		  Thread.sleep(6000);
+		  
+		  // Choose container
+		  driver.findElement(By.id("imgSpecificContainer")).click();
+		  
+		  Thread.sleep(6000);
+		  
+		  // Select a container from Authentication Settings pop-up
+		  driver.findElement(By.id("j1_1_anchor")).click();
+		  
+		  Thread.sleep(6000);
+		  
+		  // Select a container from Authentication Settings pop-up
+		  driver.findElement(By.id("ADPopUpSelect")).click();
+		  
+		  Thread.sleep(6000);
+		  
+		  // Click on update button
+		  driver.findElement(By.id("btnUpdateAuthSettings")).click(); 
+		  
+		  Thread.sleep(1000);
+		  
+//		  String expectedAuthentication = "Settings have been updated successfully";
+//         String actualAuthentication = driver.findElement(By.id("lblMessageAuthentication")).getText();
+//	      
+//         Assert.assertEquals(actualAuthentication, expectedAuthentication);	  		  		  
+	  	}			
+   
+   
+   
+   
+   
+   
    
    
    
