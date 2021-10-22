@@ -40,11 +40,7 @@ public class UpdateTestResult
 					  
 					  
 					  String ValidatedBy = "Automation";
-					  TestResult testResult = (TestResult) iterator.next();
-						
-						
-						
-						 
+					  TestResult testResult = (TestResult) iterator.next();	 
 					  XSSFSheet sheet = workbook.getSheet(testResult.SheetName);
 					  
 					  XSSFCellStyle CellStyle = workbook.createCellStyle();

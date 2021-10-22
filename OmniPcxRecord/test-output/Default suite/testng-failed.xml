@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ServerAdministration.NewTestPage">
+      <class name="SiteAdministration.Site_Agent_Management">
         <methods>
-          <include name="VerificationOfAddAgentButton"/>
-          <include name="afterTest"/>
-          <include name="beforeTest"/>
+          <include name="setUpTest"/>
+          <include name="VerifyAddAgent"/>
+          <include name="tearDownTest"/>
         </methods>
-      </class> <!-- ServerAdministration.NewTestPage -->
+      </class> <!-- SiteAdministration.Site_Agent_Management -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

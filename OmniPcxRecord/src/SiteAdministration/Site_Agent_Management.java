@@ -28,7 +28,7 @@ public class Site_Agent_Management {
 
    public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
 	
-    public String siteUrl = "http://172.20.20.134/OmniPCXRECORD/Default.aspx";
+    public String siteUrl = "http://172.20.22.81/OmniPCXRECORD/Default.aspx";
 	
     public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSetup\\geckodriver.exe";
 	
@@ -59,7 +59,7 @@ public class Site_Agent_Management {
 	}
 
 	
-
+/*
 	//Test ID 10-01
 		//Verification of the 'Add Agents' button.
 
@@ -129,7 +129,7 @@ public class Site_Agent_Management {
 		
 		
 	}		
-	
+	*/
 
 	
 	
@@ -139,114 +139,26 @@ public class Site_Agent_Management {
 	public void VerifyAddAgent() throws InterruptedException {
 		System.out.println("VerifyAddAgent");
 		driver.get(siteUrl);
-		//Enter Site Code
-			driver.findElement(By.id("Ctrl_Login1_txtSiteCode")).sendKeys("010001");
-		//Enter Username
-			driver.findElement(By.id("Ctrl_Login1_txtUserName")).sendKeys("admin");
-		//Enter Password
-			driver.findElement(By.id("Ctrl_Login1_txtPassword")).sendKeys("1234567a");
-		//Click on Login button
-			driver.findElement(By.id("Ctrl_Login1_imgBtnLogin")).click();
-			//Wait for the browser to respond
+		String SheetName = "10- Agents Management";
+		 String TestCaseID = "10-01";
+		 String Status = "";
+		 
+		 if(driver==null){
+			 
+			 System.out.println("WebDriver not initialized");
+			 return;
+		  }
+		  //Call the shared function to login the site administration
+			  ((SharedFunctions)SF).loginTenantSiteAdmin(driver);
+		//Wait for the browser to respond
 			WebDriverWait wait = new WebDriverWait(driver,30);
 			WebElement btnMain;
 			btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_CtrlLeftMenus1_HyperLink5")));
 		//Click on Agent tab from left panel
 			driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink5")).click();
-		//Click on Add Agent 
-			driver.findElement(By.id("linkAddAgent")).click();
-		//Wait for the browser to respond
-			WebDriverWait wait1 = new WebDriverWait(driver,30);
-			WebElement btnMain1;
-			btnMain1= wait1.until(ExpectedConditions.visibilityOfElementLocated(By.id("tbFirstName")));
-		//Enter First Name
-			driver.findElement(By.id("tbFirstName")).sendKeys("Test");
-		//Enter Last Name
-			driver.findElement(By.id("tbLastName")).sendKeys("Agent");
-		//Enter Username
-			driver.findElement(By.id("tbUsername")).sendKeys("testagent");
-		//Enter Password
-			driver.findElement(By.id("tbPassword")).sendKeys("1234567b");
-		//Enter Confirm Password
-			driver.findElement(By.id("tbConfirmPassword")).sendKeys("1234567b");
-		//Enter Email
-			driver.findElement(By.id("tbEmail")).sendKeys("testagent@msn.com");
-		//Select checkbox "Enable Account"
-			driver.findElement(By.id("cbEnableAccount")).click();
-		//Select Extension
-			driver.findElement(By.xpath("//*[@id=\"ddlExtensionLeft\"]/option[1]")).click();
-		//Move the selected extension to assigned section
-			driver.findElement(By.id("btnExtensionFromLeftToRight")).click();
-		//Select the QA team from the All teams table
-		//Get the table and row
-			WebElement table =driver.findElement(By.id("Table1"));
-			WebElement tbody=table.findElement(By.tagName("tbody"));
-			List<WebElement> rows=tbody.findElements(By.tagName("tr"));
-			String rowNo="";
-			String Teams = "QA";
-			for(int i=0;i<rows.size();i++)
-			{
-			WebElement row = tbody.findElement(By.xpath("//*[@id=\"ddlTeamLeft\"]/option["+(i+1)+"]"));
-			if(row.getText().trim().contains(Teams))
-			{
-			rowNo=Integer.toString(i+1);
-			break;
-			}
-			}
-			System.out.println(rowNo);
-		
-			
-			driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[7]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option["+rowNo+"]")).click();
-		//Wait for the browser to respond
-			WebDriverWait wait2 = new WebDriverWait(driver,30);
-			WebElement btnMain2;
-			btnMain2= wait2.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnTeamFromLeftToRight")));
-		//Move the selected Team to the assigned section
-			driver.findElement(By.id("btnTeamFromLeftToRight")).click();
-		//Select the Agent security group from Available table
-			//Get the table and row
-			WebElement table1 =driver.findElement(By.id("Table2"));
-			WebElement tbody1=table1.findElement(By.tagName("tbody"));
-			List<WebElement> rows1=tbody1.findElements(By.tagName("tr"));
-			String row1No="";
-			String Security_Group = "Agent";
-			for(int i=0;i<rows1.size();i++)
-			{
-			WebElement row = tbody.findElement(By.xpath("//*[@id=\"ddlSGLeft\"]/option["+(i+1)+"]"));
-			if(row.getText().trim().contains(Security_Group))
-			{
-			//row1No=row1No+1;
-			row1No=Integer.toString(i+1);
-			
-			break;
-			}
-			}
-			System.out.println(row1No);
-		//Wait for the browser to respond
-			WebDriverWait wait3 = new WebDriverWait(driver,30);
-			WebElement btnMain3;
-			btnMain3= wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[9]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option[\"+row1No+\"]")));
-		
-			driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[4]/td/table/tbody/tr/td[3]/table/tbody/tr[3]/td/table/tbody/tr[9]/td/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/table/tbody/tr[2]/td[1]/div/div/select/option["+row1No+"]")).click();
-		//Wait for the browser to respond
-			WebDriverWait wait4 = new WebDriverWait(driver,30);
-			WebElement btnMain4;
-			btnMain4= wait4.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSGFromLeftToRight")));
-		//Move the selected security group to the assigned section
-			driver.findElement(By.id("btnSGFromLeftToRight")).click();
-		//Click on Save button
-			driver.findElement(By.id("btnSave")).click();
-		//Verify message
-			String expectedmsg = "Settings have been saved successfully. Do you want to add rules for this user?";
-		//Wait for the browser to respond
-			WebDriverWait wait5 = new WebDriverWait(driver,30);
-			WebElement btnMain5;
-			btnMain5= wait5.until(ExpectedConditions.visibilityOfElementLocated(By.id("dialog-message")));
-			String actualmsg = driver.findElement(By.id("dialog-message")).getText();
-			Assert.assertEquals(actualmsg, expectedmsg);
-			
-		//Click on Cancel button on popup window
-			driver.findElement(By.xpath("//*[@id=\"btnCancel\"]/span")).click();
+		 
+		//Call the shared function to add the agent without ULF
+			((SharedFunctions)SF).AddAgentWithoutULF(driver);
 		Thread.sleep(2000);
 		//Search the added agent
 			Select dropdown = new Select(driver.findElement(By.id("ddlFieldName")));
@@ -277,7 +189,7 @@ public class Site_Agent_Management {
 	}
 	
 	
-	
+	/*
 	
 	//Delete the agent which is created in Test ID 10-02
 	
@@ -5859,7 +5771,7 @@ public class Site_Agent_Management {
 					Assert.assertEquals(actualmsg2, expectedmsg2);
 				  }	
 
-	
+	*/
 	
 	
 	
