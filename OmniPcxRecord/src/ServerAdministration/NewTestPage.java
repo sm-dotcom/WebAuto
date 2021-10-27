@@ -62,6 +62,7 @@ import org.testng.annotations.Test;
 //import java.util.Iterator;
 //import java.util.Set;
 
+
 public class NewTestPage {
   
 	    public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
@@ -91,60 +92,20 @@ public class NewTestPage {
 	//Verification of the 'Add Agents' button.
 
 @Test(priority=0)
-public void VerificationOfAddAgentButton() throws InterruptedException {
-	System.out.println("VerificationOfAddAgentButton");
-    ((SharedFunctions)SF).loginSiteAdmin_siteURL(driver);
-
+     public void ClearPermissionsAfterTest() throws InterruptedException {
 	
-	String TestCaseID = "10-01";
-	String Status = "";
+ 		// Delete all users after test
+ 		((SharedFunctions)SF).DeleteUser(driver);
+ 		
+ 		Thread.sleep(2000);
+ 		
+ 		// Delete all permissions group after test 		
+ 		((SharedFunctions)SF).DeleteAllPermissionsGroups(driver);
+ 		  		  
+ 	  	} 	
 
-	if (driver == null) {
+/////////////////////// Pass
 
-		System.out.println("WebDriver not initialized");
-		return;
-	}
-
-	try {
-		  
-	      
-		  ((SharedFunctions)SF).loginTenantSiteAdmin(driver);
-//		  ((SharedFunctions)SF).clickAgentTenantsSiteAdmin(driver);
-
-	
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		WebElement btnMain;
-		btnMain= wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_CtrlLeftMenus1_HyperLink5")));
-	//Click on Agent tab from left panel
-		driver.findElement(By.id("ctl00_CtrlLeftMenus1_HyperLink5")).click();
-	//Click on Add Agent 
-		driver.findElement(By.id("linkAddAgent")).click();
-	//Wait for the browser to respond
-		WebDriverWait wait1 = new WebDriverWait(driver,30);
-		WebElement btnMain1;
-		btnMain1= wait1.until(ExpectedConditions.visibilityOfElementLocated(By.id("ctl00_lblPageCaption")));
-	//Check the Agent details page is open
-		String expectedmsg= "Agent Details";
-		String actualmsg = driver.findElement(By.id("ctl00_lblPageCaption")).getText();
-		Assert.assertEquals(actualmsg, expectedmsg); 
-	Thread.sleep(2000);
-      
-
-	Status = "Pass";
-	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
-	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
-	testresultlist.add(objtestreult);
-	// obj.updateResult(TestCaseID, SheetName, Status);
-
-} catch (Throwable e) {
-	System.out.println("Error : " + e);
-	Status = "Fail";
-	((SharedFunctions)SF).TakeScreenshot(driver, TestCaseID, Status, this.getClass().getName());
-	TestResult objtestreult = new TestResult(SheetName, TestCaseID, Status);
-	testresultlist.add(objtestreult);
-}
-
-}/////////////////////// Pass
 
 	
 
@@ -155,7 +116,7 @@ public void afterTest() {
 	try {
 		System.out.println("Closing the Browser");
 		obj.updateResult(testresultlist);
-		((SharedFunctions)SF).SendEmail();
+//		((SharedFunctions)SF).SendEmail();
 		driver.quit();
 	}
 

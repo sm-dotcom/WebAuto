@@ -2286,7 +2286,9 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
       @Test (priority = 30)
       public void ClearPermissionsAfterTest() throws InterruptedException {
 
-  	    driver.get(baseUrl);	
+    	  Thread.sleep(2000);
+    	  
+    	((SharedFunctions)SF).loginServerAdmin_baseURL(driver);	
   	
    		((SharedFunctions)SF).loginServerAdmin(driver);
   		((SharedFunctions)SF).clickServerPermissions(driver);
@@ -2302,20 +2304,21 @@ public void verifyDeletePermissionGroupotherthanDefaultassignedtoUser() throws I
   	
   		  		        
           
-      @AfterClass 
-      public void afterClass() {
-     	 
-     	 try {
-     		 System.out.println("Closing the Browser");
-     		 obj.updateResult(testresultlist);
-     		 driver.quit();
-     		 }
-     	 
-     	 catch(Throwable e) {
-     		 System.out.println("Error :" +e);
-     		 }
-      
-      }
+  	@AfterClass
+  	public void afterTest() {
+
+  		try {
+  			System.out.println("Closing the Browser");
+  			obj.updateResult(testresultlist);
+//  			((SharedFunctions)SF).SendEmail();
+  			driver.quit();
+  		}
+
+  		catch (Throwable e) {
+  			System.out.println("Error :" + e);
+  		}
+
+  	}
        
 
 }

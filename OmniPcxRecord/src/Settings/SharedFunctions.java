@@ -433,6 +433,7 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	
    public void DeleteUser(WebDriver driver) {
 		
+	    loginServerAdmin_baseURL(driver);	
 		loginServerAdmin(driver);
 		clickUsers(driver);
 		
@@ -455,13 +456,16 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	      
 	      // Click on delete button
 	      driver.findElement(By.id("btnDelete")).click();
+	      
+	      driver.quit();
 	
    }
    
    
    public void DeleteAllPermissionsGroups(WebDriver driver) {
 	   
-	    loginServerAdmin(driver);
+	    loginServerAdmin_baseURL(driver);	
+		loginServerAdmin(driver);
 	    // Click On Permissions
 	    clickServerPermissions(driver);
     
@@ -476,6 +480,8 @@ public static String driverPath = "C:\\Users\\Administrator\\Desktop\\FilesToSet
 	 	driver.findElement(By.xpath("//*[@id=\"gvGroups\"]/tbody/tr[2]/td[3]/div/img[4]")).click();
 	
 	 	driver.findElement(By.id("btnDelete")).click();
+	 	
+	 	driver.quit();
 	 	}
    
    }

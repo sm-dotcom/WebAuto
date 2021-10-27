@@ -1,3 +1,4 @@
+
 package ServerAdministration;
 
 import java.util.ArrayList;
@@ -16,16 +17,14 @@ import Settings.UpdateTestResult;
 
 
 public class Permissions {
-
 	
 	public ArrayList<TestResult> testresultlist = new ArrayList<TestResult>();
 
 	public String baseUrl = "http://172.20.22.81/OmniPCXRecord/TenantAdmin.aspx";
 
 	public WebDriver driver;
-	public String SheetName = "29- Permission's";
+	public String SheetName = "Permission's";
 
-	
    public SharedFunctions sf = new SharedFunctions();
      
 	UpdateTestResult obj = new UpdateTestResult();
